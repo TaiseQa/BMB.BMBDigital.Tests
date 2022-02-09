@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.inmetrics.framework.core</groupId>
+	<artifactId>automation_web</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
+		<io.cucumber.version>4.8.1</io.cucumber.version>
+		<com.aventstack.version>3.1.5</com.aventstack.version>
+		<commons-io-version>2.6</commons-io-version>
+		<aspectj.version>1.8</aspectj.version>
+	</properties>
+
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${org.seleniumhq.selenium.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${io.cucumber.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${io.cucumber.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${com.aventstack.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-cucumber4-jvm</artifactId>
+			<version>2.13.3</version>
+		</dependency>
+		<dependency>
+			<groupId>inmetrics.automacao</groupId>
+			<artifactId>core.web</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>Inmetrics.Automacao</groupId>
+			<artifactId>Gestor.Evidencia</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>Inmetrics.Automacao</groupId>
+			<artifactId>Log</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
+</project>

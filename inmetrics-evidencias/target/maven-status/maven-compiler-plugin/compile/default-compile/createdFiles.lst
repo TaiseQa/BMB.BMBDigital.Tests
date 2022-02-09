@@ -1,0 +1,15 @@
+inmetrics\automacao\evidencia\pdf\entidades\Massa.class
+inmetrics\automacao\evidencia\structure\FolderStructure.class
+inmetrics\automacao\evidencia\image\CaptureImage.class
+inmetrics\automacao\evidencia\constant\Constant.class
+inmetrics\automacao\evidencia\pdf\entidades\HostExecucao$Proxy.class
+inmetrics\automacao\evidencia\pdf\EvidencePDF.class
+inmetrics\automacao\evidencia\pdf\entidades\HostExecucao.class
+inmetrics\automacao\evidencia\pdf\entidades\Resumo.class
+inmetrics\automacao\evidencia\pdf\PadraoTabela.class
+inmetrics\automacao\evidencia\pdf\entidades\Evidencia.class
+inmetrics\automacao\evidencia\pdf\entidades\Cabecalho.class
+inmetrics\automacao\evidencia\doc\EvidenceDoc.class
+inmetrics\automacao\evidencia\doc\Doc.class
+inmetrics\automacao\evidencia\video\EvidenceVideo.class
+inmetrics\automacao\evidencia\html\EvidenceHtml.class
