@@ -1,0 +1,7 @@
+/target/
+/Evidencias/
+*.pdf
+*.log
+.classpath
+.settings
+.project
