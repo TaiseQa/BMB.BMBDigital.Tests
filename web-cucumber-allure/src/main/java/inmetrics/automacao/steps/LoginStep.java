@@ -1,51 +1,39 @@
 package inmetrics.automacao.steps;
 
-import static org.junit.Assert.assertEquals;
 
 import io.cucumber.java.pt.E;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import inmetrics.automacao.framework.pages.EstruturaAplicacao;
-import inmetrics.automacao.framework.utils.Utils;
+import inmetrics.automacao.framework.pages.LoginPage;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 
-public class LoginStep extends EstruturaAplicacao {
+public class LoginStep {
 
-	private static final WebDriver driver = Utils.getDriver();
+	LoginPage loginPage;
 
-
-	public LoginStep() {
-		super(driver);
-		PageFactory.initElements(driver, this); 
-	}
-
-	@Dado("estar na página principal da aplicação {string}")
-	public void estar_na_página_principal_da_aplicação(String url) {
-	    abrirNavegador(url);
+	@Dado("que estou na página principal da aplicação {string}")
+	public void que_estou_na_pagina_principal_da_aplicacao(String url) {
+		loginPage = new LoginPage();
+	    loginPage.acessarAplicacao(url);
 	}
 
 	@E("quando ignoro o certificado")
 	public void quando_ignoro_o_certificado() {
-		clicarElemento(detailchrome);
-		clicarElemento(proceed);
+		loginPage.ignorarCertificado();
 	}
 
 	@Quando("ao inserir o usuario {string} e {string},")
 	public void ao_inserir_o_usuario_e(String user, String pass) {
-	    inserirValor(formInputUser, user);
-	    inserirValor(formInputPass, pass);
+	    loginPage.preencherLoginForm(user, pass);
 	}
 
 	@Quando("ao clicar no botão Entre")
-	public void ao_clicar_no_botão_Entre() {
-	    clicarElemento(formbuttonEntrar);
-	    
+	public void ao_clicar_no_botao_Entre() {
+		loginPage.clicarBotaoLogin();
 	}
 	
 	@Então("fecho a ficha de campanha")
-	public void fecho_a_ficha_de_campanha() {
-		clicarElemento(closeModal);
+	public void fecho_a_ficha_de_campanha() throws InterruptedException {
+		loginPage.fecharJanelaCampanha();
 	}
 }

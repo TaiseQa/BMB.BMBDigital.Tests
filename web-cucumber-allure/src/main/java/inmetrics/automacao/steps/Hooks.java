@@ -8,9 +8,9 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import Inmetrics.Automacao.logger.Log;
 import inmetrics.automacao.framework.utils.Utils;
-import inmetrics.automacao.evidencia.doc.EvidenceDoc;
 import inmetrics.automacao.evidencia.html.EvidenceHtml;
-import inmetrics.automacao.evidencia.pdf.EvidencePDF;
+import inmetrics.automacao.evidencia.pdf.EvidencePdf;
+import inmetrics.automacao.evidencia.doc.EvidenceDoc;
 import inmetrics.automacao.evidencia.structure.FolderStructure;
 import inmetrics.automacao.evidencia.video.EvidenceVideo;
 
@@ -19,7 +19,7 @@ public class Hooks {
 	private static final WebDriver driver = Utils.getDriver();
 	private EvidenceDoc capaturarEvidencia;
 	private EvidenceHtml evidenciaHtml;
-	private EvidencePDF evidenciaPDF;
+	private EvidencePdf evidenciaPDF;
 	private EvidenceVideo movie;
 	private String log;
 	private String infoImage;
@@ -31,7 +31,7 @@ public class Hooks {
 		FolderStructure.createFolderStructureEvidence();
 		capaturarEvidencia = new EvidenceDoc();
 		evidenciaHtml = new EvidenceHtml();
-		evidenciaPDF = new EvidencePDF();
+		evidenciaPDF = new EvidencePdf();
 		
 
 		evidenciaHtml.criarTesteHtml(scenario.getName());
