@@ -1,12 +1,19 @@
 package inmetrics.automacao.steps;
 
+//import gherkin.ast.DataTable;
 import inmetrics.automacao.framework.pages.LoginPage;
+import inmetrics.automacao.framework.utils.Utils;
 import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import inmetrics.automacao.framework.pages.CadastroFichaPage;
 import inmetrics.automacao.framework.pages.MenuPage;
 import org.junit.Assert;
+
+import java.util.List;
+import java.util.Map;
+import io.cucumber.datatable.DataTable;
 
 public class CadastroFichaSteps extends CadastroFichaPage{
 
@@ -48,5 +55,12 @@ public class CadastroFichaSteps extends CadastroFichaPage{
         Assert.assertEquals(mensagem, mensagemAtual);
     }
 
+    @E("preenchido o campo {string}")
+    public void preenchidoOCampoCPF(String cpf) {
+        cadastroFichaPage.preencheCpfCnpj(cpf);
+    }
 
+    @Quando("preencho os campos de identificação do cliente")
+    public void preenchoOsCamposDeIdentificaçãoDoCliente(DataTable identificacaoCliente) {
+    }
 }
