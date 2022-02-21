@@ -23,35 +23,37 @@ Funcionalidade: Nova Ficha
     E tenha clicado no botão <NOVA FICHA>
     Quando preencho os campos de identificação do cliente
       |Campo   | Valor |
-      |CPF/CNPJ|	|07241225678|
-      |Nome|	|Calebe Mateus Moraes|
-      |Data de Nascimento|	|16031955|
-      |E-mail|	|wesley.chrispim@inmetrics.com.br|
-      |Celular|	|11973633233|
+      |CPF/CNPJ|	07241225678|
+      |Nome|	Calebe Mateus Moraes|
+      |Data de Nascimento|	16031955|
+      |E-mail|	wesley.chrispim@inmetrics.com.br|
+      |Celular|	11973633233|
     E preencho os campos de dados adicionais
-      |Estado Civil|	|Solteiro|
-      |Sexo|	||
-      |Escolaridade|	||
-      |Naturalidade(País)|	||
-      |Naturalidade(estado)|	||
-      |Naturalidade(Cidade)|	||
-      |Nome da mae|	||
-      |Documento Proponente|	||
-    E preencho os campos de patrimônio
-      |Patrimonio estimado|	|Não deseja informar|
+      |Campo   | Valor |
+      |Estado Civil	|Solteiro|
+      |Sexo|	|
+      |Escolaridade|	|
+      |Naturalidade(País)|	|
+      |Naturalidade(estado)|	|
+      |Naturalidade(Cidade)|	|
+      |Nome da mae|	|
+      |Documento Proponente|	|
+    E preencho o campo de patrimônio ""
+    E <Cidade> <Estado> <Tipo de residência> <Tempo de residência (Anos)> <CEP comercial (Opcional)>
+      |Campo   | Valor |
       |CEP|	|06474280|
       |Tipo de Logradouro|	|Alameda|
       |Nome do Logradouro|	|Inglaterra|
       |Número|	|506|
       |Complemento|	|Casa 1|
       |Bairro|	|Alphaville Residencial Um|
-    E <Cidade> <Estado> <Tipo de residência> <Tempo de residência (Anos)> <CEP comercial (Opcional)>
       |Cidade|	|Barueri|
       |Estado|	|SP|
       |Tipo de residência|	|Propria|
       |Tempo de residência (Anos)|	|10|
       |CEP comercial (Opcional)|	|Este e o endereço de correspondencia do cliente|
-    E <Natureza da ocupação> <Data de Admissão> <Salário/Renda Mensal>  <Outras rendas>
+    E huadiaid oakwdoa diajdoiajsd
+      |Campo   | Valor |
       |Natureza da ocupação|	|Profissional Liberal Autonomo|
       |Data de Admissão|	|06022017|
       |Salário/Renda Mensal|	|950000|
