@@ -11,9 +11,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     //Botões
     @FindBy(how = How.XPATH, xpath = "//button[contains(.,'Nova ficha')]")
-    protected WebElement botaoNovaFicha;
+    protected WebElement btnNovaFicha;
 
-    //Campos Identificação do Cliente
+    //********* Campos Identificação do Cliente *********//
     @FindBy(how = How.CSS, css = "[formcontrolname='cpfCnpj']")
     protected WebElement campoCpfCnpj;
 
@@ -37,9 +37,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Casado')]")
     protected WebElement opcaoComboEstadoCivilCasado;
+    //******* fim identificação do cliente **********//
 
-    //Identificação do cliente
-
+    //******** ********************//
     @FindBy(how = How.XPATH, xpath = "//input[@value='M']")
     protected WebElement opcaoCheckSexoMasculino;
 
@@ -498,32 +498,28 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     protected WebElement mensagemErro;
 
     public CadastroFichaPage(){
-    super(Utils.getDriver());
-    PageFactory.initElements(Utils.getDriver(), this);
+        super(Utils.getDriver());
+        PageFactory.initElements(Utils.getDriver(), this);
     }
 
     public void clicarBotaoNovaFicha(){
-    aguardarClickHabilitado(botaoNovaFicha);
-    clicarElemento(botaoNovaFicha);
+        aguardarClickHabilitado(btnNovaFicha);
+        clicarElemento(btnNovaFicha);
     }
 
     public void preencheCpfCnpj(String cpfCnpj){
-    inserirValor(campoCpfCnpj, cpfCnpj);
+        inserirValor(campoCpfCnpj, cpfCnpj);
     }
 
     public String obterTextoMensagemErro(){
-    return obterValorTexto(mensagemErro);
+        return obterValorTexto(mensagemErro);
     }
 
     public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular, String estadoCivil){
-    inserirValor(campoNome, nome);
-
-    inserirValor(campoDataNascimento, dataNascimento);
-
-    inserirValor(campoEmail, email);
-
-    inserirValor(campoCelular, celular);
-
-    selecionarElementoTexto(comboEstadoCivil, estadoCivil);
-}
+        inserirValor(campoNome, nome);
+        inserirValor(campoDataNascimento, dataNascimento);
+        inserirValor(campoEmail, email);
+        inserirValor(campoCelular, celular);
+        selecionarElementoTexto(comboEstadoCivil, estadoCivil);
+    }
 }
