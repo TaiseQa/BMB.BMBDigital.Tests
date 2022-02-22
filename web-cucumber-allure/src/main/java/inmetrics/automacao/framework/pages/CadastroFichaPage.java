@@ -9,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CadastroFichaPage extends InteracoesTelaWeb {
 
-    //Botões
+    // Botões
     @FindBy(how = How.XPATH, xpath = "//button[contains(.,'Nova ficha')]")
     protected WebElement btnNovaFicha;
 
-    //********* Campos Identificação do Cliente *********//
+    // ********* Campos Identificação do Cliente *********//
     @FindBy(how = How.CSS, css = "[formcontrolname='cpfCnpj']")
     protected WebElement campoCpfCnpj;
 
@@ -37,9 +37,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Casado')]")
     protected WebElement opcaoComboEstadoCivilCasado;
-    //******* fim identificação do cliente **********//
+    // ******* fim identificação do cliente **********//
 
-    //******** ********************//
+    // ******** ********************//
     @FindBy(how = How.XPATH, xpath = "//input[@value='M']")
     protected WebElement opcaoCheckSexoMasculino;
 
@@ -166,15 +166,15 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[1]/div[2]/div[2]/div/div[7]/app-control-field/ngx-select/div/ul/li[27]/a/span")
     protected WebElement opcaoComboEstadoTocantins;
 
-    //naturalidade cidade
+    // naturalidade cidade
     @FindBy(how = How.XPATH, xpath = "//input[@placeholder=\"Selecione\"]")
     protected WebElement campoCidade;
 
-    //Nome da mãe
+    // Nome da mãe
     @FindBy(how = How.ID, id = "motherName")
     protected WebElement campoNomeDaMae;
 
-    //documento do proponente
+    // documento do proponente
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[1]/div[1]/div[6]/app-control-field/ngx-select/div/div[2]/div/span[2]")
     protected WebElement botaoDocumentoDoProponente;
 
@@ -283,14 +283,14 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[1]/div[2]/div[2]/div/div[15]/app-control-field/ngx-select/div/ul/li[27]/a/span")
     protected WebElement campoUfTo;
 
-    //orgão emissor
+    // orgão emissor
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[1]/div[2]/div[2]/div/div[16]/app-control-field/input")
     protected WebElement CampoOrgaoEmissor;
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[1]/div[2]/div[2]/div/div[18]/ngx-select/div/div[2]/div")
     public WebElement comboPatrimonioEstimado;
 
-    //Endereço
+    // Endereço
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[2]/div/div[2]/div/input")
     public WebElement cepResidencia;
@@ -325,7 +325,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[2]/div/div[13]/input")
     public WebElement cepComercial;
 
-    //Dados Profissionais
+    // Dados Profissionais
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[5]/div/div[2]/app-control-field/ngx-select/div/div[2]/div")
     public WebElement comboNaturezaOcupacao;
@@ -342,12 +342,12 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[5]/div/div[17]/app-control-field/input")
     public WebElement origemRendaExtra;
 
-    //Relação de Veículos/Frota
+    // Relação de Veículos/Frota
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[6]/div/div[4]/div/input")
     public WebElement totalVeiculoProprio;
 
-    //Avalista
+    // Avalista
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[7]/div/div[2]/label[1]/span[2]")
     public WebElement checkNaoHaveraAvalista;
@@ -355,7 +355,19 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[7]/div/div[2]/label[2]/span[2]")
     public WebElement checkHaveraAvalista;
 
-    //Declaração de exposição política
+    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[7]/div/div[3]/div/div[1]/app-control-field/input")
+    public WebElement cpfHavalista;
+
+    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[7]/div/div[3]/div/div[2]/div/app-control-field/div/input")
+    public WebElement nomeHavalista;
+
+    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[7]/div/div[3]/div/div[3]/app-control-field/ngx-select/div/div[2]/div")
+    public WebElement naturalidadeHavalista;
+
+    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[7]/div/div[3]/div/div[8]/app-control-field/ngx-select/div/div[2]/div")
+    public WebElement estadoCivilHavalista;
+
+    // Declaração de exposição política
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[8]/div/div[2]/label[3]/span[2]")
     public WebElement checkNaoDesempenhaCargoPolitico;
@@ -369,7 +381,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[8]/div/div[4]/label[2]/span[2]")
     public WebElement checkParentescoPolitico;
 
-    //Finalidade do financiamento
+    // Finalidade do financiamento
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[9]/div/div[2]/ngx-select/div/div[2]/div")
     public WebElement comboFinalidadeFinanciamento;
@@ -380,7 +392,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "/html/body/div[3]/div/div[3]/button[1]")
     protected WebElement btnConfirmarClienteSalvo;
 
-    //Veículo
+    // Veículo
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"manufactureYear\"]/app-control-field/ngx-select/div/div[2]/div")
     protected WebElement comboAnoFabricacao;
@@ -421,7 +433,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"header\"]/div[3]/div[9]/app-control-field/div/input")
     protected WebElement inputQuantidadeAcessorio;
 
-    //Financiamento
+    // Financiamento
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"product\"]/app-control-field/ngx-select/div/div[2]/div")
     protected WebElement comboProduto;
@@ -459,7 +471,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-financial-simulator/div/div/div/div/button[2]")
     protected WebElement btnGerarSimulacao;
 
-    //FluxoFinanceiro
+    // FluxoFinanceiro
 
     @FindBy(how = How.XPATH, xpath = "<button _ngcontent-hct-c84=\"\" bmbgoogletagmanagerclick=\"\" type=\"button\" class=\"button-primary-bmb btn-continue\">CONTINUAR</button>")
     protected WebElement btnContinuarFluxo;
@@ -467,7 +479,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-financial-simulator-result/div[2]/div/div[3]/button")
     protected WebElement btnAvisoSeguro;
 
-    //Seguro do Veiculo
+    // Seguro do Veiculo
 
     @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-insurances/form/div[1]/div[2]/div/label[2]/span[2]")
     protected WebElement checkDesejoSeguro;
@@ -493,29 +505,30 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "/html/body/div[3]/div/div[3]/button[1]")
     protected WebElement btnEnvioConfirmado;
 
-    //Mensagens
+    // Mensagens
     @FindBy(how = How.CSS, css = ".error-msg")
     protected WebElement mensagemErro;
 
-    public CadastroFichaPage(){
+    public CadastroFichaPage() {
         super(Utils.getDriver());
         PageFactory.initElements(Utils.getDriver(), this);
     }
 
-    public void clicarBotaoNovaFicha(){
+    public void clicarBotaoNovaFicha() {
         aguardarClickHabilitado(btnNovaFicha);
         clicarElemento(btnNovaFicha);
     }
 
-    public void preencheCpfCnpj(String cpfCnpj){
+    public void preencheCpfCnpj(String cpfCnpj) {
         inserirValor(campoCpfCnpj, cpfCnpj);
     }
 
-    public String obterTextoMensagemErro(){
+    public String obterTextoMensagemErro() {
         return obterValorTexto(mensagemErro);
     }
 
-    public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular, String estadoCivil){
+    public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular,
+            String estadoCivil) {
         inserirValor(campoNome, nome);
         inserirValor(campoDataNascimento, dataNascimento);
         inserirValor(campoEmail, email);
