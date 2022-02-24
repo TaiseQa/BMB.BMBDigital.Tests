@@ -1,5 +1,7 @@
 package inmetrics.automacao.steps;
 
+import Inmetrics.Automacao.logger.Log;
+import inmetrics.automacao.evidencia.structure.FolderStructure;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -26,22 +28,25 @@ public class Hooks {
 	@Before
 	public void beforeAllTest(Scenario scenario) throws IOException, AWTException {
 		driver = Utils.getDriver();
-//		FolderStructure.createFolderStructureEvidence();
-//		capaturarEvidencia = new EvidenceDoc();
-//		evidenciaHtml = new EvidenceHtml();
-//		evidenciaPDF = new EvidencePdf();
-//
-//
-//		evidenciaHtml.criarTesteHtml(scenario.getName());
-//		Log.DefinirLocalAquivoLog();
-//		movie = new EvidenceVideo();
-//		movie.start();
-//		Utils.getDriver();
+		FolderStructure.createFolderStructureEvidence();
+		capaturarEvidencia = new EvidenceDoc();
+		evidenciaHtml = new EvidenceHtml();
+		evidenciaPDF = new EvidencePdf();
+
+
+		evidenciaHtml.criarTesteHtml(scenario.getName());
+		Log.DefinirLocalAquivoLog();
+		movie = new EvidenceVideo();
+		movie.start();
 	}
 
 	@After
 	public void afterAllTest(Scenario scenario) throws Exception {
 		//log = scenario.getStatus().toString();
+
+		evidenciaHtml.logInToFailHtml("Cenário \"" + scenario.getName() + "\" " + scenario.getStatus());
+			infoImage = capaturarEvidencia.captureInfo("Cenário \"" + scenario.getName() + "\" " + scenario.getStatus(),
+					driver, scenario);
 		
 //		if (scenario.isFailed()) {
 //			evidenciaHtml.logInToFailHtml("Cenário \"" + scenario.getName() + "\" " + scenario.getStatus());
@@ -55,10 +60,10 @@ public class Hooks {
 //					Utils.getDriver(), scenario);
 //		}
 		
-//		evidenciaHtml.logInToImageHtml(log, infoImage);
-//		evidenciaPDF.GravarPDF();
-//		evidenciaHtml.startHtml();
-//		movie.stop();
+		evidenciaHtml.logInToImageHtml(log, infoImage);
+		evidenciaPDF.GravarPDF();
+		evidenciaHtml.startHtml();
+		movie.stop();
 		Utils.killDriver();
 	}
 
