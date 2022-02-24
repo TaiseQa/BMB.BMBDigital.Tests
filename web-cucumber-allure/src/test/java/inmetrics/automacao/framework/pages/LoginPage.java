@@ -72,7 +72,7 @@ public class LoginPage extends InteracoesTelaWeb  {
 	}
 
 	public void fecharJanelaCampanha() throws InterruptedException {
-		Thread.sleep(30000);
+		Thread.sleep(50000);
 		clicarElemento(closeModal);
 	}
 
