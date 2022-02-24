@@ -9,16 +9,17 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		plugin = {"pretty",
-				"html:target/cucumber-report/report.html",
-				"json:target/cucumber-report/report.json",
+				"html:target/cucumber-reports",
+				"json:target/cucumber-reports/cucumber.json",
+				"junit:target/cucumber-reports/junit.xml",
 				"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
 				}, 
 		features = "classpath:features", 
 		glue = {"inmetrics.automacao.steps" }, 
-		tags = { "" }, 
-		snippets = SnippetType.UNDERSCORE,
-		strict = true, 
-		dryRun = false,
+		tags = { "@CadastroFicha" },
+//		snippets = SnippetType.UNDERSCORE,
+//		strict = true,
+//		dryRun = false,
 		monochrome = true 
 		)
 public class TestRunner {  

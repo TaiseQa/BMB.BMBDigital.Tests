@@ -18,7 +18,7 @@ public class MenuPage extends InteracoesTelaWeb {
     }
 
     public CadastroFichaPage clicarMenuContratosPropostas() {
-        clicarElemento(menuContratosPropostas);
+        clicarElemento(menuContratosPropostas, 60);
         return new CadastroFichaPage();
     }
 }

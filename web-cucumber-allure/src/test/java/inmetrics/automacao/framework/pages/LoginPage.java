@@ -1,17 +1,11 @@
 package inmetrics.automacao.framework.pages;
 
-import cucumber.api.java.sl.In;
 import inmetrics.automacao.framework.utils.Utils;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import javax.rmi.CORBA.Util;
 
 
 public class LoginPage extends InteracoesTelaWeb  {
@@ -78,7 +72,7 @@ public class LoginPage extends InteracoesTelaWeb  {
 	}
 
 	public void fecharJanelaCampanha() throws InterruptedException {
-		Thread.sleep(15000);
+		Thread.sleep(30000);
 		clicarElemento(closeModal);
 	}
 

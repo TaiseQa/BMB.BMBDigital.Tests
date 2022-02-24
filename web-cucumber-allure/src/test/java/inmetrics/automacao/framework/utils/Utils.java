@@ -20,15 +20,8 @@ public class Utils {
 
 	public static void killDriver() {
 		if (driver != null) {
-			driver.quit();
+			driver.close();
 			driver = null;
 		}
 	}
-
-	public static String getValorFormulario(String campoFormulario, List<Map<String, String>> formulario) {
-		return formulario.stream().filter(campo -> campo.get("Campo").equals(campoFormulario)).findFirst().get()
-				.get("Valor");
-	}
-
-
 }
