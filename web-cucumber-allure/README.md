@@ -1,14 +1,10 @@
 #~Web Automation BMB~
-
-#Descrição do seu projeto;
 Este projeto visa testar o site da BMB buscando trazer melhorias continuas em seu processo de desenvolvimento.
 
-#Funcionalidades;
-Testar as diferentes funções do site como: login, cadastro etc.
 
-#Pré-requisitos;
-# - Intellij Community
-        https://www.jetbrains.com/pt-br/idea/download/#section=windows
+
+#Pré-requisitos
+
 # - Maven
         https://maven.apache.org/download.cgi
 Após a instalação do maven, devem ser criadas duas variáveis de ambientes.
@@ -23,14 +19,17 @@ Primeiro passo pesquisar na barra windows, "editar as variáveis do ambiente de 
 
 # - GIT
         https://git-scm.com/downloads
+
 # - Java JDK
         https://www.oracle.com/java/technologies/downloads/
 
 #Dependencias do projeto
 # - Selenium-java 
        https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+
 # - Cucumber JVM: Java
        https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+
 #Cucumber JVM: JUnit
        https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
 
