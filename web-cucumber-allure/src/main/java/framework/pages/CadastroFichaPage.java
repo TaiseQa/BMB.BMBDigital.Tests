@@ -166,13 +166,13 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//*[@id='bmb-page-body']/app-pf/form/div[2]/div/div[2]/div/input")
     public WebElement campoCep;
 
-    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[2]/div/div[5]/div/input")
+    @FindBy(how = How.XPATH, xpath = "//*[@id='bmb-page-body']/app-pf/form/div[2]/div/div[5]/div/input")
     public WebElement campoNumero;
 
-    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[2]/div/div[6]/input")
+    @FindBy(how = How.XPATH, xpath = "//*[@id='bmb-page-body']/app-pf/form/div[2]/div/div[6]/input")
     public WebElement campoComplemento;
 
-    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[2]/div/div[10]/app-control-field/ngx-select/div/div[2]/div")
+    @FindBy(how = How.XPATH, xpath = "//*[@id='bmb-page-body']/app-pf/form/div[2]/div/div[10]/app-control-field/ngx-select/div/div[2]/div")
     public WebElement comboTipoResidencia;
 
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Própria')]")
@@ -181,10 +181,10 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Alugada')]")
     public WebElement opcaoComboTipoResidenciaAlugada;
 
-    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[2]/div/div[11]/div/input")
+    @FindBy(how = How.XPATH, xpath = "//*[@id='bmb-page-body']/app-pf/form/div[2]/div/div[11]/div/input")
     public WebElement campoTempoDeResidencia;
 
-    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[2]/div/div[13]/input")
+    @FindBy(how = How.XPATH, xpath = "//*[@id='bmb-page-body']/app-pf/form/div[2]/div/div[13]/input")
     public WebElement campoCepComercial;
     //********  FIM ENDEREÇO ********************//
 
@@ -207,7 +207,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.ID, id = "extraIncomeSourceValue")
     public WebElement campoOutrasRendas;
 
-    @FindBy(how = How.XPATH, xpath = "//*[@id=\"bmb-page-body\"]/app-pf/form/div[5]/div/div[17]/app-control-field/input")
+    @FindBy(how = How.XPATH, xpath = "//*[@id='bmb-page-body']/app-pf/form/div[5]/div/div[17]/app-control-field/input")
     public WebElement campoOrigemOutrasRendas;
 
     @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='mainActivity']")
@@ -353,23 +353,6 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//button[contains(text(), 'CONTINUAR')]")
     protected WebElement btnContinuarSeguro;
     //******** FIM AVISO SEGURO ********************//
-
-    //span[contains(text(), 'Veículo financiado')]
-    //span[contains(text(), 'Modelo')]/following-sibling::span
-    //span[contains(text(), 'Marca')]/following-sibling::span
-    //span[contains(text(), 'Ano')]/following-sibling::span
-    //span[contains(text(), 'Valor')]/following-sibling::span
-    //span[contains(text(), 'Quantidade')]/following-sibling::span
-    //span[contains(text(), 'Estado')]/following-sibling::span
-
-    //span[contains(text(), 'Financiamento')]
-    //span[contains(text(), 'Valor financiado')]/following-sibling::span
-    //span[contains(text(), 'Valor financiado total')]/following-sibling::span
-    //span[contains(text(), 'Campanha')]/following-sibling::span
-    //span[contains(text(), 'Produto')]/following-sibling::span
-    //span[contains(text(), 'Valor de entrada')]/following-sibling::span
-    //span[contains(text(), 'Prazo')]/following-sibling::span
-
 
     @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='autorize']")
     protected WebElement checkAceitarTermoJuridico;
