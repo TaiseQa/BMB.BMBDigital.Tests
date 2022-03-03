@@ -48,6 +48,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Comunhão Total De Bens')]")
     protected WebElement opcaoComboRegimeCasamentoComunhaoTotalBens;
 
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Separação Total De Bens')]")
+    protected WebElement opcaoComboRegimeCasamentoSeparacaoTotalBens;
+
     @FindBy(how = How.XPATH, xpath = "(//input[@formcontrolname='spouseName'])[1]")
     protected WebElement campoNomeConjuge;
 
@@ -116,6 +119,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'PASSAPORTE')]")
     protected WebElement opcaoComboDocumentoProponentePassaporte;
 
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'OAB']")
+    protected WebElement opcaoComboDocumentoProponenteOab;
+
     @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='documentNumber']")
     protected WebElement campoNumeroDocumento;
 
@@ -139,6 +145,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'de R$500.000,00 até R$1.000.000,00')]")
     public WebElement opcaoComboPatrimonioEstimadoQuinhentosMilUmMilhao;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'de R$2.000.000,00 até R$5.000.000,00')]")
+    public WebElement opcaoComboPatrimonioEstimadoDoisMilhoesACinco;
     //******** FIM DADOS ADICIONAIS ********************//
 
     @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='amountVehicles']")
@@ -191,6 +200,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     //********  DADOS PROFISSIONAIS ********************//
     @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Natureza da ocupação')]/following-sibling::ngx-select/div)[1]")
     public WebElement comboNaturezaOcupacao;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Serv. Publ Aut/Fund')]")
+    public WebElement opcaoComboNaturezaOcupacaoServPublicAutFund;
 
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Profissional Liberal/Autonomo')]")
     protected WebElement opcaoComboNaturezaOcupacaoProfissionalLiberalAutonomo;
@@ -274,6 +286,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Acessório')]/following-sibling::ngx-select/div)[1]")
     protected WebElement comboTipoAcessorio;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Física')]")
+    protected WebElement checkTipoPessoaFisica;
 
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), '4º DIRECIONAL MECÂNICO')]")
     protected WebElement opcaoComboTipoAcessorio4DirecionalMecanico;
