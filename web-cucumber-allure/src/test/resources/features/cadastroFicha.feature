@@ -80,6 +80,7 @@ Funcionalidade: Nova Ficha
       |Campanha                   |15979 - PC Taxa - 0% a.m FEV/2022|
       |Prazo                      |36|
       |Carencia                   |0|
+      |Tipo de pessoa             ||
       |Valor de entrada           |54977256|
       |Prestamista                |Sim|
       |Garantia Estendida         |000|
@@ -181,6 +182,7 @@ Funcionalidade: Nova Ficha
       |Campanha                     |15885 - PC Taxa- 0% a.m JAN/2022|
       |Prazo                        |12|
       |Carencia                     |0|
+      |Tipo de pessoa               ||
       |Valor de entrada             |38178800|
       |Prestamista                  |Nao|
       |Garantia Estendida           |000|
@@ -264,6 +266,7 @@ Funcionalidade: Nova Ficha
       |Campanha                   |15885 - PC Taxa- 0% a.m JAN/2022|
       |Prazo                      |36|
       |Carencia                   |0|
+      |Tipo de pessoa             ||
       |Valor de entrada           |54977256|
       |Prestamista                |Sim|
       |Garantia Estendida         |000|
@@ -334,6 +337,7 @@ Funcionalidade: Nova Ficha
       |Campanha                       |15885 - PC Taxa- 0% a.m JAN/2022|
       |Prazo                          |36|
       |Carencia                       |0|
+      |Tipo de pessoa                 ||
       |Valor de entrada               |54977256|
       |Prestamista                    |Sim|
       |Garantia Estendida             |000|

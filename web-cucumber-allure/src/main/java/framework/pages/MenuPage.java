@@ -17,8 +17,8 @@ public class MenuPage extends InteracoesTelaWeb {
         PageFactory.initElements(Utils.getDriver(), this);
     }
 
-    public CadastroFichaPage clicarMenuContratosPropostas() {
+    public PropostasContratosPage clicarMenuContratosPropostas() {
         clicarElemento(menuContratosPropostas, 60);
-        return new CadastroFichaPage();
+        return new PropostasContratosPage();
     }
 }

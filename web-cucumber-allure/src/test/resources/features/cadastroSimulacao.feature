@@ -1,12 +1,20 @@
 # language: pt
 # encoding: utf-8
 
-@CadastroFicha @CT006
+Funcionalidade: Nova Simulação
+  Eu como usuário do Sitema BMB Digital
+  Estando na tela principal da aplicação
+  Ao acessar a tela Nova Simulação
+  Consiga cadastrar uma nova proposta
+
+  Contexto: Acessar Propostas e contratos
+    Dado que faço login no portal BMB Digital
+    E acesso a página de Propostas e Contratos
+
+  @CadastroSimulacao @CT006
   Cenário: Cadastrar Proposta para Ser. Publ Aut/Fund Casado com Separação Total de Bens sem Avalista
-    Dado que eu esteja logado com um usuário com perfil para preenchimento de proposta
-    E tenha clicado no botão <Nova Simulação>
-    Quando preencho os campos da ficha cadastral com os seguintes valores:
-    E preencho os campos de veiculo:
+    Dado tenha clicado no botão Nova Simulação
+    Quando preencho os campos de veiculo:
     |Campo                      |Valor|
     |Ano de fabricacao          |2022|
     |Ano do modelo              |2022|
@@ -26,13 +34,18 @@
     |Campanha                   |15979 - PC Taxa - 0% a.m FEV/2022|
     |Prazo                      |36|
     |Carencia                   |0|
+    |Tipo de pessoa             |Fisica|
     |Valor de entrada           |54977256|
     |Prestamista                |Sim|
     |Garantia Estendida         |000|
     |Simular seguro do veiculo  |Sim|
     |Valor aproximado do seguro |543373|
     E clico no botão Gerar Simulação
-    E que preencho os campos de identificação do cliente
+    E o sistema apresenta o fluxo financeiro
+    E clico em CONTINUAR
+    E o sistema informa a não solicitação de seguro do veículo
+    E que preencho o campo CPF com valor válido
+    E que preencho os campos de identificação do cliente e cônjuge
     |Campo                      |Valor|
     |Nome                       |Carla Luciana Debora da Luz|
     |Data de Nascimento         |12061990|
@@ -74,9 +87,6 @@
     |Outras rendas              |500000|
     |Origem                     |Vendas|
     |Atividade principal        |Q.A|
-    E preencho o formulário de avalista
-    |Campo                          |Valor|
-    |Avalista                       |Não haverá um avalista|
     E preencho o formulário de Declaração de exposição política:
     |Campo |Valor|
     |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                              |Sim|
@@ -84,9 +94,6 @@
     |Possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos? |Nao|
     E seleciono a Finalidade do financiamento com "Uso particular"
     E clico no botão Salvar Cliente
-    E o sistema apresenta o fluxo financeiro
-    E clico em CONTINUAR
-    E o sistema informa a não solicitação de seguro do veículo
     E seleciono que não desejo o seguro do veículo
     E clico no botão ENVIAR PROPOSTA DE CRÉDITO
     E preencho com o vendedor "gerente"

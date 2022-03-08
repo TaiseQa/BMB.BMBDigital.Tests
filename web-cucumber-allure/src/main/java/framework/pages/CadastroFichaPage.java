@@ -11,8 +11,6 @@ import org.openqa.selenium.support.PageFactory;
 public class CadastroFichaPage extends InteracoesTelaWeb {
 
     //Botões
-    @FindBy(how = How.XPATH, xpath = "//button[contains(.,'Nova ficha')]")
-    protected WebElement btnNovaFicha;
 
     @FindBy(how = How.CSS, css = ".btn-cpfCnpj")
     protected WebElement btnSelecionarCpfCnpj;
@@ -77,6 +75,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'FUNDAMENTAL')]")
     protected WebElement opcaoComboEscolaridadeEnsinoFundamental;
 
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'ANALFABETO')]")
+    protected WebElement opcaoComboEscolaridadeAnalfabeto;
+
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'MÉDIO')]")
     protected WebElement opcaoComboEscolaridadeEnsinoMedio;
 
@@ -119,7 +120,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'PASSAPORTE')]")
     protected WebElement opcaoComboDocumentoProponentePassaporte;
 
-    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'OAB']")
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'OAB')]")
     protected WebElement opcaoComboDocumentoProponenteOab;
 
     @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='documentNumber']")
@@ -253,100 +254,6 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//button[contains(text(), 'OK')]")
     protected WebElement btnConfirmarClienteSalvo;
 
-    //******** VEICULO ********************//
-    @FindBy(how = How.XPATH, xpath = "//h1[contains(text(), 'Veículo')]")
-    protected WebElement tituloVeiculoPaginaSimulacao;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Ano de fabricação')]/following-sibling::ngx-select/div)[1]")
-    protected WebElement comboAnoFabricacao;
-
-    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), '2022')]")
-    protected WebElement opcaoComboAnoFabricacao2022;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Ano do modelo')]/following-sibling::ngx-select/div)[1]")
-    protected WebElement comboAnoModelo;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Tipo de veículo')]/following-sibling::ngx-select/div)[1]")
-    protected WebElement comboTipoVeiculo;
-
-    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Carro Passeio')]")
-    protected WebElement opcaoComboTipoVeiculoCarroPasseio;
-
-    @FindBy(how = How.XPATH, xpath = "//input[@value='NOVO']")
-    protected WebElement checkEstadoVeiculoNovo;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Modelo de veículo')]/following-sibling::ngx-select/div)[1]")
-    protected WebElement comboModeloVeiculo;
-
-    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'GLC 43 COUPE AMG 3.0 V6 BI-TB 4MATIC Gas. 4P Blind')]")
-    protected WebElement opcaoComboModeloVeiculoGLC43CoupeBlind;
-
-    @FindBy(how = How.XPATH, xpath = "(//input[@formcontrolname='hasAccessory'])[1]")
-    protected WebElement checkTemAcessorioAdicional;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Acessório')]/following-sibling::ngx-select/div)[1]")
-    protected WebElement comboTipoAcessorio;
-
-    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Física')]")
-    protected WebElement checkTipoPessoaFisica;
-
-    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), '4º DIRECIONAL MECÂNICO')]")
-    protected WebElement opcaoComboTipoAcessorio4DirecionalMecanico;
-
-    @FindBy(how = How.XPATH, xpath = "//label[contains(text(), 'Valor do acessório')]/following-sibling::input")
-    protected WebElement campoValorAcessorio;
-    //******** FIM VEICULO ********************//
-
-    //******** FINANCIAMENTO ********************//
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Produto')]/following-sibling::ngx-select/div)[1]")
-    protected WebElement comboProduto;
-
-    @FindBy(how = How.XPATH, xpath = "(//span[contains(text(), 'CDC')])[1]")
-    protected WebElement opcaoComboProdutoCDC;
-
-    @FindBy(how = How.XPATH, xpath = "(//span[contains(text(), 'CDC Decrescente')])[1]")
-    protected WebElement opcaoComboProdutoCdcDecrescente;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Campanha')]/following-sibling::ngx-select/div)[1]")
-    protected WebElement comboCampanha;
-
-    @FindBy(how = How.XPATH, xpath = "(//span[contains(text(), 'Taxa')])[1]")
-    protected WebElement opcaoComboCampanhaTaxa;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Prazo')]/following-sibling::ngx-select/div)[1]")
-    protected WebElement comboPrazo;
-
-    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), '36')]")
-    protected WebElement opcaoComboPrazo36;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Carência')]/following-sibling::ngx-select/div)[1]")
-    protected WebElement comboCarencia;
-
-    @FindBy(how = How.XPATH, xpath = "(//a//span[contains(text(), '0')])[1]")
-    protected WebElement opcaoComboCarenciaZero;
-
-    @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='downPayment']")
-    protected WebElement campoValorEntrada;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Prestamista (PPI)')]/following-sibling::label/input)[1]")
-    protected WebElement checkPrestamista;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Prestamista (PPI)')]/following-sibling::label/input)[2]")
-    protected WebElement checkSemPrestamista;
-
-    @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='WarrantyInsuranceValue']")
-    protected WebElement campoGarantiaEstendida;
-
-    @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Simular seguro do veículo?')]/following-sibling::label/input)[1]")
-    protected WebElement checkSimularSeguro;
-
-    @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='insuranceValue']")
-    protected WebElement campoValorAproximadoSeguro;
-
-    @FindBy(how = How.XPATH, xpath = "//button[contains(text(), 'GERAR SIMULAÇÃO')]")
-    protected WebElement btnGerarSimulacao;
-    //******** FIM FINANCIAMENTO ********************//
-
     //******** FLUXO FINANCEIRO ********************//
     ////a[contains(text(),'Fluxo')]
     //@FindBy(how = How.XPATH, xpath = "//div[contains(text(), 'FLUXO FINANCEIRO')]")
@@ -404,10 +311,6 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     //******** MÉTODOS NOVO CLIENTE ********************//
-    public void clicarBotaoNovaFicha() throws InterruptedException {
-        Thread.sleep(30000);
-        clicarElemento(btnNovaFicha, 90);
-    }
 
     public void preencheCpfCnpj(String cpfCnpj) {
         inserirValor(campoCpfCnpj, cpfCnpj, 20);
@@ -419,7 +322,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular, String estadoCivil) throws InterruptedException {
-        Thread.sleep(15000);
+        Thread.sleep(18000);
         inserirValor(campoNome, nome);
         inserirValor(campoDataNascimento, dataNascimento);
         inserirValor(campoEmail, email);
@@ -507,66 +410,16 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
 
-    public void clicarSalvarCliente() {
+    public CadastroVeiculoPage clicarSalvarCliente() throws InterruptedException {
         btnSalvarCliente.click();
+        clicarElemento(btnConfirmarClienteSalvo, 90);
+        Thread.sleep(20000);
+        return new CadastroVeiculoPage();
     }
 
     //******** FIM MÉTODOS NOVO CLIENTE ********************//
 
     //******** MÉTODOS SIMULAÇÃO ********************//
-    public boolean verificarPaginaSimulacao() throws InterruptedException {
-        clicarElemento(btnConfirmarClienteSalvo, 90);
-        Thread.sleep(20000);
-        return tituloVeiculoPaginaSimulacao.isDisplayed();
-    }
-
-    public void preencherCamposVeiculo(String anoFabricacao, String tipoVeiculo, String estadoVeiculo,
-                                       String modelo, String valor, String quantidade, String adicionarAcessorio,
-                                       String acessorio, String valorAcessorio) throws InterruptedException {
-        selecionarAnoFabricacao(anoFabricacao);
-        Thread.sleep(15000);
-        clicarElemento(comboAnoModelo, 90);
-        selecionarTipoVeiculo(tipoVeiculo);
-        if(estadoVeiculo.equalsIgnoreCase("novo"))
-            checkEstadoVeiculoNovo.click();
-        selecionarModeloVeiculo(modelo);
-        Thread.sleep(10000);
-        if(adicionarAcessorio.equalsIgnoreCase("sim")) {
-            checkTemAcessorioAdicional.click();
-            selecionarAcessorioVeiculo(acessorio);
-            inserirValor(campoValorAcessorio, valorAcessorio, 60);
-        }
-    }
-
-    public void preencherFinanciamento(String produto, String campanha, String prazo, String carencia, String entrada,
-                                       String prestamista, String garantiaEstendida, String seguroVeiculo, String valorAproxSeguro) {
-        selecionarProdutoFinanciamento(produto);
-        clicarElemento(comboCampanha);
-        clicarElemento(opcaoComboCampanhaTaxa);
-        clicarElemento(comboPrazo);
-        clicarElemento(opcaoComboPrazo36);
-        clicarElemento(comboCarencia);
-        clicarElemento(opcaoComboCarenciaZero);
-        campoValorEntrada.clear();
-        inserirValor(campoValorEntrada, entrada);
-        if (prestamista.equalsIgnoreCase("não") || prestamista.equalsIgnoreCase("nao"))
-            checkSemPrestamista.click();
-        if(prestamista.equalsIgnoreCase("sim")) {
-            checkPrestamista.click();
-            campoGarantiaEstendida.clear();
-            inserirValor(campoGarantiaEstendida, garantiaEstendida);
-        }
-        if (seguroVeiculo.equalsIgnoreCase("sim")) {
-            checkSimularSeguro.click();
-            inserirValor(campoValorAproximadoSeguro, valorAproxSeguro);
-        }
-    }
-
-    public void clicarGerarSimulacao(){
-        clicarElemento(btnGerarSimulacao);
-    }
-
-    //******** FIM MÉTODOS SIMULAÇÃO ********************//
 
     public boolean verificarTelaFluxoFinanceiro(){
         aguardarVisibilidade(tituloFluxoFinanceiro,120);
@@ -637,32 +490,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     //******** MÉTODOS AUXILIARES ********************//
-    private void selecionarAcessorioVeiculo(String acessorioVeiculo) throws InterruptedException {
-        clicarElemento(comboTipoAcessorio, 60);
-        if(acessorioVeiculo.equalsIgnoreCase("4 DIRECIONAL MECANICO"))
-            clicarElemento(opcaoComboTipoAcessorio4DirecionalMecanico, 60);
-    }
 
-    private void selecionarModeloVeiculo(String modeloVeiculo) throws InterruptedException {
-        Thread.sleep(10000);
-        clicarElemento(comboModeloVeiculo, 60);
-        if(modeloVeiculo.equalsIgnoreCase("GLC 43 COUPE AMG 3.0 V6 BI-TB 4MATIC Gas. 4P Blind"))
-            clicarElemento(opcaoComboModeloVeiculoGLC43CoupeBlind, 60);
-    }
-
-    private void selecionarTipoVeiculo(String tipoVeiculo){
-        clicarElemento(comboTipoVeiculo, 60);
-        if(tipoVeiculo.equalsIgnoreCase("carro passeio"))
-            opcaoComboTipoVeiculoCarroPasseio.click();
-    }
-
-    private void selecionarProdutoFinanciamento(String produto){
-        clicarElemento(comboProduto);
-        if(produto.equalsIgnoreCase("cdc"))
-            opcaoComboProdutoCDC.click();
-        if(produto.equalsIgnoreCase("cdc decrescente"))
-            opcaoComboProdutoCdcDecrescente.click();
-    }
 
     private void selecionarTipoResidencia(String tipoResidencia) throws InterruptedException {
         Thread.sleep(10000);
@@ -681,18 +509,17 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         if(regimeCasamento.equalsIgnoreCase("Comunhão Total de Bens") ||
                 regimeCasamento.equalsIgnoreCase("Comunhao Total de Bens"))
             clicarElemento(opcaoComboRegimeCasamentoComunhaoTotalBens,20);
+        if(regimeCasamento.equalsIgnoreCase("Separação Total De Bens") ||
+                regimeCasamento.equalsIgnoreCase("Separacao Total De Bens"))
+            clicarElemento(opcaoComboRegimeCasamentoSeparacaoTotalBens,20);
     }
 
     private void selecionarPatrimonioEstimado(String patrimonio)  {
         clicarElemento(comboPatrimonioEstimado,20);
         if(patrimonio.equalsIgnoreCase("de R$500.000,00 até R$1.000.000,00"))
             clicarElemento(opcaoComboPatrimonioEstimadoQuinhentosMilUmMilhao,20);
-    }
-
-    private void selecionarAnoFabricacao(String ano) {
-        clicarElemento(comboAnoFabricacao,20);
-        if(ano.equalsIgnoreCase("2022"))
-            clicarElemento(opcaoComboAnoFabricacao2022,20);
+        if(patrimonio.equalsIgnoreCase("de R$2.000.000,00 até R$5.000.000,00"))
+            clicarElemento(opcaoComboPatrimonioEstimadoDoisMilhoesACinco,20);
     }
 
     private void selecionarSePossuiParentescoPolitico(String parente){
@@ -714,6 +541,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboNaturezaOcupacaoProfissionalLiberalAutonomo);
         if(naturezaOcupacao.equalsIgnoreCase("Empregado no Setor Privado"))
             clicarElemento(opcaoComboNaturezaOcupacaoEmpregadoSetorPrivado, 30);
+        if(naturezaOcupacao.equalsIgnoreCase("Serv. Publ Aut/Fund"))
+            clicarElemento(opcaoComboNaturezaOcupacaoServPublicAutFund, 30);
     }
 
     private void selecionarNaturezaOcupacaoAvalista(String naturezaOcupacao) throws InterruptedException {
@@ -739,6 +568,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboDocumentoProponenteRg);
         if(documento.equalsIgnoreCase("passaporte"))
             clicarElemento(opcaoComboDocumentoProponentePassaporte);
+        if(documento.equalsIgnoreCase("OAB"))
+            clicarElemento(opcaoComboDocumentoProponenteOab);
     }
 
     private void selecionarNaturalidadeCidade(String naturalidadeCidade) throws InterruptedException {
@@ -777,6 +608,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         clicarElemento(comboeEscolaridade);
         if(escolaridade.equalsIgnoreCase("ensino fundamental"))
             clicarElemento(opcaoComboEscolaridadeEnsinoFundamental);
+        if(escolaridade.equalsIgnoreCase("Analfabeto"))
+            clicarElemento(opcaoComboEscolaridadeAnalfabeto);
         if(escolaridade.equalsIgnoreCase("ensino medio") || escolaridade.equalsIgnoreCase("ensino médio"))
             clicarElemento(opcaoComboEscolaridadeEnsinoMedio);
     }
