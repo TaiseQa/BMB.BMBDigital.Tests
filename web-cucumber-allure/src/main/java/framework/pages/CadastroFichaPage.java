@@ -285,7 +285,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "(//ngx-select[@formcontrolname='id']//div)[1]")
     protected WebElement comboSelecionarVendedor;
 
-    @FindBy(how = How.XPATH, xpath = "(//a//span)[1]")
+    @FindBy(how = How.XPATH, xpath = "(//ngx-select[@formcontrolname='id']//div//ul//li)[7]")
     protected WebElement opcaoComboSelecionarVendedor;
 
     @FindBy(how = How.XPATH, xpath = "(//button[contains(text(), 'ENVIAR')])[2]")
