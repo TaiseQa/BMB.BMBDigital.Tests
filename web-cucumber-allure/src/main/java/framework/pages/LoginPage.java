@@ -67,8 +67,8 @@ public class LoginPage extends InteracoesTelaWeb  {
 	}
 
 	public void ignorarCertificado(){
-		clicarElemento(detailchrome);
-		clicarElemento(proceed);
+		//clicarElemento(detailchrome);
+		//clicarElemento(proceed);
 	}
 
 	public void fecharJanelaCampanha() throws InterruptedException {
