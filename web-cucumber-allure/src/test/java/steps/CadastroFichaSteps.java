@@ -91,7 +91,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     public void preenchoOFormularioDeDadosProfissionais(DataTable dadosProfissionais) throws InterruptedException {
         List<Map<String, String>> map = dadosProfissionais.asMaps(String.class, String.class);
         cadastroFichaPage.preencherDadosProfissionais(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"),
-                map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"));
+                map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(7).get("Valor"));
 
     }
 
@@ -208,8 +208,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     @Quando("que preencho os campos de identificação do cliente e cônjuge")
     public void quePreenchoOsCamposDeIdentificaçãoDoClienteECônjuge(DataTable clienteConjuge) throws InterruptedException {
         List<Map<String, String>> map = clienteConjuge.asMaps(String.class, String.class);
-        cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"),
-                map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
+        cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
         cadastroFichaPage.preencherIdentificacaoConjuge(map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(8).get("Valor"));
     }
 

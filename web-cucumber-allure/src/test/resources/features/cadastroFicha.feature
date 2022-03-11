@@ -52,6 +52,8 @@ Funcionalidade: Nova Ficha
       |Outras rendas              |500000|
       |Origem                     |Vendas|
       |Atividade principal        |Q.A|
+      |Tipo de transporte         ||
+      |Cooperativa                ||
     E preencho o formulário de Declaração de exposição política:
       |Campo                                                                                          |Valor|
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                              |Sim|
@@ -146,6 +148,8 @@ Funcionalidade: Nova Ficha
       |Outras rendas                      |500000|
       |Origem                             |Alugueis|
       |Atividade principal                |Q.A|
+      |Tipo de transporte         ||
+      |Cooperativa                ||
     E seleciono total de veículos próprios "0"
     E preencho o formulário de avalista
       |Campo                          |Valor|
@@ -238,6 +242,8 @@ Funcionalidade: Nova Ficha
       |Outras rendas              |500000|
       |Origem					  |Vendas|
       |Atividade principal        |Q.A|
+      |Tipo de transporte         ||
+      |Cooperativa                ||
     E preencho o formulário de Declaração de exposição política:
       |Campo                                                                                          |Valor|
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                              |Sim|
@@ -309,6 +315,8 @@ Funcionalidade: Nova Ficha
       |Outras rendas              |500000|
       |Origem                     |Vendas|
       |Atividade principal        |Q.A|
+      |Tipo de transporte         ||
+      |Cooperativa                ||
     E preencho o formulário de Declaração de exposição política:
       |Campo                                                                                         |Valor|
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                             |Sim|
