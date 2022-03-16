@@ -17,7 +17,6 @@ public class Utils {
 	public static WebDriver getDriver() {
 		if (driver == null) {
 			//driver = FabricaWebDriver.CriarWebDriver(Navegador.CHROME, "chromedriver-1.exe");
-			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
 			options.addArguments("--disable-gpu");
