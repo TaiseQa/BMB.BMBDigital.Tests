@@ -19,7 +19,7 @@ public class Utils {
 			//driver = FabricaWebDriver.CriarWebDriver(Navegador.CHROME, "chromedriver-1.exe");
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless");
+			//options.addArguments("--headless");
 			options.addArguments("--disable-gpu");
 			options.addArguments("--window-size=1400,800");
 			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);

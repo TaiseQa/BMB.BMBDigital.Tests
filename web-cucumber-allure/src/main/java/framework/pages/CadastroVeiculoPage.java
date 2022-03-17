@@ -124,7 +124,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
     //******** MÉTODOS VEICULOS ********************//
 
     private void selecionarAnoFabricacao(String ano) throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         clicarElemento(comboAnoFabricacao,20);
         if(ano.equalsIgnoreCase("2022"))
             clicarElemento(opcaoComboAnoFabricacao2022,20);
@@ -153,7 +153,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
                                        String modelo, String valor, String quantidade, String adicionarAcessorio,
                                        String acessorio, String valorAcessorio) throws InterruptedException {
         selecionarAnoFabricacao(anoFabricacao);
-        Thread.sleep(15000);
+        Thread.sleep(17000);
         clicarElemento(comboAnoModelo, 90);
         selecionarTipoVeiculo(tipoVeiculo);
         if(estadoVeiculo.equalsIgnoreCase("novo"))

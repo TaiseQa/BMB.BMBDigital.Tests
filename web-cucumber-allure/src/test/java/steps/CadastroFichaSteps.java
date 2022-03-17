@@ -91,7 +91,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     public void preenchoOFormularioDeDadosProfissionais(DataTable dadosProfissionais) throws InterruptedException {
         List<Map<String, String>> map = dadosProfissionais.asMaps(String.class, String.class);
         cadastroFichaPage.preencherDadosProfissionais(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"),
-                map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(7).get("Valor"));
+                map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(7).get("Valor"), map.get(8).get("Valor"), map.get(9).get("Valor"), map.get(10).get("Valor"));
 
     }
 

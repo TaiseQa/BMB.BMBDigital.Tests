@@ -54,6 +54,9 @@ Funcionalidade: Nova Ficha
       |Atividade principal        |Q.A|
       |Tipo de transporte         ||
       |Cooperativa                ||
+      |Nome da empresa            ||
+      |CNPJ da empresa            ||
+      |Soma do Faturamento        ||
     E preencho o formulário de Declaração de exposição política:
       |Campo                                                                                          |Valor|
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                              |Sim|
@@ -150,6 +153,9 @@ Funcionalidade: Nova Ficha
       |Atividade principal                |Q.A|
       |Tipo de transporte         ||
       |Cooperativa                ||
+      |Nome da empresa            ||
+      |CNPJ da empresa            ||
+      |Soma do Faturamento        ||
     E seleciono total de veículos próprios "0"
     E preencho o formulário de avalista
       |Campo                          |Valor|
@@ -244,6 +250,9 @@ Funcionalidade: Nova Ficha
       |Atividade principal        |Q.A|
       |Tipo de transporte         ||
       |Cooperativa                ||
+      |Nome da empresa            ||
+      |CNPJ da empresa            ||
+      |Soma do Faturamento        ||
     E preencho o formulário de Declaração de exposição política:
       |Campo                                                                                          |Valor|
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                              |Sim|
@@ -317,6 +326,9 @@ Funcionalidade: Nova Ficha
       |Atividade principal        |Q.A|
       |Tipo de transporte         ||
       |Cooperativa                ||
+      |Nome da empresa            ||
+      |CNPJ da empresa            ||
+      |Soma do Faturamento        ||
     E preencho o formulário de Declaração de exposição política:
       |Campo                                                                                         |Valor|
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                             |Sim|
