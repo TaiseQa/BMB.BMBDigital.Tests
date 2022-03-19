@@ -83,7 +83,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
         cadastroFichaPage.preencherDadosAdicionais(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"),
                 map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"), map.get(6).get("Valor"),
                 map.get(7).get("Valor"), map.get(8).get("Valor"), map.get(9).get("Valor"), map.get(10).get("Valor"),
-                map.get(11).get("Valor"));
+                map.get(11).get("Valor"), map.get(12).get("Valor"));
 
     }
 
@@ -99,7 +99,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     public void preenchoOFormularioDeDeclaracaoDeExposicaoPolitica(DataTable declaracao) throws InterruptedException {
         List<Map<String, String>> map = declaracao.asMaps(String.class, String.class);
         cadastroFichaPage.preencherDeclaracaoExposicaoPolitica(map.get(0).get("Valor"), map.get(1).get("Valor"),
-                map.get(2).get("Valor"));
+                map.get(2).get("Valor"), map.get(3).get("Valor"));
     }
 
     @E("seleciono a Finalidade do financiamento com {string}")
@@ -218,6 +218,6 @@ public class CadastroFichaSteps extends CadastroFichaPage {
         cadastroFichaPage.preencherDadosAdicionaisEstrangeiro(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"),
                 map.get(6).get("Valor"), map.get(7).get("Valor"), map.get(8).get("Valor"), map.get(9).get("Valor"),
-                map.get(10).get("Valor"));
+                map.get(10).get("Valor"), map.get(11).get("Valor"));
     }
 }

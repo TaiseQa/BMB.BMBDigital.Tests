@@ -64,6 +64,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Separação Total De Bens')]")
     protected WebElement opcaoComboRegimeCasamentoSeparacaoTotalBens;
 
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Comunhão Parcial De Bens')]")
+    protected WebElement opcaoComboRegimeCasamentoComunhãoParcialDeBens;
+
     @FindBy(how = How.XPATH, xpath = "(//input[@formcontrolname='spouseName'])[1]")
     protected WebElement campoNomeConjuge;
 
@@ -96,11 +99,20 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'MÉDIO')]")
     protected WebElement opcaoComboEscolaridadeEnsinoMedio;
 
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'SUPERIOR')]")
+    protected WebElement opcaoComboEscolaridadeSuperior;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'MBA')]")
+    protected WebElement opcaoComboEscolaridadeMbaPosGraduacao;
+
     @FindBy(how = How.CSS, css = ".complete-scholarity[formgroupname='scholarity']")
     protected WebElement comboSituacaoEscolar;
 
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Completo')]")
     protected WebElement opcaoComboSituacaoEscolarCompleto;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Incompleto')]")
+    protected WebElement opcaoComboSituacaoEscolarInCompleto;
 
     @FindBy(how = How.XPATH, xpath = "(//label[contains(text(), 'Naturalidade (país)')]/following-sibling::ngx-select/div)[1]")
     protected WebElement comboNaturalidadePais;
@@ -132,9 +144,6 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'RG')]")
     protected WebElement opcaoComboDocumentoProponenteRg;
 
-    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'PASSAPORTE')]")
-    protected WebElement opcaoComboDocumentoProponentePassaporte;
-
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'OAB')]")
     protected WebElement opcaoComboDocumentoProponenteOab;
 
@@ -146,6 +155,15 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'CRM')]")
     protected WebElement opcaoComboDocumentoProponenteCrm;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'CNH')]")
+    protected WebElement opcaoComboDocumentoProponenteCnh;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'RNE')]")
+    protected WebElement opcaoComboDocumentoProponenteRne;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'PASSAPORTE')]")
+    protected WebElement opcaoComboDocumentoProponentePassaporte;
 
     @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='documentNumber']")
     protected WebElement campoNumeroDocumento;
@@ -177,6 +195,12 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Acima de R$5.000.000,00')]")
     public WebElement opcaoComboPatrimonioEstimadoAcimadeCincoMilhoes;
 
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'até R$500.000,00')]")
+    public WebElement opcaoComboPatrimonioEstimadoAteQuinhentosMil;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'de R$1.000.000,00 até R$2.000.000,00')]")
+    public WebElement opcaoComboPatrimonioEstimadoDeUmMilhaoADois;
+
     //******** FIM DADOS ADICIONAIS ********************//
 
     @FindBy(how = How.XPATH, xpath = "//input[@formcontrolname='amountVehicles']")
@@ -203,8 +227,17 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Outros')]")
     public WebElement opcaoComboNaturezaOcupacaoOutros;
 
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Estudante')]")
+    public WebElement opcaoComboNaturezaOcupacaoEstudante;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Capitalista')]")
+    public WebElement opcaoComboNaturezaOcupacaoCapitalista;
+
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Proprietário')]")
     public WebElement opcaoComboNaturezaOcupacaoProprietario;
+
+    @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Aposentado/Pensionista')]")
+    public WebElement opcaoComboNaturezaOcupacaoAposentadoPensionista;
 
     @FindBy(how = How.XPATH, xpath = "//span[contains(text(), 'Profissional Liberal/Autonomo')]")
     public WebElement opcaoComboNaturezaOcupacaoAvalistaProfissionalLiberalAutonomo;
@@ -320,8 +353,14 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "(//input[@name='hasKinshipPublicOffice'])[2]")
     public WebElement checkSemParentescoPolitico;
 
+    @FindBy(how = How.XPATH, xpath = "(//input[@name='hasKinshipPublicOffice'])[1]")
+    public WebElement checkParentescoPolitico;
+
     @FindBy(how = How.XPATH, xpath = "(//input[@formcontrolname='publicOfficeWork'])[2]")
     public WebElement campoFuncaoExercidaParentescoPolitico;
+
+    @FindBy(how = How.XPATH, xpath = "(//input[@formcontrolname='publicOfficeKinshipDegree'])[2]")
+    public WebElement campoParentescoPolitico;
     //******** FIM DECLARAÇÃO POLÍTICA ********************//
 
     //Finalidade do financiamento
@@ -440,7 +479,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     public void preencherDadosAdicionais(String sexo, String escolaridade, String statusEscolaridade, String paisNaturalidade,
                                          String estadoNaturalidade, String cidadeNaturalidade, String nomeMae,
                                          String documentoProponente, String numeroDocumento, String dataExpedicao,
-                                         String ufDocumento, String orgaoEmissor) throws InterruptedException {
+                                         String ufDocumento, String orgaoEmissor, String validadeDocumentoPromonente) throws InterruptedException {
         Thread.sleep(10000);
         clicarElemento(areaDadosAdicionais);
         selecionarSexo(sexo);
@@ -452,22 +491,22 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         if(!estadoNaturalidade.isEmpty())
             selecionarNaturalidadeCidade(cidadeNaturalidade);
         inserirValor(campoNomeDaMae, nomeMae);
-        selecionarDocumentoProponente(documentoProponente);
+        selecionarDocumentoProponente(documentoProponente, validadeDocumentoPromonente);
         inserirValor(campoNumeroDocumento, numeroDocumento);
         inserirValor(campoDataExpedicao, dataExpedicao);
         selecionarUfDocumentoProponente(ufDocumento);
         inserirValor(campoOrgaoEmissor, orgaoEmissor);
-
     }
 
     public void preencherDadosAdicionaisEstrangeiro(String sexo, String escolaridade, String statusEscolaridade,
                                                     String paisNaturalidade, String nomeMae, String documentoProponente,
                                                     String numeroDocumento, String dataExpedicao, String validade,
-                                                    String ufDocumento, String orgaoEmissor) throws InterruptedException {
+                                                    String ufDocumento, String orgaoEmissor, String validadeDocumentoPromonente) throws InterruptedException {
         preencherDadosAdicionais(sexo,escolaridade,statusEscolaridade, paisNaturalidade, "", "",
-                nomeMae, documentoProponente, numeroDocumento, dataExpedicao,ufDocumento, orgaoEmissor);
-        inserirValor(campoDataValidadePassaporte, validade);
-
+                nomeMae, documentoProponente, numeroDocumento, dataExpedicao,ufDocumento, orgaoEmissor, validadeDocumentoPromonente);
+        if(documentoProponente.equalsIgnoreCase("PASSAPORTE"))
+            inserirValor(campoDataValidadePassaporte, validade);
+        else {}
     }
 
     public void preencherDadosProfissionais(String naturezaOcupacao, String dataAdmissao, String rendaMensal, String outrasRendas,
@@ -475,12 +514,12 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
                                             String nomeEmpresa, String cnpjEmpresa, String somaFaturamento) throws InterruptedException {
         selecionarNaturezaOcupacao(naturezaOcupacao);
         Thread.sleep(5000);
-        inserirValor(campoAtividadePrincipal, atividadePrincipal);
+        peencherNaturezaOcupacao(naturezaOcupacao);
         peencherNomeDaEmpresa(nomeEmpresa, naturezaOcupacao);
         peencherCampoAdmissao(dataAdmissao, naturezaOcupacao);
         peencherCampoReceitaAutonomo(rendaMensal, naturezaOcupacao);
         peencherCampoRendaMensal(rendaMensal, naturezaOcupacao);
-        inserirValor(campoOutrasRendas, outrasRendas);
+        peencherOutrasRendas(naturezaOcupacao, outrasRendas);
         peencherCampoOrigem(origem, naturezaOcupacao);
         peencherComboTipoTransport(tipoDeTransporte, naturezaOcupacao);
         peencherCampocooperativa(cooperativa, naturezaOcupacao);
@@ -489,13 +528,17 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         peencherSomaFaturamento(somaFaturamento, naturezaOcupacao);
     }
 
-    public void preencherDeclaracaoExposicaoPolitica(String funcao, String funcaoExercida, String parentesco) throws InterruptedException {
+    public void preencherDeclaracaoExposicaoPolitica(String funcao, String funcaoExercida, String parentesco, String grauParentesco) throws InterruptedException {
         selecionarSeDesempenhouCargoPolitico(funcao);
         if (!funcaoExercida.isEmpty()){
             Thread.sleep(5000);
             campoFuncaoExercidaParentescoPolitico.sendKeys(funcaoExercida);
         }
         selecionarSePossuiParentescoPolitico(parentesco);
+        if (!grauParentesco.isEmpty()){
+            Thread.sleep(5000);
+            campoParentescoPolitico.sendKeys(grauParentesco);
+        }
     }
 
     public void selecionarFinalidadeFinanciamento(String finalidadeFinanciamento) {
@@ -537,7 +580,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void EnviarPropostaDeCredito() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(11000);
         clicarElemento(checkAceitarTermoJuridico);
         clicarElemento(btnEnviarPropostaCredito);
     }
@@ -607,6 +650,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         if(regimeCasamento.equalsIgnoreCase("Separação Total De Bens") ||
                 regimeCasamento.equalsIgnoreCase("Separacao Total De Bens"))
             clicarElemento(opcaoComboRegimeCasamentoSeparacaoTotalBens,20);
+        if(regimeCasamento.equalsIgnoreCase("Comunhão Parcial De Bens") ||
+                regimeCasamento.equalsIgnoreCase("Comunhao Parcial De Bens"))
+            clicarElemento(opcaoComboRegimeCasamentoComunhãoParcialDeBens,20);
     }
 
     private void selecionarPatrimonioEstimado(String patrimonio)  {
@@ -617,11 +663,17 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboPatrimonioEstimadoDoisMilhoesACinco,20);
         if(patrimonio.equalsIgnoreCase("Acima de R$5.000.000,00"))
             clicarElemento(opcaoComboPatrimonioEstimadoAcimadeCincoMilhoes,20);
+        if(patrimonio.equalsIgnoreCase("até R$500.000,00"))
+            clicarElemento(opcaoComboPatrimonioEstimadoAteQuinhentosMil,20);
+        if(patrimonio.equalsIgnoreCase("de R$1.000.000,00 até R$2.000.000,00"))
+            clicarElemento(opcaoComboPatrimonioEstimadoDeUmMilhaoADois,20);
     }
 
     private void selecionarSePossuiParentescoPolitico(String parente){
         if(parente.equalsIgnoreCase("não") || parente.equalsIgnoreCase("nao"))
             checkSemParentescoPolitico.click();
+        if(parente.equalsIgnoreCase("Sim") || parente.equalsIgnoreCase("sim"))
+            checkParentescoPolitico.click();
     }
 
     private void selecionarSeDesempenhouCargoPolitico(String funcao){
@@ -648,6 +700,10 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             inserirValor(campoDataAdmissao, dataAdmissao);
         if(cargo.equalsIgnoreCase("Func. Empresa Publ/Econ Mista") || cargo.equalsIgnoreCase("Func. Empresa Públ/Econ Mista"))
             inserirValor(campoDataAdmissao, dataAdmissao);
+        if(cargo.equalsIgnoreCase("Aposentado/Pensionista"))
+            inserirValor(campoDataAdmissao, dataAdmissao);
+        if(cargo.equalsIgnoreCase("Capitalista"))
+            inserirValor(campoDataAdmissao, dataAdmissao);
         if(cargo.equalsIgnoreCase("")){}
     }
 
@@ -670,6 +726,10 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             inserirValor(campoOrigemOutrasRendasSimulacao, origem);
         if(cargo.equalsIgnoreCase("Func. Empresa Publ/Econ Mista") || cargo.equalsIgnoreCase("Func. Empresa Públ/Econ Mista"))
             inserirValor(campoOrigemOutrasRendasSimulacao, origem);
+        if(cargo.equalsIgnoreCase("Aposentado/Pensionista"))
+            inserirValor(campoOrigemOutrasRendasSimulacao, origem);
+        if(cargo.equalsIgnoreCase("Capitalista"))
+            inserirValor(campoOrigemOutrasRendasSimulacao, origem);
         if(cargo.equalsIgnoreCase("")){}
     }
 
@@ -685,6 +745,13 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         if(cargo.equalsIgnoreCase("Transportador Autônomo") || cargo.equalsIgnoreCase("Transportador Autonomo"))
             checkCooperativaNao.click();
         if(cargo.equalsIgnoreCase("")){}
+    }
+
+    private void peencherNaturezaOcupacao(String cargo){
+        if(cargo.equalsIgnoreCase("Estudante") || cargo.equalsIgnoreCase("estudante"))
+        {}
+        else
+            inserirValor(campoAtividadePrincipal, cargo);
     }
 
     private void peencherNomeDaEmpresa(String nomeEmpresa, String cargo){
@@ -733,16 +800,29 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             inserirValor(campoRendaMensal, renda);
         if(cargo.equalsIgnoreCase("Outros"))
             inserirValor(campoRendaMensal, renda);
+        if(cargo.equalsIgnoreCase("Estudante") || cargo.equalsIgnoreCase("estudante"))
+            inserirValor(campoRendaMensal, renda);
         if(cargo.equalsIgnoreCase("Ser. Publ ADM Direta"))
             inserirValor(campoRendaMensal, renda);
         if(cargo.equalsIgnoreCase("Func. Empresa Publ/Econ Mista") || cargo.equalsIgnoreCase("Func. Empresa Públ/Econ Mista"))
             inserirValor(campoRendaMensal, renda);
+        if(cargo.equalsIgnoreCase("Aposentado/Pensionista"))
+            inserirValor(campoRendaMensal, renda);
+        if(cargo.equalsIgnoreCase("Capitalista"))
+            inserirValor(campoRendaMensal, renda);
         if(cargo.equalsIgnoreCase("")){}
+    }
+
+    private void peencherOutrasRendas(String cargo, String outrasRendas){
+        if(cargo.equalsIgnoreCase("Estudante") || cargo.equalsIgnoreCase("estudante"))
+        {}
+        else
+            inserirValor(campoOutrasRendas, outrasRendas);
     }
 
     private void selecionarNaturezaOcupacao(String naturezaOcupacao) throws InterruptedException {
         clicarElemento(comboNaturezaOcupacao);
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         if(naturezaOcupacao.equalsIgnoreCase("Profissional Liberal Autonomo"))
             clicarElemento(opcaoComboNaturezaOcupacaoProfissionalLiberalAutonomo);
         if(naturezaOcupacao.equalsIgnoreCase("Empregado no Setor Privado"))
@@ -757,8 +837,14 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboNaturezaOcupacaoTransportadorAutonomo, 30);
         if(naturezaOcupacao.equalsIgnoreCase("Outros"))
             clicarElemento(opcaoComboNaturezaOcupacaoOutros, 30);
+        if(naturezaOcupacao.equalsIgnoreCase("Estudante"))
+            clicarElemento(opcaoComboNaturezaOcupacaoEstudante, 30);
         if(naturezaOcupacao.equalsIgnoreCase("Proprietario") || naturezaOcupacao.equalsIgnoreCase("proprietario"))
             clicarElemento(opcaoComboNaturezaOcupacaoProprietario, 30);
+        if(naturezaOcupacao.equalsIgnoreCase("Aposentado/Pensionista") || naturezaOcupacao.equalsIgnoreCase("aposentado/pensionista"))
+            clicarElemento(opcaoComboNaturezaOcupacaoAposentadoPensionista, 30);
+        if(naturezaOcupacao.equalsIgnoreCase("Capitalista"))
+            clicarElemento(opcaoComboNaturezaOcupacaoCapitalista, 30);
     }
 
     private void selecionarNaturezaOcupacaoAvalista(String naturezaOcupacao) throws InterruptedException {
@@ -782,12 +868,14 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboUfDocumentoProponenteSp);
     }
 
-    private void selecionarDocumentoProponente(String documento){
+    private void selecionarDocumentoProponente(String documento, String validadeDocumentoPromonente){
         clicarElemento(comboDocumentoDoProponente);
         if(documento.equalsIgnoreCase("rg"))
             clicarElemento(opcaoComboDocumentoProponenteRg);
-        if(documento.equalsIgnoreCase("passaporte"))
+        if(documento.equalsIgnoreCase("passaporte")) {
             clicarElemento(opcaoComboDocumentoProponentePassaporte);
+            inserirValor(campoDataValidadePassaporte, validadeDocumentoPromonente);
+        }
         if(documento.equalsIgnoreCase("OAB"))
             clicarElemento(opcaoComboDocumentoProponenteOab);
         if(documento.equalsIgnoreCase("CRA"))
@@ -796,10 +884,14 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboDocumentoProponenteCrc);
         if(documento.equalsIgnoreCase("CRM"))
             clicarElemento(opcaoComboDocumentoProponenteCrm);
+        if(documento.equalsIgnoreCase("CNH"))
+            clicarElemento(opcaoComboDocumentoProponenteCnh);
+        if(documento.equalsIgnoreCase("RNE"))
+            clicarElemento(opcaoComboDocumentoProponenteRne);
     }
 
     private void selecionarNaturalidadeCidade(String naturalidadeCidade) throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         clicarElemento(comboNaturalidadeCidade);
         if(naturalidadeCidade.equalsIgnoreCase("barueri")) {
             opcaoComboNaturalidadeCidadeBarueri.click();
@@ -807,7 +899,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     private void selecionarNaturalidadeEstado(String naturalidadeEstado) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         clicarElemento(comboNaturalidadeEstado, 20);
         if(naturalidadeEstado.equalsIgnoreCase("são paulo")
                 || naturalidadeEstado.equalsIgnoreCase("sao paulo")
@@ -828,6 +920,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         clicarElemento(comboSituacaoEscolar);
         if(statusEscolaridade.equalsIgnoreCase("completo"))
             clicarElemento(opcaoComboSituacaoEscolarCompleto);
+        if(statusEscolaridade.equalsIgnoreCase("Incompleto"))
+            clicarElemento(opcaoComboSituacaoEscolarInCompleto);
     }
 
     private void selecionarEscolaridade(String escolaridade){
@@ -838,6 +932,10 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboEscolaridadeAnalfabeto);
         if(escolaridade.equalsIgnoreCase("ensino medio") || escolaridade.equalsIgnoreCase("ensino médio"))
             clicarElemento(opcaoComboEscolaridadeEnsinoMedio);
+        if(escolaridade.equalsIgnoreCase("Superior") || escolaridade.equalsIgnoreCase("superior"))
+            clicarElemento(opcaoComboEscolaridadeSuperior);
+        if(escolaridade.equalsIgnoreCase("MBA Pós-Graduação") || escolaridade.equalsIgnoreCase("MBA Pos-Graduacao"))
+            clicarElemento(opcaoComboEscolaridadeMbaPosGraduacao);
     }
 
     private void selecionarEstadoCivil(String estadoCivil){

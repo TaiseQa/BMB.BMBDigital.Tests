@@ -36,6 +36,7 @@ Funcionalidade: Nova Ficha
       |Data de expedicao          |05102012|
       |UF                         |SP|
       |Orgao Emissor              |SSP|
+      |Validade                   ||
     E preencho os campos de endereço
       |Campo                      |Valor|
       |CEP                        |06474280|
@@ -62,6 +63,7 @@ Funcionalidade: Nova Ficha
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                              |Sim|
       |Qualquer resposta positiva, descrever a funcao exercida                                        |Presidente|
       |Possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos? |Nao|
+      |Grau de parentesco                                                                             ||
     E seleciono a Finalidade do financiamento com "Uso particular"
     E clico no botão Salvar Cliente
     E quando estou na tela de simulação do financiamento
@@ -134,6 +136,7 @@ Funcionalidade: Nova Ficha
       |Validade                           |03082031|
       |UF                                 |SP|
       |Orgao Emissor                      |SSP|
+      |Validade                           ||
     E preencho o patrimônio estimado com "de R$500.000,00 até R$1.000.000,00"
     E preencho os campos de endereço
       |Campo                              |Valor|
@@ -169,6 +172,7 @@ Funcionalidade: Nova Ficha
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                             |Nao|
       |Qualquer resposta positiva, descrever a funcao exercida                                       ||
       |Possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos?|Nao|
+      |Grau de parentesco                                                                             ||
     E seleciono a Finalidade do financiamento com "Uso particular"
     E clico no botão Salvar Cliente
     Então quando estou na tela de simulação do financiamento
@@ -232,6 +236,7 @@ Funcionalidade: Nova Ficha
       |Data de expedicao          |06062009|
       |UF                         |SP|
       |Orgao Emissor              |SSP|
+      |Validade                   ||
     E preencho os campos de endereço
       |Campo                      |Valor|
       |CEP                        |06474280|
@@ -258,6 +263,7 @@ Funcionalidade: Nova Ficha
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                              |Sim|
       |Qualquer resposta positiva, descrever a funcao exercida                                        |Presidente|
       |Possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos? |Nao|
+      |Grau de parentesco                                                                             ||
     E seleciono a Finalidade do financiamento com "Uso particular"
     E clico no botão Salvar Cliente
     Então quando estou na tela de simulação do financiamento
@@ -334,6 +340,7 @@ Funcionalidade: Nova Ficha
       |Desempenhou funcao ou cargo publico relevante nos ultimos 5 anos?                             |Sim|
       |Qualquer resposta positiva, descrever a funcao exercida                                       |Presidente|
       |Possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos?|Nao|
+      |Grau de parentesco                                                                             ||
     E seleciono a Finalidade do financiamento com "Uso particular"
     E clico no botão Salvar Cliente
     Então quando estou na tela de simulação do financiamento
