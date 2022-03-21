@@ -16,9 +16,9 @@ public class Utils {
 
 	public static WebDriver getDriver() {
 		if (driver == null) {
-			//driver = FabricaWebDriver.CriarWebDriver(Navegador.CHROME, "chromedriver-1.exe");
+			//driver = FabricaWebDriver.CriarWebDriver(Navegador.CHROME, "chromedriver.exe");
 			ChromeOptions options = new ChromeOptions();
-			//options.addArguments("--headless");
+			options.addArguments("--headless");
 			options.addArguments("--disable-gpu");
 			options.addArguments("--window-size=1400,800");
 			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
@@ -31,6 +31,19 @@ public class Utils {
 		if (driver != null) {
 			driver.close();
 			driver = null;
+		}
+		WindowsProcessKiller pKiller = new WindowsProcessKiller();
+
+		String processName = "chromedriver.exe";
+		boolean isRunning = pKiller.isProcessRunning(processName);
+
+		System.out.println("o " + processName + " está rodando: " + isRunning);
+
+		if (isRunning) {
+			pKiller.killProcess(processName);
+		}
+		else {
+			System.out.println("O processo não foi encontrado: " + processName);
 		}
 	}
 }
