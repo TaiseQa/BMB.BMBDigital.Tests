@@ -9,7 +9,7 @@ public class WindowsProcessKiller {
     // command used to get list of running task
     private static final String TASKLIST = "tasklist";
     // command used to kill a task
-    private static final String KILL = "taskkill /F /IM ";
+    private static final String KILL = "taskkill /IM ";
 
     public boolean isProcessRunning(String serviceName) {
 
@@ -34,7 +34,7 @@ public class WindowsProcessKiller {
     public void killProcess(String serviceName) {
 
         try {
-            Runtime.getRuntime().exec(KILL + serviceName + " /T");
+            Runtime.getRuntime().exec(KILL + serviceName);
             System.out.println(serviceName + " encerrado com sucesso!");
         } catch (IOException e) {
             e.printStackTrace();

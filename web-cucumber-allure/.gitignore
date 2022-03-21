@@ -195,6 +195,7 @@ hs_err_pid*
 ## ignoring target file
 target/
 
+allure-results/
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/tasks.json
