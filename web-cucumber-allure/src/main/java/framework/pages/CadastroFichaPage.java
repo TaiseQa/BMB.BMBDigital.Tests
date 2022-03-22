@@ -376,6 +376,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//button[contains(text(), 'OK')]")
     protected WebElement btnConfirmarClienteSalvo;
 
+    @FindBy(how = How.XPATH, xpath = "//div[contains(text(), 'Cliente criado')]")
+    protected WebElement textoClienteCriado;
+
     //******** FLUXO FINANCEIRO ********************//
     ////a[contains(text(),'Fluxo')]
     //@FindBy(how = How.XPATH, xpath = "//div[contains(text(), 'FLUXO FINANCEIRO')]")
@@ -467,7 +470,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
         inserirValor(campoCep, cep);
         inserirValor(campoNumero, numero);
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         inserirValor(campoComplemento, complemento);
         selecionarTipoResidencia(tipoResidencia);
         campoTempoDeResidencia.clear();
@@ -480,7 +483,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
                                          String estadoNaturalidade, String cidadeNaturalidade, String nomeMae,
                                          String documentoProponente, String numeroDocumento, String dataExpedicao,
                                          String ufDocumento, String orgaoEmissor, String validadeDocumentoPromonente) throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         clicarElemento(areaDadosAdicionais);
         selecionarSexo(sexo);
         selecionarEscolaridade(escolaridade);
@@ -550,6 +553,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     public CadastroVeiculoPage clicarSalvarCliente() throws InterruptedException {
         btnSalvarCliente.click();
+        aguardarVisibilidade(textoClienteCriado, 90);
         clicarElemento(btnConfirmarClienteSalvo, 90);
         Thread.sleep(20000);
         return new CadastroVeiculoPage();
@@ -574,13 +578,13 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void selecionarNaoDesejoSeguroVeiculo() throws InterruptedException {
-        Thread.sleep(40000);
+        Thread.sleep(50000);
         checkNaoDesejoSeguro.click();
         btnContinuarSeguro.click();
     }
 
     public void EnviarPropostaDeCredito() throws InterruptedException {
-        Thread.sleep(11000);
+        Thread.sleep(15000);
         clicarElemento(checkAceitarTermoJuridico);
         clicarElemento(btnEnviarPropostaCredito);
     }
@@ -596,7 +600,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void clicarBotaoConfirmarEnvioPropostaCredito() throws InterruptedException {
-        Thread.sleep(60000);
+        Thread.sleep(50000);
         clicarElemento(btnConfirmarEnvioPropostaCredito);
     }
 
@@ -631,7 +635,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
 
     private void selecionarTipoResidencia(String tipoResidencia) throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         clicarElemento(comboTipoResidencia,20);
         Thread.sleep(2000);
         if(tipoResidencia.equalsIgnoreCase("propria") ||
@@ -642,7 +646,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     private void selecionarRegimeCasamento(String regimeCasamento) throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         clicarElemento(comboRegimeCasamento,20);
         if(regimeCasamento.equalsIgnoreCase("Comunhão Total de Bens") ||
                 regimeCasamento.equalsIgnoreCase("Comunhao Total de Bens"))

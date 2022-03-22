@@ -124,7 +124,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
     //******** MÉTODOS VEICULOS ********************//
 
     private void selecionarAnoFabricacao(String ano) throws InterruptedException {
-        Thread.sleep(15000);
+        Thread.sleep(5000);
         clicarElemento(comboAnoFabricacao,20);
         if(ano.equalsIgnoreCase("2022"))
             clicarElemento(opcaoComboAnoFabricacao2022,20);
@@ -137,7 +137,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
     }
 
     private void selecionarModeloVeiculo(String modeloVeiculo) throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         clicarElemento(comboModeloVeiculo, 60);
         if(modeloVeiculo.equalsIgnoreCase("GLC 43 COUPE AMG 3.0 V6 BI-TB 4MATIC Gas. 4P Blind"))
             clicarElemento(opcaoComboModeloVeiculoGLC43CoupeBlind, 60);
@@ -159,7 +159,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
         if(estadoVeiculo.equalsIgnoreCase("novo"))
             checkEstadoVeiculoNovo.click();
         selecionarModeloVeiculo(modelo);
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         if(adicionarAcessorio.equalsIgnoreCase("sim")) {
             checkTemAcessorioAdicional.click();
             selecionarAcessorioVeiculo(acessorio);
@@ -209,7 +209,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
 
     public void clicarGerarSimulacao() throws InterruptedException {
         clicarElemento(btnGerarSimulacao);
-        Thread.sleep(10000);
+        Thread.sleep(5000);
     }
 
     //******** FIM PREENCHIMENTO FINANCIAMENTO ********************//
