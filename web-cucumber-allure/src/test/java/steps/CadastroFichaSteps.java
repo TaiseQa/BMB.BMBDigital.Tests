@@ -23,11 +23,10 @@ public class CadastroFichaSteps extends CadastroFichaPage {
 
     @Dado("^que faço login no portal BMB Digital$")
     public void que_faco_login_no_portal_BMB_Digital() throws InterruptedException {
-        String url = System.getenv("Server.Frontend.Digital.Url");
-        String usuario = System.getenv("NonProd.Credential.BMBDigital.Tests.Username");
-        String senha = System.getenv("NonProd.Credential.BMBDigital.Tests.Password");
         loginPage = new LoginPage();
-        loginPage.realizarLogin(url, usuario, senha);
+        loginPage.realizarLogin("#{Server.Frontend.Digital.Url}#/App/login",
+                "#{NonProd.Credential.BMBDigital.Tests.Username}#",
+                "#{NonProd.Credential.BMBDigital.Tests.Password}#");
     }
 
     @Quando("^acesso a página de Propostas e Contratos$")
