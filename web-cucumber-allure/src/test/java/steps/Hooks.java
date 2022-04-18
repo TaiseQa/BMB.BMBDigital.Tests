@@ -1,5 +1,6 @@
 package steps;
 
+import inmetrics.automacao.evidencia.pdf.EvidencePdf;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -8,7 +9,6 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import framework.utils.Utils;
 import inmetrics.automacao.evidencia.html.EvidenceHtml;
-import inmetrics.automacao.evidencia.pdf.EvidencePdf;
 import inmetrics.automacao.evidencia.doc.EvidenceDoc;
 import inmetrics.automacao.evidencia.video.EvidenceVideo;
 
@@ -17,7 +17,7 @@ public class Hooks {
 	private static WebDriver driver;
 	private EvidenceDoc capaturarEvidencia;
 	private EvidenceHtml evidenciaHtml;
-	private EvidencePdf evidenciaPDF;
+	private EvidencePdf evidencePdf;
 	private EvidenceVideo movie;
 	private String log;
 	private String infoImage;

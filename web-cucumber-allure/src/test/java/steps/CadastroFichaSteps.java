@@ -3,6 +3,7 @@ package steps;
 import framework.pages.*;
 import framework.utils.GeraCpfCnpj;
 import framework.utils.Utils;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
@@ -11,7 +12,6 @@ import org.junit.Assert;
 
 import java.util.List;
 import java.util.Map;
-import io.cucumber.datatable.DataTable;
 
 public class CadastroFichaSteps extends CadastroFichaPage {
 
@@ -41,13 +41,13 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @Dado("que preencho o campo CPF com valor válido")
-    public void quePreenchoOCampoCPFComValor()  {
+    public void quePreenchoOCampoCPFComValor() {
         GeraCpfCnpj geraCpfCnpj = new GeraCpfCnpj();
         cadastroFichaPage.preencheCpfCnpj(geraCpfCnpj.cpf(false));
     }
 
     @Dado("que preencho o campo CPF ou CNPJ com valor inválido {string}")
-    public void preenchoOCampoCPFCNPJComValorInvalido(String cpfCnpj)  {
+    public void preenchoOCampoCPFCNPJComValorInvalido(String cpfCnpj) {
 
         cadastroFichaPage.preencheCpfCnpj(cpfCnpj);
     }
@@ -59,7 +59,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @E("preenchido o campo de CPF com valor válido")
-    public void preenchidoOCampoCPF()  {
+    public void preenchidoOCampoCPF() {
         GeraCpfCnpj geraCpfCnpj = new GeraCpfCnpj();
         cadastroFichaPage.preencheCpfCnpj(geraCpfCnpj.cpf(false));
     }
@@ -133,7 +133,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
         cadastroVeiculoPage.preencherFinanciamento(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"),
                 map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(7).get("Valor"),
-                map.get(8).get("Valor"),map.get(9).get("Valor"));
+                map.get(8).get("Valor"), map.get(9).get("Valor"));
     }
 
     @E("clico no botão Gerar Simulação")
@@ -186,7 +186,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     @Então("o sistema apresenta a tela com os detalhes da proposta cadastrada")
     public void oSistemaApresentaATelaComOsDetalhesDaPropostaCadastrada() {
         Assert.assertTrue(cadastroFichaPage.verificarTelaPropostaCadastrada());
-        Utils.killDriver();
+//        Utils.killDriver();
     }
 
     @E("preencho o patrimônio estimado com {string}")

@@ -16,7 +16,6 @@ public class Utils {
 
 	public static WebDriver getDriver() {
 		if (driver == null) {
-			//driver = FabricaWebDriver.CriarWebDriver(Navegador.CHROME, "chromedriver.exe");
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
