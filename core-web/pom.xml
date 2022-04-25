@@ -16,9 +16,23 @@
 		<junit.version>4.12</junit.version>
 		<org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
 		<io.github.bonigarcia>3.8.1</io.github.bonigarcia>
+		<io.cucumber.version>5.5.0</io.cucumber.version>
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${io.cucumber.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${io.cucumber.version}</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>

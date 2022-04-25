@@ -72,14 +72,13 @@ Funcionalidade: Nova Simulação
     |Orgao Emissor              |SSP|
     |Validade                   ||
     E preencho o patrimônio estimado com "de R$2.000.000,00 até R$5.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
     |Campo                      |Valor|
     |CEP                        |06474280|
     |Numero                     |506|
     |Complemento                |Casa 1|
     |Tipo de residencia         |Propria|
     |Tempo de residencia (Anos) |10|
-    |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
     |Campo                      |Valor|
     |Natureza da ocupacao       |Serv. Publ Aut/Fund|
@@ -165,14 +164,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                   ||
     E preencho o patrimônio estimado com "Acima de R$5.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Transportador Autonomo|
@@ -258,14 +256,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                   ||
     E preencho o patrimônio estimado com "Acima de R$5.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Transportador Autonomo|
@@ -351,14 +348,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                   ||
     E preencho o patrimônio estimado com "Acima de R$5.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Transportador Autonomo|
@@ -421,14 +417,13 @@ Funcionalidade: Nova Simulação
     E clico em CONTINUAR
     E o sistema informa a não solicitação de seguro do veículo
     E que preencho o campo CPF com valor válido
-    E que preencho os campos de identificação do cliente e cônjuge
+    E que preencho os campos de identificação do cliente e cônjuge sem regime de casamento
       |Campo                      |Valor|
       |Nome                       |Carla Luciana Debora da Luz|
       |Data de Nascimento         |12061990|
       |E-mail                     |wesley.chrispim@inmetrics.com.br|
       |Celular                    |11973633233|
       |Estado Civil               |UniaoEstavel|
-      |Regime de Casamento        ||
       |Nome do conjuge                    |Marcela Magno|
       |CPF do conjuge                     |18707883897|
       |Data de nascimento do conjuge      |23101994|
@@ -448,14 +443,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                   ||
     E preencho o patrimônio estimado com "Acima de R$5.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Outros|
@@ -541,14 +535,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                   ||
     E preencho o patrimônio estimado com "Acima de R$5.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Empregado no Setor Privado|
@@ -611,14 +604,13 @@ Funcionalidade: Nova Simulação
     E clico em CONTINUAR
     E o sistema informa a não solicitação de seguro do veículo
     E que preencho o campo CPF com valor válido
-    E que preencho os campos de identificação do cliente e cônjuge
+    E que preencho os campos de identificação do cliente e cônjuge sem regime de casamento
       |Campo                      |Valor|
       |Nome                       |Carla Luciana Debora da Luz|
       |Data de Nascimento         |12061990|
       |E-mail                     |wesley.chrispim@inmetrics.com.br|
       |Celular                    |11973633233|
       |Estado Civil               |UniaoEstavel|
-      |Regime de Casamento        ||
       |Nome do conjuge                    |Marcela Magno|
       |CPF do conjuge                     |18707883897|
       |Data de nascimento do conjuge      |23101994|
@@ -638,14 +630,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                   ||
     E preencho o patrimônio estimado com "Acima de R$5.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Proprietario|
@@ -731,14 +722,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                   ||
     E preencho o patrimônio estimado com "Acima de R$5.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Ser. Publ ADM Direta|
@@ -824,14 +814,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                           ||
     E preencho o patrimônio estimado com "Acima de R$5.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Func. Empresa Publ/Econ Mista|
@@ -923,14 +912,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor                      |SSP|
       |Validade                           ||
     E preencho o patrimônio estimado com "até R$500.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Estudante|
@@ -1027,14 +1015,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                   ||
     E preencho o patrimônio estimado com "de R$500.000,00 até R$1.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Aposentado/Pensionista|
@@ -1124,14 +1111,13 @@ Funcionalidade: Nova Simulação
       |Orgao Emissor              |SSP|
       |Validade                   |03082031|
     E preencho o patrimônio estimado com "de R$1.000.000,00 até R$2.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Capitalista|

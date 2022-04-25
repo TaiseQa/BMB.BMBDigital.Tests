@@ -37,14 +37,13 @@ Funcionalidade: Nova Ficha
       |UF                         |SP|
       |Orgao Emissor              |SSP|
       |Validade                   ||
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Profissional Liberal Autonomo|
@@ -81,13 +80,12 @@ Funcionalidade: Nova Ficha
       |Acessorio                  |4 Direcional Mecanico|
       |Valor do acessorio         |1000|
       |Quantidade                 |1|
-    E preencho o formulário de Financiamento
+    E preencho o formulário de Financiamento sem o tipo de pessoa
       |Campo                      |Valor|
       |Produto                    |CDC|
       |Campanha                   |15979 - PC Taxa - 0% a.m FEV/2022|
       |Prazo                      |36|
       |Carencia                   |0|
-      |Tipo de pessoa             ||
       |Valor de entrada           |54977256|
       |Prestamista                |Sim|
       |Garantia Estendida         |000|
@@ -136,16 +134,14 @@ Funcionalidade: Nova Ficha
       |Validade                           |03082031|
       |UF                                 |SP|
       |Orgao Emissor                      |SSP|
-      |Validade                           ||
     E preencho o patrimônio estimado com "de R$500.000,00 até R$1.000.000,00"
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                              |Valor|
       |CEP                                |25041580|
       |Numero                             |846|
-      |Complemento                        ||
+      |Complemento                        |casa 1|
       |Tipo de residencia                 |Alugada|
       |Tempo de residencia (Anos)         |5|
-      |CEP comercial (Opcional)||
     E preencho o formulário de Dados profissionais:
       |Campo                              |Valor|
       |Natureza da ocupacao               |Empregado no Setor Privado|
@@ -190,14 +186,13 @@ Funcionalidade: Nova Ficha
       |Acessorio                    ||
       |Valor do acessorio           ||
       |Quantidade                   ||
-    E preencho o formulário de Financiamento
+    E preencho o formulário de Financiamento sem o tipo de pessoa
       |Campo                        |Valor|
       |Produto                      |CDC Decrescente|
       |Campanha                     |15885 - PC Taxa- 0% a.m JAN/2022|
       |Prazo                        |12|
       |Carencia                     |0|
-      |Tipo de pessoa               ||
-      |Valor de entrada             |38178800|
+      |Valor de entrada             |38505000|
       |Prestamista                  |Nao|
       |Garantia Estendida           |000|
       |Simular seguro do veiculo    |Nao|
@@ -237,14 +232,13 @@ Funcionalidade: Nova Ficha
       |UF                         |SP|
       |Orgao Emissor              |SSP|
       |Validade                   ||
-    E preencho os campos de endereço
+    E preencho os campos de endereço sem cep comercial
       |Campo                      |Valor|
       |CEP                        |06474280|
       |Numero                     |506|
       |Complemento                |Casa 1|
       |Tipo de residencia         |Propria|
       |Tempo de residencia (Anos) |10|
-      |CEP comercial (Opcional)   ||
     E preencho o formulário de Dados profissionais:
       |Campo                      |Valor|
       |Natureza da ocupacao       |Profissional Liberal Autonomo|
@@ -281,13 +275,12 @@ Funcionalidade: Nova Ficha
       |Acessorio                  |4 Direcional Mecanico|
       |Valor do acessorio         |1000|
       |Quantidade                 |1|
-    E preencho o formulário de Financiamento
+    E preencho o formulário de Financiamento sem o tipo de pessoa
       |Campo                      |Valor|
       |Produto                    |CDC|
       |Campanha                   |15885 - PC Taxa- 0% a.m JAN/2022|
       |Prazo                      |36|
       |Carencia                   |0|
-      |Tipo de pessoa             ||
       |Valor de entrada           |54977256|
       |Prestamista                |Sim|
       |Garantia Estendida         |000|
@@ -358,13 +351,12 @@ Funcionalidade: Nova Ficha
       |Acessorio                      |4 Direcional Mecanico|
       |Valor do acessorio             |1000|
       |Quantidade                     |1|
-    E preencho o formulário de Financiamento
+    E preencho o formulário de Financiamento sem o tipo de pessoa
       |Campo                          |Valor|
       |Produto                        |CDC|
       |Campanha                       |15885 - PC Taxa- 0% a.m JAN/2022|
       |Prazo                          |36|
       |Carencia                       |0|
-      |Tipo de pessoa                 ||
       |Valor de entrada               |54977256|
       |Prestamista                    |Sim|
       |Garantia Estendida             |000|

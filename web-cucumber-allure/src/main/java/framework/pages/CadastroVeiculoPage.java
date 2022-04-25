@@ -206,6 +206,31 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
         }
     }
 
+    public void preencherFinanciamento(String produto, String campanha, String prazo, String carencia, String entrada,
+                                       String prestamista, String garantiaEstendida, String seguroVeiculo, String valorAproxSeguro) {
+        selecionarProdutoFinanciamento(produto);
+        clicarElemento(comboCampanha);
+        clicarElemento(opcaoComboCampanhaTaxa);
+        clicarElemento(comboPrazo);
+        clicarElemento(opcaoComboPrazo36);
+        clicarElemento(comboCarencia);
+        clicarElemento(opcaoComboCarenciaZero);
+
+        campoValorEntrada.clear();
+        inserirValor(campoValorEntrada, entrada);
+        if (prestamista.equalsIgnoreCase("não") || prestamista.equalsIgnoreCase("nao"))
+            checkSemPrestamista.click();
+        if(prestamista.equalsIgnoreCase("sim")) {
+            checkPrestamista.click();
+            campoGarantiaEstendida.clear();
+            inserirValor(campoGarantiaEstendida, garantiaEstendida);
+        }
+        if (seguroVeiculo.equalsIgnoreCase("sim")) {
+            checkSimularSeguro.click();
+            inserirValor(campoValorAproximadoSeguro, valorAproxSeguro);
+        }
+    }
+
 
     public void clicarGerarSimulacao() throws InterruptedException {
         clicarElemento(btnGerarSimulacao);

@@ -2,7 +2,6 @@ package steps;
 
 import framework.pages.*;
 import framework.utils.GeraCpfCnpj;
-import framework.utils.Utils;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
@@ -10,6 +9,7 @@ import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Map;
 
@@ -78,6 +78,13 @@ public class CadastroFichaSteps extends CadastroFichaPage {
                 map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"));
     }
 
+    @E("preencho os campos de endereço sem cep comercial")
+    public void preenchoOsCamposDeEnderecoSemCepComercial(DataTable dataTable) throws InterruptedException {
+        List<Map<String, String>> map = dataTable.asMaps(String.class, String.class);
+        cadastroFichaPage.preencherCamposEndereco(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"),
+                map.get(3).get("Valor"), map.get(4).get("Valor"));
+    }
+
     @E("preencho as informações de Dados adicionais:")
     public void preenchoAsInformacoesDeDadosAdicionais(DataTable dadosAdicionais) throws InterruptedException {
         List<Map<String, String>> map = dadosAdicionais.asMaps(String.class, String.class);
@@ -134,6 +141,15 @@ public class CadastroFichaSteps extends CadastroFichaPage {
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"),
                 map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(7).get("Valor"),
                 map.get(8).get("Valor"), map.get(9).get("Valor"));
+    }
+
+    @E ("preencho o formulário de Financiamento sem o tipo de pessoa")
+    public void preenchoOFormularioDeFinanciamentoSemOTipoDePessoa(DataTable dataTable){
+        List<Map<String, String>> map = dataTable.asMaps(String.class, String.class);
+        cadastroVeiculoPage.preencherFinanciamento(map.get(0).get("Valor"), map.get(1).get("Valor"),
+                map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"),
+                map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(7).get("Valor"),
+                map.get(8).get("Valor"));
     }
 
     @E("clico no botão Gerar Simulação")
@@ -213,12 +229,19 @@ public class CadastroFichaSteps extends CadastroFichaPage {
         cadastroFichaPage.preencherIdentificacaoConjuge(map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(8).get("Valor"));
     }
 
+    @E ("que preencho os campos de identificação do cliente e cônjuge sem regime de casamento")
+    public void quePreenchoOsCamposDeIdentificaçãoDoClienteECônjugeSemRegimeDeCasamento(DataTable clienteConjuge) throws InterruptedException {
+        List<Map<String, String>> map = clienteConjuge.asMaps(String.class, String.class);
+        cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
+        cadastroFichaPage.preencherIdentificacaoConjuge(map.get(5).get("Valor"), map.get(7).get("Valor"));
+    }
+
     @E("preencho as informações de Dados adicionais para naturalidade estrangeira:")
     public void preenchoAsInformaçõesDeDadosAdicionaisParaNaturalidadeEstrangeira(DataTable dadosAdicionaisEstrangeiros) throws InterruptedException {
         List<Map<String, String>> map = dadosAdicionaisEstrangeiros.asMaps(String.class, String.class);
         cadastroFichaPage.preencherDadosAdicionaisEstrangeiro(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"),
                 map.get(6).get("Valor"), map.get(7).get("Valor"), map.get(8).get("Valor"), map.get(9).get("Valor"),
-                map.get(10).get("Valor"), map.get(11).get("Valor"));
+                map.get(10).get("Valor"));
     }
 }

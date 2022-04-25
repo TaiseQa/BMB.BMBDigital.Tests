@@ -10,11 +10,12 @@ import org.junit.runner.RunWith;
 				"html:target/cucumber-reports",
 				"json:target/cucumber-reports/cucumber.json",
 				"junit:target/cucumber-reports/junit.xml",
-				"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
+				"de.monochromata.cucumber.report.PrettyReports:target/"
+//				"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
 		},
 		features = "classpath:features", 
 		glue = {"steps" },
-		tags = { "@CadastroFicha,@CadastroSimulacao" },
+		tags = { "@CadastroFicha or @CadastroSimulacao" },
 		snippets = CucumberOptions.SnippetType.UNDERSCORE,
 		strict = true,
 		dryRun = false,
