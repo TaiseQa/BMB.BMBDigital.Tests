@@ -1,6 +1,7 @@
 package inmetrics.automacao.core.web;
 
 import java.text.SimpleDateFormat;
+import java.util.logging.Logger;
 
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
@@ -20,14 +21,14 @@ public class InteracoesTelaWeb {
 	private  WebDriver driver;
 	private static WebDriverWait wait;
 
-	
+
 	public InteracoesTelaWeb(WebDriver driver) {
 		this.driver = driver;
 		DefinirArquivoLog();
-		
+
 	}
-		
-	
+
+
     private void DefinirArquivoLog() {
     	if((null == Log.ArquivoLogNome || "" == Log.ArquivoLogNome.trim()))
     		Log.DefinirLocalAquivoLog(null, "inmetrics.automacao.core.web.log_".concat(new SimpleDateFormat ("yyyyMMddHHmmssSS").format(new java.util.Date())).concat(".log"));
@@ -36,7 +37,7 @@ public class InteracoesTelaWeb {
 	/**
 	 * Método utilizado para aguardar até 10 segundos a visibilidade do elemento na
 	 * tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void aguardarVisibilidade(WebElement elemento) {
@@ -54,7 +55,7 @@ public class InteracoesTelaWeb {
 	/**
 	 * Método utilizado para aguardar por um período determinado a visibilidade do
 	 * elemento na tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void aguardarVisibilidade(WebElement elemento, int segundos) {
@@ -72,7 +73,7 @@ public class InteracoesTelaWeb {
 	/**
 	 * Método utilizado para aguardar até 10 segundos a habilitação de click do
 	 * elemento na tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void aguardarClickHabilitado(WebElement elemento) {
@@ -90,7 +91,7 @@ public class InteracoesTelaWeb {
 	/**
 	 * Método utilizado para aguardar por um período determinado habilitação de
 	 * click do elemento na tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void aguardarClickHabilitado(WebElement elemento, int segundos) {
@@ -107,7 +108,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para focar o elemento na tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void focarElemento(WebElement elemento) {
@@ -124,7 +125,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para verificar se existe ocorrência do elemento na tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 * @return boolean - Se existe correspondência do elemento na tela
 	 */
@@ -140,10 +141,10 @@ public class InteracoesTelaWeb {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Método utilizado para verificar se existe ocorrência do elemento na tela passando o tempo de espera
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 * @return boolean - Se existe correspondência do elemento na tela
 	 */
@@ -162,7 +163,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para obter o texto do elemento da tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 * @return string - Texto do elemento
 	 */
@@ -171,10 +172,10 @@ public class InteracoesTelaWeb {
 		String value = elemento.getText();
 		return value;
 	}
-	
+
 	/**
 	 * Método utilizado para obter o texto do elemento da tela passando o tempo de espera
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 * @return string - Texto do elemento
 	 */
@@ -186,7 +187,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para inserir texto no elemento da tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 * @param valor    - Texto que será inserido
 	 */
@@ -195,10 +196,10 @@ public class InteracoesTelaWeb {
 		elemento.click();
 		elemento.sendKeys(valor);
 	}
-	
+
 	/**
 	 * Método utilizado para inserir texto no elemento da tela passando o tempo de espera
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 * @param valor    - Texto que será inserido
 	 */
@@ -210,17 +211,17 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizdo para efetuar click no elemento da tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void clicarElemento(WebElement elemento) {
 		aguardarClickHabilitado(elemento);
 		elemento.click();
 	}
-	
+
 	/**
 	 * Método utilizdo para efetuar click no elemento da tela passando o tempo
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void clicarElemento(WebElement elemento, int segundos) {
@@ -231,7 +232,7 @@ public class InteracoesTelaWeb {
 	/**
 	 * Método utilizdo para efetuar click por coordenada na tela a parti de um
 	 * elemento
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 * @param x        - Coordenada horizontal
 	 * @param y        - Coordenada vertical
@@ -249,17 +250,17 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizdo para efetuar submit no elemento da tela
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void submitElemento(WebElement elemento) {
 		aguardarClickHabilitado(elemento);
 		elemento.submit();
 	}
-	
+
 	/**
 	 * Método utilizdo para efetuar submit no elemento da tela passando o tempo
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void submitElemento(WebElement elemento, int segundos) {
@@ -269,7 +270,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizdo para abrir o navegador
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	public void abrirNavegador(String url) {
@@ -280,7 +281,7 @@ public class InteracoesTelaWeb {
 	/**
 	 * Método utilizado para obter o texto do elemento da tela passando uma
 	 * propriedade do elemento
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected String obterValorPropriedade(WebElement elemento, String propriedade) {
@@ -288,11 +289,11 @@ public class InteracoesTelaWeb {
 		String value = elemento.getAttribute(propriedade);
 		return value;
 	}
-	
+
 	/**
 	 * Método utilizado para obter o texto do elemento da tela passando uma
 	 * propriedade do elemento e o tempo de espera
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected String obterValorPropriedade(WebElement elemento, String propriedade, int segundos) {
@@ -303,7 +304,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para selecionar o checkbox
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void selecionarCheckbox(WebElement elemento) {
@@ -314,10 +315,10 @@ public class InteracoesTelaWeb {
 			elemento.click();
 		}
 	}
-	
+
 	/**
 	 * Método utilizado para selecionar o checkbox passando o tempo de espera
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void selecionarCheckbox(WebElement elemento, int segundos) {
@@ -331,7 +332,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para deselecionar o checkbox
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void deselecionarCheckbox(WebElement elemento) {
@@ -342,10 +343,10 @@ public class InteracoesTelaWeb {
 			elemento.click();
 		}
 	}
-	
+
 	/**
 	 * Método utilizado para deselecionar o checkbox passando o tempo de espera
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void deselecionarCheckbox(WebElement elemento, int segundos) {
@@ -359,7 +360,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para seleciona o elemtno pelo o texto
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void selecionarElementoTexto(WebElement elemento, String name) {
@@ -367,10 +368,10 @@ public class InteracoesTelaWeb {
 		Select selectitem = new Select(elemento);
 		selectitem.selectByVisibleText(name);
 	}
-	
+
 	/**
 	 * Método utilizado para seleciona o elemtno pelo o texto passando o tempo de espera
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void selecionarElementoTexto(WebElement elemento, String name, int segundos) {
@@ -381,7 +382,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para seleciona o elemtno pelo o valor
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void selecionarElementoValor(WebElement elemento, String name) {
@@ -389,10 +390,10 @@ public class InteracoesTelaWeb {
 		Select selectitem = new Select(elemento);
 		selectitem.selectByValue(name);
 	}
-	
+
 	/**
 	 * Método utilizado para seleciona o elemtno pelo o valor passando o tempo de espera
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void selecionarElementoValor(WebElement elemento, String name, int segundos) {
@@ -403,7 +404,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para seleciona o elemtno pelo o índice
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void selecionarElementoIndice(WebElement elemento, int indice) {
@@ -411,10 +412,10 @@ public class InteracoesTelaWeb {
 		Select selectitem = new Select(elemento);
 		selectitem.selectByIndex(indice);
 	}
-	
+
 	/**
 	 * Método utilizado para seleciona o elemtno pelo o índice passando o tempo de espera
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void selecionarElementoIndice(WebElement elemento, int indice, int segundos) {
@@ -425,7 +426,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para movimentar barra de rolagem
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void movimentarBarraRolagem(int valor) {
@@ -435,7 +436,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para abri iframe
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void abrirIframe(WebElement elemento) {
@@ -445,26 +446,26 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Método utilizado para fecha iframe
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void fechaIframe(WebElement elemento) {
 		driver.switchTo().frame(elemento);
 		driver.switchTo().defaultContent();
 	}
-	
+
 	/**
 	 * Método utilizado para fecha aplicação
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	public void fechaAplicacao() {
 		driver.quit();
 	}
-	
+
 	/**
 	 * Método utilizado para fecha aba
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 */
 	protected void fechaAba() {
@@ -473,7 +474,7 @@ public class InteracoesTelaWeb {
 
 	/**
 	 * Metodo utilizado para simular o acionamento de teclas especiais
-	 * 
+	 *
 	 * Parametro Keys pode receber as seguintes opções:
 	 *
 	 * NULL = '\ue000' CANCEL = '\ue001' # ^break HELP = '\ue002' BACKSPACE =
@@ -485,21 +486,21 @@ public class InteracoesTelaWeb {
 	 * = '\ue013' ARROW_UP = UP RIGHT = '\ue014' ARROW_RIGHT = RIGHT DOWN = '\ue015'
 	 * ARROW_DOWN = DOWN INSERT = '\ue016' DELETE = '\ue017' SEMICOLON = '\ue018'
 	 * EQUALS = '\ue019'
-	 * 
+	 *
 	 * NUMPAD0 = '\ue01a' # number pad keys NUMPAD1 = '\ue01b' NUMPAD2 = '\ue01c'
 	 * NUMPAD3 = '\ue01d' NUMPAD4 = '\ue01e' NUMPAD5 = '\ue01f' NUMPAD6 = '\ue020'
 	 * NUMPAD7 = '\ue021' NUMPAD8 = '\ue022' NUMPAD9 = '\ue023' MULTIPLY = '\ue024'
 	 * ADD = '\ue025' SEPARATOR = '\ue026' SUBTRACT = '\ue027' DECIMAL = '\ue028'
 	 * DIVIDE = '\ue029'
-	 * 
+	 *
 	 * F1 = '\ue031' # function keys F2 = '\ue032' F3 = '\ue033' F4 = '\ue034' F5 =
 	 * '\ue035' F6 = '\ue036' F7 = '\ue037' F8 = '\ue038' F9 = '\ue039' F10 =
 	 * '\ue03a' F11 = '\ue03b' F12 = '\ue03c'
-	 * 
+	 *
 	 * META = '\ue03d' COMMAND = '\ue03d'
 	 *
 	 * Exemplo de uso pressionarTecla(Keys.LEFT_CONTROL, elemento);
-	 * 
+	 *
 	 * @param elemento - Instancia do elemento da tela
 	 * @param key      - Indicador de tecla a ser simulada
 	 **/
@@ -507,6 +508,27 @@ public class InteracoesTelaWeb {
 		try {
 			elemento.sendKeys(key);
 		} catch (Exception e) {
+			Assert.fail(e.toString());
+		}
+	}
+
+	protected void esperar(long time){
+		try {
+			synchronized (this){
+				wait(time);
+			}
+		}catch (InterruptedException ignored){
+		}
+	}
+
+	protected void esperarElementoSumir(WebElement element){
+		Log.LogarInfo("Verificando visibilidade do elemento :"+element);
+		try {
+			wait = new WebDriverWait(driver, 30);
+			wait.until(ExpectedConditions.invisibilityOf(element));
+		} catch (TimeoutException e) {
+			Log.LogarErro("Elemento não encontrado : "+element);
+			Log.LogarErro(e.getMessage());
 			Assert.fail(e.toString());
 		}
 	}

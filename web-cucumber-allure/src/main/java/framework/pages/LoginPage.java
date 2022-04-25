@@ -59,7 +59,7 @@ public class LoginPage extends InteracoesTelaWeb {
         ignorarCertificado();
         preencherLoginForm(usuario, senha);
         clicarBotaoLogin();
-        escolherConcessionario();
+//        escolherConcessionario();
         fecharJanelaCampanha();
     }
 
