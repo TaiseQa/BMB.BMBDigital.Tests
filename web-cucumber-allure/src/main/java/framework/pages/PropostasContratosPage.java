@@ -29,8 +29,8 @@ public class PropostasContratosPage extends InteracoesTelaWeb {
         return new CadastroVeiculoPage();
     }
 
-    public CadastroFichaPage clicarBotaoNovaFicha() throws InterruptedException {
-        Thread.sleep(30000);
+    public CadastroFichaPage clicarBotaoNovaFicha() {
+        esperarElementoLoadSumir();
         clicarElemento(btnNovaFicha, 90);
         return new CadastroFichaPage();
     }

@@ -153,13 +153,13 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
                                        String modelo, String valor, String quantidade, String adicionarAcessorio,
                                        String acessorio, String valorAcessorio) throws InterruptedException {
         selecionarAnoFabricacao(anoFabricacao);
-        Thread.sleep(17000);
+        esperar(8000);
         clicarElemento(comboAnoModelo, 90);
         selecionarTipoVeiculo(tipoVeiculo);
         if(estadoVeiculo.equalsIgnoreCase("novo"))
             checkEstadoVeiculoNovo.click();
         selecionarModeloVeiculo(modelo);
-        Thread.sleep(5000);
+        esperar(3000);
         if(adicionarAcessorio.equalsIgnoreCase("sim")) {
             checkTemAcessorioAdicional.click();
             selecionarAcessorioVeiculo(acessorio);
@@ -234,7 +234,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
 
     public void clicarGerarSimulacao() throws InterruptedException {
         clicarElemento(btnGerarSimulacao);
-        Thread.sleep(5000);
+        esperar(3000);
     }
 
     //******** FIM PREENCHIMENTO FINANCIAMENTO ********************//

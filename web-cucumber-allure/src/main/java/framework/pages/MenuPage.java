@@ -1,7 +1,8 @@
 package framework.pages;
 
-import inmetrics.automacao.core.web.InteracoesTelaWeb;
 import framework.utils.Utils;
+import inmetrics.automacao.core.web.InteracoesTelaWeb;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -18,7 +19,8 @@ public class MenuPage extends InteracoesTelaWeb {
     }
 
     public PropostasContratosPage clicarMenuContratosPropostas() {
-        clicarElemento(menuContratosPropostas, 60);
+        esperar(3000);
+        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", menuContratosPropostas);
         return new PropostasContratosPage();
     }
 }

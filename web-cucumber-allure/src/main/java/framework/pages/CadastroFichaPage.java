@@ -4,6 +4,7 @@ import framework.utils.GeraCpfCnpj;
 import framework.utils.Utils;
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -420,6 +421,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.XPATH, xpath = "//button[contains(text(), 'OK')]")
     protected WebElement btnConfirmarEnvioPropostaCredito;
 
+    @FindBy(xpath = "//button[contains(.,'OK')]")
+    private WebElement buttonOkModalPropostaCredito;
+
     @FindBy(how = How.XPATH, xpath = "(//div[@class='col-8']//div[@class='info']/span)[1]")
     protected WebElement nomeClienteTelaPropostaCadastrada;
 
@@ -430,6 +434,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     @FindBy(how = How.CSS, css = ".error-msg")
     protected WebElement mensagemErro;
     //******** FIM MENSAGENS ********************//
+
+    @FindBy(css = "app-financial-simulator-result")
+    private WebElement modalAtencao;
 
     public CadastroFichaPage() {
         super(Utils.getDriver());
@@ -448,7 +455,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular, String estadoCivil) throws InterruptedException {
-        Thread.sleep(19000);
+        esperarElementoLoadSumir();
+        esperar(1000);
         inserirValor(campoNome, nome);
         inserirValor(campoDataNascimento, dataNascimento);
         inserirValor(campoEmail, email);
@@ -491,11 +499,11 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
                                         String tempoResidencia) throws InterruptedException {
         inserirValor(campoCep, cep);
         inserirValor(campoNumero, numero);
-        Thread.sleep(5000);
+        esperar(3000);
         inserirValor(campoComplemento, complemento);
         selecionarTipoResidencia(tipoResidencia);
         campoTempoDeResidencia.clear();
-        Thread.sleep(5000);
+        esperar(3000);
         campoTempoDeResidencia.sendKeys(tempoResidencia);
     }
 
@@ -503,7 +511,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
                                          String estadoNaturalidade, String cidadeNaturalidade, String nomeMae,
                                          String documentoProponente, String numeroDocumento, String dataExpedicao,
                                          String ufDocumento, String orgaoEmissor, String validadeDocumentoPromonente) throws InterruptedException {
-        Thread.sleep(5000);
+        esperar(2000);
         clicarElemento(areaDadosAdicionais);
         selecionarSexo(sexo);
         selecionarEscolaridade(escolaridade);
@@ -536,7 +544,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     public void preencherDadosAdicionaisEstrangeiro(String sexo, String escolaridade, String statusEscolaridade,
                                                     String paisNaturalidade, String nomeMae, String documentoProponente,
                                                     String numeroDocumento, String dataExpedicao,
-                                                    String validade,String uf, String orgaoEmissor) throws InterruptedException {
+                                                    String validade, String uf, String orgaoEmissor) throws InterruptedException {
 
 
         Thread.sleep(5000);
@@ -564,7 +572,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
                                             String origem, String atividadePrincipal, String tipoDeTransporte, String cooperativa,
                                             String nomeEmpresa, String cnpjEmpresa, String somaFaturamento) throws InterruptedException {
         selecionarNaturezaOcupacao(naturezaOcupacao);
-        Thread.sleep(5000);
+        esperar(3000);
         peencherNaturezaOcupacao(naturezaOcupacao);
         peencherNomeDaEmpresa(nomeEmpresa, naturezaOcupacao);
         peencherCampoAdmissao(dataAdmissao, naturezaOcupacao);
@@ -582,12 +590,12 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     public void preencherDeclaracaoExposicaoPolitica(String funcao, String funcaoExercida, String parentesco, String grauParentesco) throws InterruptedException {
         selecionarSeDesempenhouCargoPolitico(funcao);
         if (checkDesempenhaCargoPolitico.isSelected()) {
-            Thread.sleep(5000);
+            esperar(3000);
             campoFuncaoExercidaParentescoPolitico.sendKeys(funcaoExercida);
         }
         selecionarSePossuiParentescoPolitico(parentesco);
         if (checkParentescoPolitico.isSelected()) {
-            Thread.sleep(5000);
+            esperar(3000);
             campoParentescoPolitico.sendKeys(grauParentesco);
         }
     }
@@ -603,7 +611,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         btnSalvarCliente.click();
         aguardarVisibilidade(textoClienteCriado, 90);
         clicarElemento(btnConfirmarClienteSalvo, 90);
-        Thread.sleep(20000);
+        esperar(8000);
         return new CadastroVeiculoPage();
     }
 
@@ -621,20 +629,23 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void habilitarSolicitacaoSeguroVeiculo() throws InterruptedException {
-        Thread.sleep(20000);
+        aguardarVisibilidade(modalAtencao);
+        esperar(500);
         clicarElemento(btnContinuarAvisoSeguro, 90);
     }
 
-    public void selecionarNaoDesejoSeguroVeiculo() throws InterruptedException {
-        Thread.sleep(50000);
+    public void selecionarNaoDesejoSeguroVeiculo()  {
+        esperar(21000);
         checkNaoDesejoSeguro.click();
+        esperar(500);
         btnContinuarSeguro.click();
     }
 
-    public void EnviarPropostaDeCredito() throws InterruptedException {
-        Thread.sleep(15000);
-        clicarElemento(checkAceitarTermoJuridico);
-        clicarElemento(btnEnviarPropostaCredito);
+    public void EnviarPropostaDeCredito() {
+        esperar(9000);
+        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();",checkAceitarTermoJuridico);
+        esperar(2000);
+        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();",btnEnviarPropostaCredito);
     }
 
     public void preencherVendedor(String vendedor) {
@@ -642,13 +653,14 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         clicarElemento(opcaoComboSelecionarVendedor);
     }
 
-    public void clicarBotaoEnviarVendedor() throws InterruptedException {
-        Thread.sleep(5000);
+    public void clicarBotaoEnviarVendedor() {
+        esperar(3000);
         clicarElemento(btnEnviarVendedor, 90);
     }
 
-    public void clicarBotaoConfirmarEnvioPropostaCredito() throws InterruptedException {
-        Thread.sleep(50000);
+    public void clicarBotaoConfirmarEnvioPropostaCredito() {
+        aguardarVisibilidade(buttonOkModalPropostaCredito);
+        esperar(1000);
         clicarElemento(btnConfirmarEnvioPropostaCredito);
     }
 

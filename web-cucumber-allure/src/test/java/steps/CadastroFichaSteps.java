@@ -9,7 +9,6 @@ import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
 
-import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +47,6 @@ public class CadastroFichaSteps extends CadastroFichaPage {
 
     @Dado("que preencho o campo CPF ou CNPJ com valor inválido {string}")
     public void preenchoOCampoCPFCNPJComValorInvalido(String cpfCnpj) {
-
         cadastroFichaPage.preencheCpfCnpj(cpfCnpj);
     }
 
@@ -143,8 +141,8 @@ public class CadastroFichaSteps extends CadastroFichaPage {
                 map.get(8).get("Valor"), map.get(9).get("Valor"));
     }
 
-    @E ("preencho o formulário de Financiamento sem o tipo de pessoa")
-    public void preenchoOFormularioDeFinanciamentoSemOTipoDePessoa(DataTable dataTable){
+    @E("preencho o formulário de Financiamento sem o tipo de pessoa")
+    public void preenchoOFormularioDeFinanciamentoSemOTipoDePessoa(DataTable dataTable) {
         List<Map<String, String>> map = dataTable.asMaps(String.class, String.class);
         cadastroVeiculoPage.preencherFinanciamento(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"),
@@ -202,7 +200,6 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     @Então("o sistema apresenta a tela com os detalhes da proposta cadastrada")
     public void oSistemaApresentaATelaComOsDetalhesDaPropostaCadastrada() {
         Assert.assertTrue(cadastroFichaPage.verificarTelaPropostaCadastrada());
-//        Utils.killDriver();
     }
 
     @E("preencho o patrimônio estimado com {string}")
@@ -229,7 +226,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
         cadastroFichaPage.preencherIdentificacaoConjuge(map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(8).get("Valor"));
     }
 
-    @E ("que preencho os campos de identificação do cliente e cônjuge sem regime de casamento")
+    @E("que preencho os campos de identificação do cliente e cônjuge sem regime de casamento")
     public void quePreenchoOsCamposDeIdentificaçãoDoClienteECônjugeSemRegimeDeCasamento(DataTable clienteConjuge) throws InterruptedException {
         List<Map<String, String>> map = clienteConjuge.asMaps(String.class, String.class);
         cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));

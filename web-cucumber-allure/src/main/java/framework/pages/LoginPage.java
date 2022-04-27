@@ -88,8 +88,8 @@ public class LoginPage extends InteracoesTelaWeb {
     }
 
     public void fecharJanelaCampanha() throws InterruptedException {
-        Thread.sleep(60000);
-        clicarElemento(closeModal);
+      esperar(13000);
+//        clicarElemento(closeModal);
     }
 
 
