@@ -19,7 +19,7 @@ public class MenuPage extends InteracoesTelaWeb {
     }
 
     public PropostasContratosPage clicarMenuContratosPropostas() {
-        esperar(3000);
+        esperar(5000);
         ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", menuContratosPropostas);
         return new PropostasContratosPage();
     }

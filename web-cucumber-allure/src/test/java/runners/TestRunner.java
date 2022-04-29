@@ -10,8 +10,7 @@ import org.junit.runner.RunWith;
 				"html:target/cucumber-reports",
 				"json:target/cucumber-reports/cucumber.json",
 				"junit:target/cucumber-reports/junit.xml",
-				"de.monochromata.cucumber.report.PrettyReports:target/"
-//				"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
+				"de.monochromata.cucumber.report.PrettyReports:target/relatorio"
 		},
 		features = "classpath:features", 
 		glue = {"steps" },

@@ -2,6 +2,7 @@ package framework.pages;
 
 import framework.utils.Utils;
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -30,8 +31,8 @@ public class PropostasContratosPage extends InteracoesTelaWeb {
     }
 
     public CadastroFichaPage clicarBotaoNovaFicha() {
-        esperarElementoLoadSumir();
-        clicarElemento(btnNovaFicha, 90);
+        esperar(7000);
+        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", btnNovaFicha);
         return new CadastroFichaPage();
     }
 }

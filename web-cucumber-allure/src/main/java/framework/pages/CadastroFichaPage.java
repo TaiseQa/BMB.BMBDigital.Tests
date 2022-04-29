@@ -455,8 +455,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular, String estadoCivil) throws InterruptedException {
-        esperarElementoLoadSumir();
-        esperar(1000);
+        esperar(6500);
         inserirValor(campoNome, nome);
         inserirValor(campoDataNascimento, dataNascimento);
         inserirValor(campoEmail, email);
@@ -510,7 +509,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     public void preencherDadosAdicionais(String sexo, String escolaridade, String statusEscolaridade, String paisNaturalidade,
                                          String estadoNaturalidade, String cidadeNaturalidade, String nomeMae,
                                          String documentoProponente, String numeroDocumento, String dataExpedicao,
-                                         String ufDocumento, String orgaoEmissor, String validadeDocumentoPromonente) throws InterruptedException {
+                                         String ufDocumento, String orgaoEmissor, String validadeDocumentoPromonente) {
         esperar(2000);
         clicarElemento(areaDadosAdicionais);
         selecionarSexo(sexo);
@@ -532,7 +531,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     public void preencherDadosAdicionaisEstrangeiro(String sexo, String escolaridade, String statusEscolaridade,
                                                     String paisNaturalidade, String nomeMae, String documentoProponente,
                                                     String numeroDocumento, String dataExpedicao, String validade,
-                                                    String ufDocumento, String orgaoEmissor, String validadeDocumentoPromonente) throws InterruptedException {
+                                                    String ufDocumento, String orgaoEmissor, String validadeDocumentoPromonente) {
         preencherDadosAdicionais(sexo, escolaridade, statusEscolaridade, paisNaturalidade, "", "",
                 nomeMae, documentoProponente, numeroDocumento, dataExpedicao, ufDocumento, orgaoEmissor, validadeDocumentoPromonente);
         if (documentoProponente.equalsIgnoreCase("PASSAPORTE"))
@@ -544,10 +543,10 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     public void preencherDadosAdicionaisEstrangeiro(String sexo, String escolaridade, String statusEscolaridade,
                                                     String paisNaturalidade, String nomeMae, String documentoProponente,
                                                     String numeroDocumento, String dataExpedicao,
-                                                    String validade, String uf, String orgaoEmissor) throws InterruptedException {
+                                                    String validade, String uf, String orgaoEmissor) {
 
 
-        Thread.sleep(5000);
+        esperar(5000);
         clicarElemento(areaDadosAdicionais);
         selecionarSexo(sexo);
         selecionarEscolaridade(escolaridade);
@@ -557,8 +556,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         selecionarDocumentoProponente(documentoProponente, validade);
         inserirValor(campoNumeroDocumento, numeroDocumento);
         inserirValor(campoDataExpedicao, dataExpedicao);
-        System.out.println(uf);
-        Thread.sleep(5000);
+        esperar(5000);
         clicarElemento(comboUfDocumentoProponente);
         WebElement e = Utils.getDriver().findElement(By.xpath(String.format("//span[contains(text(), '%s')]/..", uf.toUpperCase())));
         e.click();
@@ -570,7 +568,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     public void preencherDadosProfissionais(String naturezaOcupacao, String dataAdmissao, String rendaMensal, String outrasRendas,
                                             String origem, String atividadePrincipal, String tipoDeTransporte, String cooperativa,
-                                            String nomeEmpresa, String cnpjEmpresa, String somaFaturamento) throws InterruptedException {
+                                            String nomeEmpresa, String cnpjEmpresa, String somaFaturamento) {
         selecionarNaturezaOcupacao(naturezaOcupacao);
         esperar(3000);
         peencherNaturezaOcupacao(naturezaOcupacao);
@@ -634,8 +632,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         clicarElemento(btnContinuarAvisoSeguro, 90);
     }
 
-    public void selecionarNaoDesejoSeguroVeiculo()  {
-        esperar(21000);
+    public void selecionarNaoDesejoSeguroVeiculo() {
+        esperar(22000);
         checkNaoDesejoSeguro.click();
         esperar(500);
         btnContinuarSeguro.click();
@@ -643,9 +641,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     public void EnviarPropostaDeCredito() {
         esperar(9000);
-        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();",checkAceitarTermoJuridico);
+        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", checkAceitarTermoJuridico);
         esperar(2000);
-        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();",btnEnviarPropostaCredito);
+        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", btnEnviarPropostaCredito);
     }
 
     public void preencherVendedor(String vendedor) {
@@ -891,9 +889,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             inserirValor(campoOutrasRendas, outrasRendas);
     }
 
-    private void selecionarNaturezaOcupacao(String naturezaOcupacao) throws InterruptedException {
+    private void selecionarNaturezaOcupacao(String naturezaOcupacao) {
         clicarElemento(comboNaturezaOcupacao);
-        Thread.sleep(3000);
+        esperar(3000);
         if (naturezaOcupacao.equalsIgnoreCase("Profissional Liberal Autonomo"))
             clicarElemento(opcaoComboNaturezaOcupacaoProfissionalLiberalAutonomo);
         if (naturezaOcupacao.equalsIgnoreCase("Empregado no Setor Privado"))
@@ -932,8 +930,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             opcaoComboNaturezaOcupacaoOutros.click();
     }
 
-    private void selecionarUfDocumentoProponente(String uf) throws InterruptedException {
-        Thread.sleep(10000);
+    private void selecionarUfDocumentoProponente(String uf) {
+        esperar(10000);
         clicarElemento(comboUfDocumentoProponente);
         WebElement e = Utils.getDriver().findElement(By.xpath(String.format("//span[contains(text(), '%s')]/..", uf.toUpperCase())));
         e.click();
@@ -963,16 +961,16 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboDocumentoProponenteRne);
     }
 
-    private void selecionarNaturalidadeCidade(String naturalidadeCidade) throws InterruptedException {
-        Thread.sleep(15000);
+    private void selecionarNaturalidadeCidade(String naturalidadeCidade) {
+        esperar(15000);
         clicarElemento(comboNaturalidadeCidade);
         if (naturalidadeCidade.equalsIgnoreCase("barueri")) {
             opcaoComboNaturalidadeCidadeBarueri.click();
         }
     }
 
-    private void selecionarNaturalidadeEstado(String naturalidadeEstado) throws InterruptedException {
-        Thread.sleep(7000);
+    private void selecionarNaturalidadeEstado(String naturalidadeEstado) {
+        esperar(7000);
         clicarElemento(comboNaturalidadeEstado, 20);
         if (naturalidadeEstado.equalsIgnoreCase("são paulo")
                 || naturalidadeEstado.equalsIgnoreCase("sao paulo")

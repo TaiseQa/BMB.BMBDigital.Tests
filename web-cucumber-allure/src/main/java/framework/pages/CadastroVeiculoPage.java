@@ -143,7 +143,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboModeloVeiculoGLC43CoupeBlind, 60);
     }
 
-    private void selecionarAcessorioVeiculo(String acessorioVeiculo) throws InterruptedException {
+    private void selecionarAcessorioVeiculo(String acessorioVeiculo) {
         clicarElemento(comboTipoAcessorio, 60);
         if(acessorioVeiculo.equalsIgnoreCase("4 DIRECIONAL MECANICO"))
             clicarElemento(opcaoComboTipoAcessorio4DirecionalMecanico, 60);
@@ -159,7 +159,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
         if(estadoVeiculo.equalsIgnoreCase("novo"))
             checkEstadoVeiculoNovo.click();
         selecionarModeloVeiculo(modelo);
-        esperar(3000);
+        esperar(5000);
         if(adicionarAcessorio.equalsIgnoreCase("sim")) {
             checkTemAcessorioAdicional.click();
             selecionarAcessorioVeiculo(acessorio);
