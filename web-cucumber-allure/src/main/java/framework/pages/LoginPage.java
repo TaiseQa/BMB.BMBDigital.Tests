@@ -62,7 +62,7 @@ public class LoginPage extends InteracoesTelaWeb {
         ignorarCertificado();
         preencherLoginForm(usuario, senha);
         clicarBotaoLogin();
-//        escolherConcessionario();
+        escolherConcessionario();
         fecharJanelaCampanha();
     }
 
@@ -76,9 +76,11 @@ public class LoginPage extends InteracoesTelaWeb {
     }
 
     public void escolherConcessionario() {
-        clicarElemento(inputComboConcessionario);
-        clicarElemento(segundaOpCombo);
-        clicarElemento(btnContinuar);
+        if (verificarExistenciaComboConssecionario()) {
+            clicarElemento(inputComboConcessionario);
+            clicarElemento(segundaOpCombo);
+            clicarElemento(btnContinuar);
+        }
     }
 
     public void clicarBotaoLogin() {
@@ -93,7 +95,17 @@ public class LoginPage extends InteracoesTelaWeb {
     public boolean verificarexistenciaModalcampanha() {
         try {
             Utils.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-            return Utils.getDriver().findElements(By.cssSelector("card show")).size() == 0;
+            return Utils.getDriver().findElements(By.cssSelector("card show")).size() > 0;
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean verificarExistenciaComboConssecionario() {
+        try {
+            Utils.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            return Utils.getDriver().findElements(By.xpath("//app-login//ngx-select")).size() > 0;
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             return false;
@@ -101,7 +113,7 @@ public class LoginPage extends InteracoesTelaWeb {
     }
 
     public void fecharJanelaCampanha() {
-        esperar(10000);
+        esperar(15000);
         if (verificarexistenciaModalcampanha()) {
             clicarElemento(closeModal);
         }

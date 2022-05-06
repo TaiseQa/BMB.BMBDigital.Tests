@@ -446,6 +446,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     //******** MÉTODOS NOVO CLIENTE ********************//
 
     public void preencheCpfCnpj(String cpfCnpj) {
+        esperar(5000);
         inserirValor(campoCpfCnpj, cpfCnpj, 20);
         clicarElemento(btnSelecionarCpfCnpj);
     }
@@ -455,7 +456,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular, String estadoCivil) throws InterruptedException {
-        esperar(6500);
+        esperar(9500);
         inserirValor(campoNome, nome);
         inserirValor(campoDataNascimento, dataNascimento);
         inserirValor(campoEmail, email);
