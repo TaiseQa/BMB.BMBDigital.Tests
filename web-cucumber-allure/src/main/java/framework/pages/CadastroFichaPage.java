@@ -446,7 +446,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     //******** MÉTODOS NOVO CLIENTE ********************//
 
     public void preencheCpfCnpj(String cpfCnpj) {
-        esperar(5000);
+        elementoExiste();
         inserirValor(campoCpfCnpj, cpfCnpj, 20);
         clicarElemento(btnSelecionarCpfCnpj);
     }
@@ -456,7 +456,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular, String estadoCivil) throws InterruptedException {
-        esperar(9500);
+        elementoExiste();
+        esperar(1000);
         inserirValor(campoNome, nome);
         inserirValor(campoDataNascimento, dataNascimento);
         inserirValor(campoEmail, email);
@@ -634,7 +635,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void selecionarNaoDesejoSeguroVeiculo() {
-        esperar(22000);
+        elementoExiste();
         checkNaoDesejoSeguro.click();
         esperar(500);
         btnContinuarSeguro.click();
@@ -658,7 +659,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void clicarBotaoConfirmarEnvioPropostaCredito() {
-        aguardarVisibilidade(buttonOkModalPropostaCredito);
+        aguardarVisibilidade(buttonOkModalPropostaCredito,15);
         esperar(1000);
         clicarElemento(btnConfirmarEnvioPropostaCredito);
     }

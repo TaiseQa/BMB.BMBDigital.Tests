@@ -5,10 +5,13 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class InteracoesTelaWeb {
@@ -513,9 +516,51 @@ public class InteracoesTelaWeb {
         }
     }
 
-    protected void esperarElementoLoadSumir() {
-        wait = new WebDriverWait(driver, 30);
-        WebElement element = driver.findElement(By.xpath("//app-interceptor//aside[not(@hidden)]"));
-        wait.until(ExpectedConditions.invisibilityOf(element));
+    protected boolean existe() {
+        try {
+            return driver.findElements(By.xpath("//app-interceptor//aside[not(@hidden)]")).size() == 0;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    public void elementoExiste() {
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua(driver);
+
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    }
+
+    private void seCarregamentoForVisivelAguardaEleSumirSeNaoContinua(WebDriver webDriver) {
+        try {
+            new FluentWait<>(webDriver)
+                    .withTimeout(Duration.ofSeconds(60))
+                    .pollingEvery(Duration.ofSeconds(3))
+                    .ignoring(NoSuchElementException.class)
+                    .until(this::seCarremanetoForVisivelAguardaEleNaoSer);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Boolean seCarremanetoForVisivelAguardaEleNaoSer(WebDriver webDriver) {
+        WebElement carregando = encontraCarregandoSeNaoNulo(webDriver);
+        if(Objects.nonNull(carregando)) {
+            new FluentWait<>(carregando)
+                    .withTimeout(Duration.ofSeconds(30))
+                    .pollingEvery(Duration.ofSeconds(1))
+                    .until(ExpectedConditions::invisibilityOf);
+            return true;
+        }
+        return false;
+    }
+
+    private WebElement encontraCarregandoSeNaoNulo(WebDriver webDriver) {
+        try {
+            return webDriver.findElement(By.xpath("//app-interceptor//aside[not(@hidden)]"));
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
