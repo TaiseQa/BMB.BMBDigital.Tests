@@ -137,7 +137,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
     }
 
     private void selecionarModeloVeiculo(String modeloVeiculo) throws InterruptedException {
-        Thread.sleep(15000);
+        Thread.sleep(25000);
         clicarElemento(comboModeloVeiculo, 60);
         if(modeloVeiculo.equalsIgnoreCase("GLC 43 COUPE AMG 3.0 V6 BI-TB 4MATIC Gas. 4P Blind"))
             clicarElemento(opcaoComboModeloVeiculoGLC43CoupeBlind, 60);

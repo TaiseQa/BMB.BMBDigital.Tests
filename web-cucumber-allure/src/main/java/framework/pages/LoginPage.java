@@ -8,9 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.NoSuchElementException;
-import java.util.concurrent.TimeUnit;
-
 public class LoginPage extends InteracoesTelaWeb {
 
     @FindBy(how = How.NAME, id = "details-button")
@@ -93,29 +90,20 @@ public class LoginPage extends InteracoesTelaWeb {
     }
 
     public boolean verificarexistenciaModalcampanha() {
-        try {
-            Utils.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-            return !Utils.getDriver().findElements(By.cssSelector("card show")).isEmpty();
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            return false;
-        }
+        return !Utils.getDriver().findElements(By.xpath("//app-notifications-modal//div[@class='d-flex title']")).isEmpty();
     }
 
     public boolean verificarExistenciaComboConssecionario() {
-        try {
-            Utils.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-            return !Utils.getDriver().findElements(By.xpath("//app-login//ngx-select")).isEmpty();
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            return false;
-        }
+        return !Utils.getDriver().findElements(By.xpath("//app-login//ngx-select")).isEmpty();
     }
 
     public void fecharJanelaCampanha() {
-        elementoExiste();
+        esperar(25000);
         if (verificarexistenciaModalcampanha()) {
             clicarElemento(closeModal);
+        } else {
+            clicarElemento(closeModal);
+
         }
     }
 

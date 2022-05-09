@@ -516,14 +516,6 @@ public class InteracoesTelaWeb {
         }
     }
 
-    protected boolean existe() {
-        try {
-            return driver.findElements(By.xpath("//app-interceptor//aside[not(@hidden)]")).size() == 0;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
     public void elementoExiste() {
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
@@ -546,7 +538,7 @@ public class InteracoesTelaWeb {
 
     private Boolean seCarremanetoForVisivelAguardaEleNaoSer(WebDriver webDriver) {
         WebElement carregando = encontraCarregandoSeNaoNulo(webDriver);
-        if(Objects.nonNull(carregando)) {
+        if (Objects.nonNull(carregando)) {
             new FluentWait<>(carregando)
                     .withTimeout(Duration.ofSeconds(30))
                     .pollingEvery(Duration.ofSeconds(1))

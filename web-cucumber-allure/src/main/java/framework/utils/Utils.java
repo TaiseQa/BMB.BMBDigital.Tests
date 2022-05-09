@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class Utils {
 
     private static WebDriver driver;
-    private static WebDriverWait wait;
+    public static WebDriverWait wait;
 
     private Utils() {
 

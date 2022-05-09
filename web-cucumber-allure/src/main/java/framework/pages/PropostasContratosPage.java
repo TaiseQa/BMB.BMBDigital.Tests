@@ -31,7 +31,7 @@ public class PropostasContratosPage extends InteracoesTelaWeb {
     }
 
     public CadastroFichaPage clicarBotaoNovaFicha() {
-        esperar(7000);
+        esperar(10000);
         ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", btnNovaFicha);
         return new CadastroFichaPage();
     }
