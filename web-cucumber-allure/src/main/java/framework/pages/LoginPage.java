@@ -98,13 +98,12 @@ public class LoginPage extends InteracoesTelaWeb {
     }
 
     public void fecharJanelaCampanha() {
-        esperar(25000);
+        esperandoElementoSumir();
+        esperar(1000);
         if (verificarexistenciaModalcampanha()) {
             clicarElemento(closeModal);
         } else {
             clicarElemento(closeModal);
-
         }
     }
-
 }

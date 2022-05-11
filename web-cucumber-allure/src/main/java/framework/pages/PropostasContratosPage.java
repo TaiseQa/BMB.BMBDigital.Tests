@@ -24,14 +24,14 @@ public class PropostasContratosPage extends InteracoesTelaWeb {
         PageFactory.initElements(Utils.getDriver(), this);
     }
 
-    public CadastroVeiculoPage clicarBotaoNovaSimulacao() throws InterruptedException {
-        Thread.sleep(30000);
+    public CadastroVeiculoPage clicarBotaoNovaSimulacao()  {
+        esperandoElementoSumir();
         clicarElemento(btnNovaSimulacao, 90);
         return new CadastroVeiculoPage();
     }
 
     public CadastroFichaPage clicarBotaoNovaFicha() {
-        esperar(10000);
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", btnNovaFicha);
         return new CadastroFichaPage();
     }

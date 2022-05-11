@@ -63,28 +63,28 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @Dado("que preencho os campos de identificação do cliente")
-    public void preenchoOsCamposDeIdentificacaoDoCliente(DataTable identificacaoCliente) throws InterruptedException {
+    public void preenchoOsCamposDeIdentificacaoDoCliente(DataTable identificacaoCliente)  {
         List<Map<String, String>> map = identificacaoCliente.asMaps(String.class, String.class);
         cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
     }
 
     @E("preencho os campos de endereço")
-    public void preenchoOsCamposDeEndereco(DataTable endereco) throws InterruptedException {
+    public void preenchoOsCamposDeEndereco(DataTable endereco) {
         List<Map<String, String>> map = endereco.asMaps(String.class, String.class);
         cadastroFichaPage.preencherCamposEndereco(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"),
                 map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"));
     }
 
     @E("preencho os campos de endereço sem cep comercial")
-    public void preenchoOsCamposDeEnderecoSemCepComercial(DataTable dataTable) throws InterruptedException {
+    public void preenchoOsCamposDeEnderecoSemCepComercial(DataTable dataTable) {
         List<Map<String, String>> map = dataTable.asMaps(String.class, String.class);
         cadastroFichaPage.preencherCamposEndereco(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"),
                 map.get(3).get("Valor"), map.get(4).get("Valor"));
     }
 
     @E("preencho as informações de Dados adicionais:")
-    public void preenchoAsInformacoesDeDadosAdicionais(DataTable dadosAdicionais) throws InterruptedException {
+    public void preenchoAsInformacoesDeDadosAdicionais(DataTable dadosAdicionais) {
         List<Map<String, String>> map = dadosAdicionais.asMaps(String.class, String.class);
         cadastroFichaPage.preencherDadosAdicionais(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"),
                 map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"), map.get(6).get("Valor"),
@@ -94,7 +94,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @E("preencho o formulário de Dados profissionais:")
-    public void preenchoOFormularioDeDadosProfissionais(DataTable dadosProfissionais) throws InterruptedException {
+    public void preenchoOFormularioDeDadosProfissionais(DataTable dadosProfissionais) {
         List<Map<String, String>> map = dadosProfissionais.asMaps(String.class, String.class);
         cadastroFichaPage.preencherDadosProfissionais(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"),
                 map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(7).get("Valor"), map.get(8).get("Valor"), map.get(9).get("Valor"), map.get(10).get("Valor"));
@@ -102,7 +102,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @E("preencho o formulário de Declaração de exposição política:")
-    public void preenchoOFormularioDeDeclaracaoDeExposicaoPolitica(DataTable declaracao) throws InterruptedException {
+    public void preenchoOFormularioDeDeclaracaoDeExposicaoPolitica(DataTable declaracao) {
         List<Map<String, String>> map = declaracao.asMaps(String.class, String.class);
         cadastroFichaPage.preencherDeclaracaoExposicaoPolitica(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"));
@@ -114,16 +114,16 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @E("clico no botão Salvar Cliente")
-    public void clicoNoBotaoSalvarCliente() throws InterruptedException {
+    public void clicoNoBotaoSalvarCliente() {
         cadastroVeiculoPage = cadastroFichaPage.clicarSalvarCliente();
     }
 
     @Então("quando estou na tela de simulação do financiamento")
-    public void quandoEstouNaSegundaTelaDeSimulacaoDoFinanciamento() throws InterruptedException {
+    public void quandoEstouNaSegundaTelaDeSimulacaoDoFinanciamento() {
     }
 
     @E("preencho os campos de veiculo:")
-    public void preenchoOsCamposDeVeiculo(DataTable veiculo) throws InterruptedException {
+    public void preenchoOsCamposDeVeiculo(DataTable veiculo) {
         List<Map<String, String>> map = veiculo.asMaps(String.class, String.class);
         cadastroVeiculoPage = new CadastroVeiculoPage();
         cadastroVeiculoPage.preencherCamposVeiculo(map.get(0).get("Valor"),
@@ -133,7 +133,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @E("preencho o formulário de Financiamento")
-    public void preenchoOFormularioDeFinanciamento(DataTable financiamento) throws InterruptedException {
+    public void preenchoOFormularioDeFinanciamento(DataTable financiamento) {
         List<Map<String, String>> map = financiamento.asMaps(String.class, String.class);
         cadastroVeiculoPage.preencherFinanciamento(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"),
@@ -151,7 +151,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @E("clico no botão Gerar Simulação")
-    public void clicoNoBotaoGerarSimulacao() throws InterruptedException {
+    public void clicoNoBotaoGerarSimulacao() {
         cadastroVeiculoPage.clicarGerarSimulacao();
     }
 
@@ -168,17 +168,17 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @E("o sistema informa a não solicitação de seguro do veículo")
-    public void oSistemaHabilitaASolicitacaoDeSeguroDoVeiculo() throws InterruptedException {
+    public void oSistemaHabilitaASolicitacaoDeSeguroDoVeiculo() {
         cadastroFichaPage.habilitarSolicitacaoSeguroVeiculo();
     }
 
     @E("seleciono que não desejo o seguro do veículo")
-    public void selecionoQueNaoDesejoOSegudoDoVeiculo() throws InterruptedException {
+    public void selecionoQueNaoDesejoOSegudoDoVeiculo() {
         cadastroFichaPage.selecionarNaoDesejoSeguroVeiculo();
     }
 
     @E("clico no botão ENVIAR PROPOSTA DE CRÉDITO")
-    public void clicoNoBotaoENVIARPROPOSTADECREDITO() throws InterruptedException {
+    public void clicoNoBotaoENVIARPROPOSTADECREDITO() {
         cadastroFichaPage.EnviarPropostaDeCredito();
     }
 
@@ -188,12 +188,12 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @E("clico no botão ENVIAR")
-    public void clicoNoBotaoENVIAR() throws InterruptedException {
+    public void clicoNoBotaoENVIAR() {
         cadastroFichaPage.clicarBotaoEnviarVendedor();
     }
 
     @E("confirmo o envio de proposta de crédito")
-    public void confirmoOEnvioDePropostaDeCredito() throws InterruptedException {
+    public void confirmoOEnvioDePropostaDeCredito() {
         cadastroFichaPage.clicarBotaoConfirmarEnvioPropostaCredito();
     }
 
@@ -213,28 +213,28 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @E("preencho o formulário de avalista")
-    public void preenchoOFormularioDeAvalista(DataTable avalista) throws InterruptedException {
+    public void preenchoOFormularioDeAvalista(DataTable avalista) {
         List<Map<String, String>> map = avalista.asMaps(String.class, String.class);
         cadastroFichaPage.preencherCamposAvalista(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
     }
 
     @Quando("que preencho os campos de identificação do cliente e cônjuge")
-    public void quePreenchoOsCamposDeIdentificaçãoDoClienteECônjuge(DataTable clienteConjuge) throws InterruptedException {
+    public void quePreenchoOsCamposDeIdentificaçãoDoClienteECônjuge(DataTable clienteConjuge) {
         List<Map<String, String>> map = clienteConjuge.asMaps(String.class, String.class);
         cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
         cadastroFichaPage.preencherIdentificacaoConjuge(map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(8).get("Valor"));
     }
 
     @E("que preencho os campos de identificação do cliente e cônjuge sem regime de casamento")
-    public void quePreenchoOsCamposDeIdentificaçãoDoClienteECônjugeSemRegimeDeCasamento(DataTable clienteConjuge) throws InterruptedException {
+    public void quePreenchoOsCamposDeIdentificaçãoDoClienteECônjugeSemRegimeDeCasamento(DataTable clienteConjuge) {
         List<Map<String, String>> map = clienteConjuge.asMaps(String.class, String.class);
         cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
         cadastroFichaPage.preencherIdentificacaoConjuge(map.get(5).get("Valor"), map.get(7).get("Valor"));
     }
 
     @E("preencho as informações de Dados adicionais para naturalidade estrangeira:")
-    public void preenchoAsInformaçõesDeDadosAdicionaisParaNaturalidadeEstrangeira(DataTable dadosAdicionaisEstrangeiros) throws InterruptedException {
+    public void preenchoAsInformaçõesDeDadosAdicionaisParaNaturalidadeEstrangeira(DataTable dadosAdicionaisEstrangeiros) {
         List<Map<String, String>> map = dadosAdicionaisEstrangeiros.asMaps(String.class, String.class);
         cadastroFichaPage.preencherDadosAdicionaisEstrangeiro(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"),

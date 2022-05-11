@@ -11,8 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 public class InteracoesTelaWeb {
 
@@ -516,43 +514,35 @@ public class InteracoesTelaWeb {
         }
     }
 
-    public void elementoExiste() {
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+    public void seCarregamentoForVisivelAguardaEleSumirSeNaoContinua() {
+        FluentWait<WebDriver> wait1 = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(40))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class);
 
-        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua(driver);
-
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-    }
-
-    private void seCarregamentoForVisivelAguardaEleSumirSeNaoContinua(WebDriver webDriver) {
-        try {
-            new FluentWait<>(webDriver)
-                    .withTimeout(Duration.ofSeconds(60))
-                    .pollingEvery(Duration.ofSeconds(3))
-                    .ignoring(NoSuchElementException.class)
-                    .until(this::seCarremanetoForVisivelAguardaEleNaoSer);
-        } catch (Exception e) {
-            e.printStackTrace();
+        Boolean foo = wait1.until(webDriver ->
+                driver.findElement(By.xpath("//app-interceptor")).getAttribute("innerHTML").contains("hidden=\"\">"));
+        boolean existe = false;
+        while (!existe) {
+            existe = foo;
         }
+
     }
 
-    private Boolean seCarremanetoForVisivelAguardaEleNaoSer(WebDriver webDriver) {
-        WebElement carregando = encontraCarregandoSeNaoNulo(webDriver);
-        if (Objects.nonNull(carregando)) {
-            new FluentWait<>(carregando)
-                    .withTimeout(Duration.ofSeconds(30))
-                    .pollingEvery(Duration.ofSeconds(1))
-                    .until(ExpectedConditions::invisibilityOf);
-            return true;
-        }
-        return false;
-    }
+    public void esperandoElementoSumir() {
+        FluentWait<WebDriver> fwait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(40))
+                .pollingEvery(Duration.ofSeconds(3))
+                .ignoring(NoSuchElementException.class, TimeoutException.class)
+                .ignoring(StaleElementReferenceException.class);
+        WebElement element = driver.findElement(By.xpath("//app-interceptor//aside[not(@hidden)]"));
+        for (int i = 0; i < 5; i++) {
+            try {
+                fwait.until(ExpectedConditions.invisibilityOf(element));
 
-    private WebElement encontraCarregandoSeNaoNulo(WebDriver webDriver) {
-        try {
-            return webDriver.findElement(By.xpath("//app-interceptor//aside[not(@hidden)]"));
-        } catch (Exception e) {
-            return null;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -446,7 +446,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     //******** MÉTODOS NOVO CLIENTE ********************//
 
     public void preencheCpfCnpj(String cpfCnpj) {
-        esperar(20000);
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         inserirValor(campoCpfCnpj, cpfCnpj, 20);
         clicarElemento(btnSelecionarCpfCnpj);
     }
@@ -455,8 +455,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         return obterValorTexto(mensagemErro);
     }
 
-    public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular, String estadoCivil) throws InterruptedException {
-        esperar(30000);
+    public void preencherIdentificacaoCliente(String nome, String dataNascimento, String email, String celular, String estadoCivil) {
+        esperandoElementoSumir();
         inserirValor(campoNome, nome);
         inserirValor(campoDataNascimento, dataNascimento);
         inserirValor(campoEmail, email);
@@ -464,7 +464,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         selecionarEstadoCivil(estadoCivil);
     }
 
-    public void preencherIdentificacaoConjuge(String regimeCasamento, String nome, String data) throws InterruptedException {
+    public void preencherIdentificacaoConjuge(String regimeCasamento, String nome, String data) {
         GeraCpfCnpj geraCpfCnpj = new GeraCpfCnpj();
         if (!regimeCasamento.isEmpty()) {
             selecionarRegimeCasamento(regimeCasamento);
@@ -474,7 +474,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         inserirValor(campoDataNascimentoConjuge, data);
     }
 
-    public void preencherIdentificacaoConjuge(String nome, String data) throws InterruptedException {
+    public void preencherIdentificacaoConjuge(String nome, String data) {
         GeraCpfCnpj geraCpfCnpj = new GeraCpfCnpj();
         inserirValor(campoNomeConjuge, nome);
         inserirValor(campoCpfConjuge, geraCpfCnpj.cpf(false));
@@ -482,21 +482,21 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void preencherCamposEndereco(String cep, String numero, String complemento, String tipoResidencia,
-                                        String tempoResidencia, String cepComercial) throws InterruptedException {
+                                        String tempoResidencia, String cepComercial) {
 
         inserirValor(campoCep, cep);
         inserirValor(campoNumero, numero);
-        Thread.sleep(5000);
+        esperar(5000);
         inserirValor(campoComplemento, complemento);
         selecionarTipoResidencia(tipoResidencia);
         campoTempoDeResidencia.clear();
-        Thread.sleep(5000);
+        esperar(5000);
         campoTempoDeResidencia.sendKeys(tempoResidencia);
         inserirValor(campoCepComercial, cepComercial);
     }
 
     public void preencherCamposEndereco(String cep, String numero, String complemento, String tipoResidencia,
-                                        String tempoResidencia) throws InterruptedException {
+                                        String tempoResidencia) {
         inserirValor(campoCep, cep);
         inserirValor(campoNumero, numero);
         esperar(3000);
@@ -586,7 +586,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         peencherSomaFaturamento(somaFaturamento, naturezaOcupacao);
     }
 
-    public void preencherDeclaracaoExposicaoPolitica(String funcao, String funcaoExercida, String parentesco, String grauParentesco) throws InterruptedException {
+    public void preencherDeclaracaoExposicaoPolitica(String funcao, String funcaoExercida, String parentesco, String grauParentesco) {
         selecionarSeDesempenhouCargoPolitico(funcao);
         if (checkDesempenhaCargoPolitico.isSelected()) {
             esperar(3000);
@@ -606,7 +606,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
 
-    public CadastroVeiculoPage clicarSalvarCliente() throws InterruptedException {
+    public CadastroVeiculoPage clicarSalvarCliente() {
         btnSalvarCliente.click();
         aguardarVisibilidade(textoClienteCriado, 90);
         clicarElemento(btnConfirmarClienteSalvo, 90);
@@ -627,14 +627,15 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         clicarElemento(btnContinuarFluxoFinanceiro);
     }
 
-    public void habilitarSolicitacaoSeguroVeiculo() throws InterruptedException {
+    public void habilitarSolicitacaoSeguroVeiculo() {
         aguardarVisibilidade(modalAtencao);
         esperar(500);
         clicarElemento(btnContinuarAvisoSeguro, 90);
     }
 
     public void selecionarNaoDesejoSeguroVeiculo() {
-        esperar(25000);
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        esperar(8000);
         checkNaoDesejoSeguro.click();
         esperar(500);
         btnContinuarSeguro.click();
@@ -658,7 +659,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void clicarBotaoConfirmarEnvioPropostaCredito() {
-        aguardarVisibilidade(buttonOkModalPropostaCredito,15);
+        aguardarVisibilidade(buttonOkModalPropostaCredito, 15);
         esperar(1000);
         clicarElemento(btnConfirmarEnvioPropostaCredito);
     }
@@ -679,11 +680,11 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void preencherCamposAvalista(String haveraAvalista, String cpf, String nome, String naturezaOcupacao,
-                                        String estadoCivil) throws InterruptedException {
+                                        String estadoCivil) {
         GeraCpfCnpj geraCpfCnpj = new GeraCpfCnpj();
         if (haveraAvalista.equalsIgnoreCase("haverá um avalista") || haveraAvalista.equalsIgnoreCase("havera um avalista"))
             campoHaveraAvalista.click();
-        Thread.sleep(30000);
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         inserirValor(campoCpfAvalista, geraCpfCnpj.cpf(false), 30);
         campoNomeAvalista.sendKeys(nome);
         selecionarNaturezaOcupacaoAvalista(naturezaOcupacao);
@@ -693,10 +694,10 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     //******** MÉTODOS AUXILIARES ********************//
 
 
-    private void selecionarTipoResidencia(String tipoResidencia) throws InterruptedException {
-        Thread.sleep(5000);
+    private void selecionarTipoResidencia(String tipoResidencia) {
+        esperar(5000);
         clicarElemento(comboTipoResidencia, 20);
-        Thread.sleep(2000);
+        esperar(2000);
         if (tipoResidencia.equalsIgnoreCase("propria") ||
                 tipoResidencia.equalsIgnoreCase("própia"))
             clicarElemento(opcaoComboTipoResidenciaPropria);
@@ -704,8 +705,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboTipoResidenciaAlugada);
     }
 
-    private void selecionarRegimeCasamento(String regimeCasamento) throws InterruptedException {
-        Thread.sleep(5000);
+    private void selecionarRegimeCasamento(String regimeCasamento) {
+        esperar(5000);
         clicarElemento(comboRegimeCasamento, 20);
         if (regimeCasamento.equalsIgnoreCase("Comunhão Total de Bens") ||
                 regimeCasamento.equalsIgnoreCase("Comunhao Total de Bens"))
@@ -917,10 +918,10 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
             clicarElemento(opcaoComboNaturezaOcupacaoCapitalista, 30);
     }
 
-    private void selecionarNaturezaOcupacaoAvalista(String naturezaOcupacao) throws InterruptedException {
-        Thread.sleep(2000);
+    private void selecionarNaturezaOcupacaoAvalista(String naturezaOcupacao) {
+        esperar(5000);
         clicarElemento(comboNaturezaOcupacaoAvalista);
-        Thread.sleep(1000);
+        esperar(1000);
         if (naturezaOcupacao.equalsIgnoreCase("Profissional Liberal Autonomo"))
             opcaoComboNaturezaOcupacaoAvalistaProfissionalLiberalAutonomo.click();
         if (naturezaOcupacao.equalsIgnoreCase("Empregado no Setor Privado"))

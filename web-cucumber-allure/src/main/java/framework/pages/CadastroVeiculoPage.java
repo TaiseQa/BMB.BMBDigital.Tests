@@ -123,8 +123,8 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
 
     //******** MÉTODOS VEICULOS ********************//
 
-    private void selecionarAnoFabricacao(String ano) throws InterruptedException {
-        Thread.sleep(5000);
+    private void selecionarAnoFabricacao(String ano)  {
+        esperar(8000);
         clicarElemento(comboAnoFabricacao,20);
         if(ano.equalsIgnoreCase("2022"))
             clicarElemento(opcaoComboAnoFabricacao2022,20);
@@ -136,8 +136,8 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
             opcaoComboTipoVeiculoCarroPasseio.click();
     }
 
-    private void selecionarModeloVeiculo(String modeloVeiculo) throws InterruptedException {
-        Thread.sleep(25000);
+    private void selecionarModeloVeiculo(String modeloVeiculo) {
+        esperar(20000);
         clicarElemento(comboModeloVeiculo, 60);
         if(modeloVeiculo.equalsIgnoreCase("GLC 43 COUPE AMG 3.0 V6 BI-TB 4MATIC Gas. 4P Blind"))
             clicarElemento(opcaoComboModeloVeiculoGLC43CoupeBlind, 60);
@@ -151,16 +151,17 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
 
     public void preencherCamposVeiculo(String anoFabricacao, String tipoVeiculo, String estadoVeiculo,
                                        String modelo, String valor, String quantidade, String adicionarAcessorio,
-                                       String acessorio, String valorAcessorio) throws InterruptedException {
+                                       String acessorio, String valorAcessorio) {
         selecionarAnoFabricacao(anoFabricacao);
-        esperar(8000);
+        esperandoElementoSumir();
+        esperar(1000);
         clicarElemento(comboAnoModelo, 90);
         selecionarTipoVeiculo(tipoVeiculo);
         if(estadoVeiculo.equalsIgnoreCase("novo"))
             checkEstadoVeiculoNovo.click();
         selecionarModeloVeiculo(modelo);
-        esperar(5000);
         if(adicionarAcessorio.equalsIgnoreCase("sim")) {
+            esperandoElementoSumir();
             checkTemAcessorioAdicional.click();
             selecionarAcessorioVeiculo(acessorio);
             inserirValor(campoValorAcessorio, valorAcessorio, 60);
@@ -232,7 +233,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
     }
 
 
-    public void clicarGerarSimulacao() throws InterruptedException {
+    public void clicarGerarSimulacao() {
         clicarElemento(btnGerarSimulacao);
         esperar(3000);
     }
