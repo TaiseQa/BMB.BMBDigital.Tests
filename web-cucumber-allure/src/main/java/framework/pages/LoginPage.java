@@ -3,10 +3,13 @@ package framework.pages;
 import framework.utils.Utils;
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends InteracoesTelaWeb {
 
@@ -90,11 +93,25 @@ public class LoginPage extends InteracoesTelaWeb {
     }
 
     public boolean verificarexistenciaModalcampanha() {
-        return !Utils.getDriver().findElements(By.xpath("//app-notifications-modal//div[@class='d-flex title']")).isEmpty();
+        WebElement element = Utils.getDriver().findElement(By.xpath("//app-notifications-modal//div[@class='d-flex title']"));
+        try {
+            Utils.wait.until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public boolean verificarExistenciaComboConssecionario() {
-        return !Utils.getDriver().findElements(By.xpath("//app-login//ngx-select")).isEmpty();
+        WebElement element = Utils.getDriver().findElement(By.xpath("//app-login//ngx-select"));
+        try {
+            Utils.wait.until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public void fecharJanelaCampanha() {
