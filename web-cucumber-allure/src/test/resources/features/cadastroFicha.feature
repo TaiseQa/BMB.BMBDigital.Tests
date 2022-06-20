@@ -192,7 +192,7 @@ Funcionalidade: Nova Ficha
       |Campanha                     |15885 - PC Taxa- 0% a.m JAN/2022|
       |Prazo                        |12|
       |Carencia                     |0|
-      |Valor de entrada             |38505000|
+      |Valor de entrada             |38799250|
       |Prestamista                  |Nao|
       |Garantia Estendida           |000|
       |Simular seguro do veiculo    |Nao|

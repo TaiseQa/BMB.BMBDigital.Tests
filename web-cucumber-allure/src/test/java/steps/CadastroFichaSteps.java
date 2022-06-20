@@ -63,7 +63,7 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @Dado("que preencho os campos de identificação do cliente")
-    public void preenchoOsCamposDeIdentificacaoDoCliente(DataTable identificacaoCliente)  {
+    public void preenchoOsCamposDeIdentificacaoDoCliente(DataTable identificacaoCliente) {
         List<Map<String, String>> map = identificacaoCliente.asMaps(String.class, String.class);
         cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
@@ -220,21 +220,21 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     }
 
     @Quando("que preencho os campos de identificação do cliente e cônjuge")
-    public void quePreenchoOsCamposDeIdentificaçãoDoClienteECônjuge(DataTable clienteConjuge) {
+    public void quePreenchoOsCamposDeIdentificacaoDoClienteEConjuge(DataTable clienteConjuge) {
         List<Map<String, String>> map = clienteConjuge.asMaps(String.class, String.class);
         cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
         cadastroFichaPage.preencherIdentificacaoConjuge(map.get(5).get("Valor"), map.get(6).get("Valor"), map.get(8).get("Valor"));
     }
 
     @E("que preencho os campos de identificação do cliente e cônjuge sem regime de casamento")
-    public void quePreenchoOsCamposDeIdentificaçãoDoClienteECônjugeSemRegimeDeCasamento(DataTable clienteConjuge) {
+    public void quePreenchoOsCamposDeIdentificacaoDoClienteEConjugeSemRegimeDeCasamento(DataTable clienteConjuge) {
         List<Map<String, String>> map = clienteConjuge.asMaps(String.class, String.class);
         cadastroFichaPage.preencherIdentificacaoCliente(map.get(0).get("Valor"), map.get(1).get("Valor"), map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"));
         cadastroFichaPage.preencherIdentificacaoConjuge(map.get(5).get("Valor"), map.get(7).get("Valor"));
     }
 
     @E("preencho as informações de Dados adicionais para naturalidade estrangeira:")
-    public void preenchoAsInformaçõesDeDadosAdicionaisParaNaturalidadeEstrangeira(DataTable dadosAdicionaisEstrangeiros) {
+    public void preenchoAsInformacoesDeDadosAdicionaisParaNaturalidadeEstrangeira(DataTable dadosAdicionaisEstrangeiros) {
         List<Map<String, String>> map = dadosAdicionaisEstrangeiros.asMaps(String.class, String.class);
         cadastroFichaPage.preencherDadosAdicionaisEstrangeiro(map.get(0).get("Valor"), map.get(1).get("Valor"),
                 map.get(2).get("Valor"), map.get(3).get("Valor"), map.get(4).get("Valor"), map.get(5).get("Valor"),

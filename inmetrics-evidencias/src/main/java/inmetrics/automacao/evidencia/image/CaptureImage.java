@@ -1,7 +1,7 @@
 package inmetrics.automacao.evidencia.image;
 
 import inmetrics.automacao.evidencia.constant.Constant;
-import io.cucumber.core.api.Scenario;
+import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

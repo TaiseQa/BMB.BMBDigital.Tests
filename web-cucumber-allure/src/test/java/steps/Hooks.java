@@ -11,17 +11,20 @@ import org.openqa.selenium.WebDriver;
 
 public class Hooks {
 
-    private static WebDriver driver;
+    WebDriver driver;
 
     @Before
-    public void beforeAllTest(Scenario scenario) {
+    public void beforeAllTest() {
         driver = Utils.getDriver();
 
     }
 
     @AfterStep
     public void printCadaPasso(Scenario scenario) {
-        takeScreeShot(scenario, "print de cada passo.png");
+        String scn = String.valueOf(scenario.getStatus());
+        if (scn.equals("PASSED")){
+            takeScreeShot(scenario, "print de cada passo.png");
+        }
     }
 
     @After

@@ -1,7 +1,6 @@
 package framework.pages;
 
 import framework.utils.GeraCpfCnpj;
-import framework.utils.Utils;
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+
+import static framework.utils.Utils.getDriver;
 
 public class CadastroFichaPage extends InteracoesTelaWeb {
 
@@ -439,8 +440,8 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     private WebElement modalAtencao;
 
     public CadastroFichaPage() {
-        super(Utils.getDriver());
-        PageFactory.initElements(Utils.getDriver(), this);
+        super(getDriver());
+        PageFactory.initElements(getDriver(), this);
     }
 
     //******** MÉTODOS NOVO CLIENTE ********************//
@@ -481,8 +482,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         inserirValor(campoDataNascimentoConjuge, data);
     }
 
-    public void preencherCamposEndereco(String cep, String numero, String complemento, String tipoResidencia,
-                                        String tempoResidencia, String cepComercial) {
+    public void preencherCamposEndereco(String cep, String numero, String complemento, String tipoResidencia, String tempoResidencia, String cepComercial) {
 
         inserirValor(campoCep, cep);
         inserirValor(campoNumero, numero);
@@ -495,8 +495,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         inserirValor(campoCepComercial, cepComercial);
     }
 
-    public void preencherCamposEndereco(String cep, String numero, String complemento, String tipoResidencia,
-                                        String tempoResidencia) {
+    public void preencherCamposEndereco(String cep, String numero, String complemento, String tipoResidencia, String tempoResidencia) {
         inserirValor(campoCep, cep);
         inserirValor(campoNumero, numero);
         esperar(3000);
@@ -559,7 +558,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         inserirValor(campoDataExpedicao, dataExpedicao);
         esperar(5000);
         clicarElemento(comboUfDocumentoProponente);
-        WebElement e = Utils.getDriver().findElement(By.xpath(String.format("//span[contains(text(), '%s')]/..", uf.toUpperCase())));
+        WebElement e = getDriver().findElement(By.xpath(String.format("//span[contains(text(), '%s')]/..", uf.toUpperCase())));
         e.click();
 //        selecionarUfDocumentoProponente(uf);
         inserirValor(campoOrgaoEmissor, orgaoEmissor);
@@ -643,9 +642,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
 
     public void EnviarPropostaDeCredito() {
         esperar(9000);
-        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", checkAceitarTermoJuridico);
+        ((JavascriptExecutor) getDriver()).executeScript("return arguments[0].click();", checkAceitarTermoJuridico);
         esperar(2000);
-        ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", btnEnviarPropostaCredito);
+        ((JavascriptExecutor) getDriver()).executeScript("return arguments[0].click();", btnEnviarPropostaCredito);
     }
 
     public void preencherVendedor(String vendedor) {
@@ -679,8 +678,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
         inserirValor(campoQuantidadeVeiculosProprios, quantidadeVeiculos);
     }
 
-    public void preencherCamposAvalista(String haveraAvalista, String cpf, String nome, String naturezaOcupacao,
-                                        String estadoCivil) {
+    public void preencherCamposAvalista(String haveraAvalista, String cpf, String nome, String naturezaOcupacao, String estadoCivil) {
         GeraCpfCnpj geraCpfCnpj = new GeraCpfCnpj();
         if (haveraAvalista.equalsIgnoreCase("haverá um avalista") || haveraAvalista.equalsIgnoreCase("havera um avalista"))
             campoHaveraAvalista.click();
@@ -935,7 +933,7 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     private void selecionarUfDocumentoProponente(String uf) {
         esperar(10000);
         clicarElemento(comboUfDocumentoProponente);
-        WebElement e = Utils.getDriver().findElement(By.xpath(String.format("//span[contains(text(), '%s')]/..", uf.toUpperCase())));
+        WebElement e = getDriver().findElement(By.xpath(String.format("//span[contains(text(), '%s')]/..", uf.toUpperCase())));
         e.click();
 //        if (documento.equals("SP"))
 //            clicarElemento(opcaoComboUfDocumentoProponenteSp);

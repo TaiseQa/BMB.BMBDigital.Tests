@@ -5,6 +5,7 @@
 	<groupId>br.com.inmetrics.framework.core</groupId>
 	<artifactId>automation_web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,75 +17,68 @@
 	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>inmetrics.automacao</groupId>
 			<artifactId>core.web</artifactId>
 			<version>1.0.0</version>
+			<scope>compile</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>Inmetrics.Automacao</groupId>
+			<groupId>inmetrics.Automacao</groupId>
 			<artifactId>Gestor.Evidencia</artifactId>
 			<version>1.0.0</version>
+			<scope>compile</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>Inmetrics.Automacao</groupId>
+			<groupId>inmetrics.Automacao</groupId>
 			<artifactId>Log</artifactId>
 			<version>1.0.0</version>
+			<scope>compile</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>de.monochromata.cucumber</groupId>
 			<artifactId>reporting-plugin</artifactId>
 			<version>4.0.18</version>
+			<scope>compile</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>${commons-io-version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-jvm-deps</artifactId>
 			<version>1.0.5</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.9.7</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.5</version>
+			<version>1.7.25</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.5</version>
 		</dependency>
-
 	</dependencies>
 	<build>
 	<pluginManagement>
 	<plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.7.0</version>
-			<configuration>
-				<source>1.8</source>
-				<target>1.8</target>
-				<encoding>UTF-8</encoding>
-			</configuration>
-		</plugin>
+<!--		<plugin>-->
+<!--			<groupId>org.apache.maven.plugins</groupId>-->
+<!--			<artifactId>maven-compiler-plugin</artifactId>-->
+<!--&lt;!&ndash;			<version>3.8.1</version>&ndash;&gt;-->
+<!--			<configuration>-->
+<!--				<source>1.8</source>-->
+<!--				<target>1.8</target>-->
+<!--			</configuration>-->
+<!--		</plugin>-->
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-resources-plugin</artifactId>

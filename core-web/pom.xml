@@ -7,49 +7,49 @@
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>core.web</name>
+	<name>core-web</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13</junit.version>
 		<org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
 		<io.github.bonigarcia>3.8.1</io.github.bonigarcia>
-		<io.cucumber.version>5.5.0</io.cucumber.version>
+		<io.cucumber.version>5.2.0</io.cucumber.version>
 	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
 			<version>${io.cucumber.version}</version>
+			<scope>compile</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>${io.cucumber.version}</version>
+			<scope>compile</scope>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${org.seleniumhq.selenium.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
 			<version>${io.github.bonigarcia}</version>
 		</dependency>
-
 	</dependencies>
 </project>

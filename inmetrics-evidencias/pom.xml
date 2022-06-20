@@ -5,11 +5,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>Inmetrics.Automacao</groupId>
+	<groupId>inmetrics.Automacao</groupId>
 	<artifactId>Gestor.Evidencia</artifactId>
 	<version>1.0.0</version>
+	<packaging>jar</packaging>
 
-	<name>Gestor.Evidencia</name>
+	<name>inmetrics-evidencias</name>
 
 	<repositories>
 		<repository>
@@ -23,48 +24,42 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<io.cucumber.version>4.8.1</io.cucumber.version>
+<!--		<io.cucumber.version>4.8.1</io.cucumber.version>-->
 	</properties>
 
 
 	<dependencies>
-
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>${io.cucumber.version}</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>io.cucumber</groupId>-->
+<!--			<artifactId>cucumber-java</artifactId>-->
+<!--			<version>${io.cucumber.version}</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>com.itextpdf</groupId>
 			<artifactId>itextpdf</artifactId>
 			<version>5.5.13.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.github.stephenc.monte</groupId>
 			<artifactId>monte-screen-recorder</artifactId>
 			<version>0.7.7.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>3.1.5</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.aspose</groupId>
 			<artifactId>aspose-words</artifactId>
 			<version>20.7</version>
 			<type>pom</type>
 		</dependency>
-
 		<dependency>
 			<groupId>inmetrics.automacao</groupId>
 			<artifactId>core.web</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-
 	</dependencies>
 
 </project>

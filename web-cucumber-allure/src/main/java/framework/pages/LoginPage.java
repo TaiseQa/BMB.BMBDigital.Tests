@@ -59,7 +59,6 @@ public class LoginPage extends InteracoesTelaWeb {
 
     public void realizarLogin(String url, String usuario, String senha) {
         acessarAplicacao(url);
-        ignorarCertificado();
         preencherLoginForm(usuario, senha);
         clicarBotaoLogin();
         escolherConcessionario();
@@ -87,11 +86,6 @@ public class LoginPage extends InteracoesTelaWeb {
         clicarElemento(formbuttonEntrar);
     }
 
-    public void ignorarCertificado() {
-        //clicarElemento(detailchrome);
-        //clicarElemento(proceed);
-    }
-
     public boolean verificarexistenciaModalcampanha() {
         WebElement element = Utils.getDriver().findElement(By.xpath("//app-notifications-modal//div[@class='d-flex title']"));
         try {
@@ -108,8 +102,7 @@ public class LoginPage extends InteracoesTelaWeb {
         try {
             Utils.wait.until(ExpectedConditions.visibilityOf(element));
             return true;
-        } catch (NoSuchElementException | StaleElementReferenceException e) {
-            e.printStackTrace();
+        } catch (NoSuchElementException | StaleElementReferenceException ignore) {
             return false;
         }
     }

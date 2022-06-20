@@ -1,6 +1,7 @@
 package framework.pages;
 
 import framework.utils.Utils;
+
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;

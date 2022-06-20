@@ -9,7 +9,7 @@ public class CadastroSimulacaoSteps {
     PropostasContratosPage propostasContratosPage;
 
     @Dado("tenha clicado no botão Nova Simulação")
-    public void queEuEstejaLogadoComUmUsuárioComPerfilParaPreenchimentoDeProposta() throws InterruptedException {
+    public void queEuEstejaLogadoComUmUsuarioComPerfilParaPreenchimentoDeProposta() throws InterruptedException {
         propostasContratosPage = new PropostasContratosPage();
         propostasContratosPage.clicarBotaoNovaSimulacao();
     }

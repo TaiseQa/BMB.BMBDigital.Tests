@@ -1,11 +1,8 @@
 package steps;
 
 
-import io.cucumber.java.pt.E;
+import io.cucumber.java.pt.*;
 import framework.pages.LoginPage;
-import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.Então;
-import io.cucumber.java.pt.Quando;
 
 public class LoginStep {
 
@@ -19,7 +16,7 @@ public class LoginStep {
 
 	@E("quando ignoro o certificado")
 	public void quando_ignoro_o_certificado() {
-		loginPage.ignorarCertificado();
+
 	}
 
 	@Quando("ao inserir o usuario {string} e {string},")
@@ -32,8 +29,8 @@ public class LoginStep {
 		loginPage.clicarBotaoLogin();
 	}
 	
-	@Então("fecho a ficha de campanha")
-	public void fecho_a_ficha_de_campanha() throws InterruptedException {
+	@Entao("fecho a ficha de campanha")
+	public void fecho_a_ficha_de_campanha()  {
 		loginPage.fecharJanelaCampanha();
 	}
 }

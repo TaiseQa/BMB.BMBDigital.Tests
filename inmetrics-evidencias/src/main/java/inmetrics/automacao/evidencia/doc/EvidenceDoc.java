@@ -1,7 +1,7 @@
 package inmetrics.automacao.evidencia.doc;
 
 import inmetrics.automacao.evidencia.image.CaptureImage;
-import io.cucumber.core.api.Scenario;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
