@@ -70,6 +70,7 @@ public class LoginPage extends InteracoesTelaWeb {
     }
 
     public void preencherLoginForm(String usuario, String senha) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         inserirValor(formInputUser, usuario);
         inserirValor(formInputPass, senha);
     }

@@ -641,9 +641,9 @@ public class CadastroFichaPage extends InteracoesTelaWeb {
     }
 
     public void EnviarPropostaDeCredito() {
-        esperar(9000);
+        esperar(11000);
         ((JavascriptExecutor) getDriver()).executeScript("return arguments[0].click();", checkAceitarTermoJuridico);
-        esperar(2000);
+        esperar(3000);
         ((JavascriptExecutor) getDriver()).executeScript("return arguments[0].click();", btnEnviarPropostaCredito);
     }
 
