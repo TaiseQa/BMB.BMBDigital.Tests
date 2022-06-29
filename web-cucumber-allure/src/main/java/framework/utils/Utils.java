@@ -23,6 +23,7 @@ public class Utils {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless");
             options.addArguments("--disable-gpu");
+            options.addArguments("--disable-geolocation");
             options.addArguments("--window-size=1400,800");
             options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
             driver = new ChromeDriver(options);
