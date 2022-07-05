@@ -28,6 +28,7 @@ public class Utils {
             prefs.put("profile.default_content_setting_values.geolocation", 2);
             options.setExperimentalOption("prefs", prefs);
             options.addArguments("--headless");
+            options.addArguments("--log-level=3");
             options.addArguments("--disable-gpu");
             options.addArguments("--window-size=1400,800");
             options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
