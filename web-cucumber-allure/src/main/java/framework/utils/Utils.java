@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 
 public class Utils {
@@ -36,9 +37,11 @@ public class Utils {
 
             prefs.put("profile.default_content_setting_values.geolocation", 2);
             options.setExperimentalOption("prefs", prefs);
+            options.addArguments("--log-level=3");
             options.addArguments("--headless");
             options.addArguments("--disable-gpu");
             options.addArguments("--window-size=1400,800");
+            java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
             options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
             driver = new ChromeDriver(chromeDriverSerive, options);
             driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
