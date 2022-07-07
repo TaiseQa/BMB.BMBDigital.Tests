@@ -2,14 +2,12 @@ package framework.pages;
 
 import framework.utils.Utils;
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends InteracoesTelaWeb {
 
@@ -90,10 +88,10 @@ public class LoginPage extends InteracoesTelaWeb {
     public boolean verificarexistenciaModalcampanha() {
         WebElement element = Utils.getDriver().findElement(By.xpath("//app-notifications-modal//div[@class='d-flex title']"));
         try {
-            Utils.wait.until(ExpectedConditions.visibilityOf(element));
+            WebDriverWait wait2 = new WebDriverWait(Utils.getDriver(),5);
+            wait2.until(ExpectedConditions.visibilityOf(element));
             return true;
-        } catch (NoSuchElementException | StaleElementReferenceException e) {
-            e.printStackTrace();
+        } catch (NoSuchElementException | StaleElementReferenceException | TimeoutException ignore) {
             return false;
         }
     }
@@ -109,11 +107,10 @@ public class LoginPage extends InteracoesTelaWeb {
     }
 
     public void fecharJanelaCampanha() {
-        esperandoElementoSumir();
+//        esperandoElementoSumir();
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         esperar(1000);
         if (verificarexistenciaModalcampanha()) {
-            clicarElemento(closeModal);
-        } else {
             clicarElemento(closeModal);
         }
     }
