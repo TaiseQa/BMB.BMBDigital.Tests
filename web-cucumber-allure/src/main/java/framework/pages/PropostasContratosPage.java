@@ -20,14 +20,14 @@ public class PropostasContratosPage extends InteracoesTelaWeb {
 
     //FIM BOTÃO NOVA SIMULAÇÃO//
 
-    public PropostasContratosPage(){
-        super(Utils.getDriver());
-        PageFactory.initElements(Utils.getDriver(), this);
-    }
+//    public PropostasContratosPage(){
+//        super(Utils.getDriver());
+//        PageFactory.initElements(Utils.getDriver(), this);
+//    }
 
     public CadastroVeiculoPage clicarBotaoNovaSimulacao()  {
         esperandoElementoSumir();
-        clicarElemento(btnNovaSimulacao, 90);
+        clicar(btnNovaSimulacao);
         return new CadastroVeiculoPage();
     }
 

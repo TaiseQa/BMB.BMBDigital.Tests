@@ -20,10 +20,10 @@ public class SegurosPage extends InteracoesTelaWeb {
 
     //******** FIM SEGURO ********************//
 
-    public SegurosPage(){
-        super(Utils.getDriver());
-        PageFactory.initElements(Utils.getDriver(), this);
-    }
+//    public SegurosPage(){
+//        super(Utils.getDriver());
+//        PageFactory.initElements(Utils.getDriver(), this);
+//    }
 
 
 }

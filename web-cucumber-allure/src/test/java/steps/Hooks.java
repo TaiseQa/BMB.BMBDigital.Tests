@@ -9,13 +9,17 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import static inmetrics.automacao.core.web.util.FabricaWebDriver.fecharNavegador;
+import static inmetrics.automacao.core.web.util.FabricaWebDriver.iniciarNavegador;
+
 public class Hooks {
 
     WebDriver driver;
 
     @Before
     public void beforeAllTest() {
-        driver = Utils.getDriver();
+//        driver = Utils.getDriver();
+        iniciarNavegador();
 
     }
 
@@ -33,7 +37,8 @@ public class Hooks {
             takeScreeShot(scenario, "print da falha.png");
         }
 
-        Utils.killDriver();
+//        Utils.killDriver();
+        fecharNavegador();
     }
 
     public void takeScreeShot(Scenario scenario, String name) {

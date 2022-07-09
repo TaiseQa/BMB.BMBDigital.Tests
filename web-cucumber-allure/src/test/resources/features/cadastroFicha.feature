@@ -10,7 +10,7 @@ Funcionalidade: Nova Ficha
   Contexto: Acessar Propostas e contratos
     Dado que faço login no portal BMB Digital
     Quando acesso a página de Propostas e Contratos
-    E clico no botão Nova Ficha
+    E clico no botao Nova Ficha
 
   @CadastroFicha @CT001
   Cenário: Cadastrar Proposta para Profissional Liberal Solteiro Ex Politico
@@ -102,10 +102,10 @@ Funcionalidade: Nova Ficha
     E confirmo o envio de proposta de crédito
     Então o sistema apresenta a tela com os detalhes da proposta cadastrada
 
-  @CadastroFicha @CT002
-  Cenário: Validar CPF Inválido para Proposta de Pessoa Física
-    Dado que preencho o campo CPF ou CNPJ com valor inválido "00000011111"
-    Então é apresentada a mensagem "CPF/CNPJ inválido".
+#  @CadastroFicha @CT002
+#  Cenário: Validar CPF Inválido para Proposta de Pessoa Física
+#    Dado que preencho o campo CPF ou CNPJ com valor inválido "00000011111"
+#    Então é apresentada a mensagem "CPF/CNPJ inválido".
 
   @CadastroFicha @CT003
   Cenário: Cadastrar Proposta para Profissional do Setor Privado Casado Estrangeiro Com Avalista

@@ -29,8 +29,8 @@ public class EnviarPropostaCreditoPage extends InteracoesTelaWeb {
     protected WebElement btnEnviarVendedor;
     //****************** FIM ESCOLHER VENDEDOR *************//
 
-    public EnviarPropostaCreditoPage(){
-        super(Utils.getDriver());
-        PageFactory.initElements(Utils.getDriver(), this);
-    }
+//    public EnviarPropostaCreditoPage(){
+//        super(Utils.getDriver());
+//        PageFactory.initElements(Utils.getDriver(), this);
+//    }
 }
