@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 		features = "classpath:features", 
 		glue = {"steps" },
 //		tags = { "@CadastroFicha or @CadastroSimulacao" },
-		tags = { "@emDesenvolvimento" },
+		tags = { "@CT12" },
 		snippets = CucumberOptions.SnippetType.UNDERSCORE,
 		strict = true,
 		dryRun = false,

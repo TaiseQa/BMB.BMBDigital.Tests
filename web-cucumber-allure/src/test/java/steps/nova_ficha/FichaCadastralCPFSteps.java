@@ -312,6 +312,11 @@ public class FichaCadastralCPFSteps {
         fichaCadastralCPFPage.noComboTipoDeTransporteEscolho(tipoTransporte);
     }
 
+    @E("informo o numero da ANTT {string}")
+    public void informoNumeroANTT(String antt) {
+        fichaCadastralCPFPage.informoNumeroANTT(antt);
+    }
+
     @E("nas opcoes cooperativa informo {string}")
     public void nasOpcoessCooperativaInfomro(String simOrnao) {
         fichaCadastralCPFPage.nasOpcoessCooperativaInfomro(simOrnao);
@@ -449,6 +454,10 @@ public class FichaCadastralCPFSteps {
         fichaCadastralCPFPage.no_combo_prazo_escolho_e_carencia(prazo, carencia);
     }
 
+    @E("nas opcoes tipo pessoa escolho {string}")
+    public void nasOpcoesTipoPessoaEscolho(String tipoPessoa) {
+        fichaCadastralCPFPage.nasOpcoesTipoPessoaEscolho(tipoPessoa);
+    }
 
     @Dado("informo o valor de entrada {string}")
     public void informo_o_valor_de_entrada(String valorEntrada) {
@@ -474,6 +483,64 @@ public class FichaCadastralCPFSteps {
     @Dado("clico em gerar simulacao")
     public void clico_em_gerar_simulacao() {
         fichaCadastralCPFPage.clico_em_gerar_simulacao();
+    }
+
+
+    @E("clico na aba operações")
+    public void clicoNaAbaOperacoes() {
+        fichaCadastralCPFPage.clicoNaAbaOperacoes();
+    }
+
+    @E("valido que data da simulação é a data atual")
+    public void validoQueDataSimulacaoEDataAutal() {
+        Assert.assertEquals(fichaCadastralCPFPage.dataAtual(), fichaCadastralCPFPage.validoQueDataSimulacaoEDataAutal());
+    }
+
+    @E("valido que o produto é {string}")
+    public void validoQueProdutoE(String produt) {
+        Assert.assertEquals(produt, fichaCadastralCPFPage.validoQueProdutoE());
+    }
+
+    @E("valido que a quantidade de parcelas e {string} e a carencia {string}")
+    public void validoQueQuantidadeDeParcelasECarencia(String parcelas, String carencia) {
+        Assert.assertEquals(parcelas, fichaCadastralCPFPage.validoQueQuantidadeDeParcelasECarencia());
+        Assert.assertEquals(carencia, fichaCadastralCPFPage.getCarencia());
+    }
+
+    @E("valido o prazo total {string}")
+    public void validoPrazoTotal(String prazo) {
+        Assert.assertEquals(prazo, fichaCadastralCPFPage.validoPrazoTotal());
+    }
+
+    @E("valido o valor total {string}")
+    public void validoValorTotal(String valorTotal) {
+        Assert.assertEquals(valorTotal, fichaCadastralCPFPage.validoValorTotal());
+    }
+
+    @E("Valido porcentagem de entrada {string}")
+    public void validoPorcentagemEntrada(String porcentagemEntrada) {
+        Assert.assertEquals(porcentagemEntrada, fichaCadastralCPFPage.validoPorcentagemEntrada());
+    }
+
+    @E("valido o valor de entrada {string}")
+    public void validoValorEntrada(String valorEntrada) {
+        Assert.assertEquals(valorEntrada, fichaCadastralCPFPage.validoValorEntrada());
+    }
+
+    @Então("valido a campanha escolhida")
+    public void validoACampanhaEscolhida() {
+
+    }
+
+
+    @E("clico em imprimir")
+    public void clicoEmImprimir() {
+        fichaCadastralCPFPage.clicoEmImprimir();
+    }
+
+    @Então("valido que nova aba com documento pdf para imprimir foi aberto na url {string}")
+    public void validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba(String url) {
+        Assert.assertEquals(url, fichaCadastralCPFPage.validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba());
     }
 
 

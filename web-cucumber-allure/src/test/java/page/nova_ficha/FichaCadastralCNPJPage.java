@@ -75,6 +75,12 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
     @FindBy(id = "birthDate-0")
     private WebElement inputDataNascimentoSocio;
 
+    @FindBy(xpath = "//label[text() = 'Sócio representante legal']/..//ngx-select")
+    private WebElement startComboSocioRepresentanteLegal;
+
+    @FindBy(xpath = "//label[text() = 'Sócio representante legal']/..//ngx-select//a")
+    private WebElement opcaoComboSocioRepresentanteLegal;
+
     @FindBy(id = "legalRepresentativeTaxId")
     private WebElement inputCPFSocio;
 
@@ -86,6 +92,36 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
 
     @FindBy(xpath = "(//label[text() = 'Sócio']/..//ngx-select)[1]//a")
     private WebElement opcaoSocioComboAvalista;
+
+    @FindBy(xpath = "//button[text() = 'ADICIONAR AVALISTA']")
+    private WebElement btnAdicionarAvalista;
+
+    @FindBy(id = "finalBeneficiaryTaxId-1")
+    private WebElement inputCpfAvalista;
+
+    @FindBy(id = "finalBeneficiaryName-1")
+    private WebElement inputNomeAvalistaPj;
+
+    @FindBy(xpath = "(//label[text() = 'Natureza da ocupação']/..//ngx-select)[2]")
+    private WebElement startComboNaturezaOcupacaoAvalistaPj;
+
+    @FindBy(id = "finalBeneficiaryAdmissionDate-1")
+    private WebElement inputDataAdmissaoAvalistaPj;
+
+    @FindBy(id = "suretyCreateSalary-1")
+    private WebElement inputSalarioRendaAvalistaPj;
+
+    @FindBy(xpath = "(//label[text() = 'Estado civil'])[2]/..//ngx-select")
+    private WebElement startComboEstadoCivilAvalistaPj;
+
+    @FindBy(id = "finalBeneficiarySpouseName-1")
+    private WebElement inputNomeConjugueAvalistaPj;
+
+    @FindBy(id = "finalBeneficiarySpouseRegisterNumber-1")
+    private WebElement inputCpfConjugueAvalistaPj;
+
+    @FindBy(id = "finalBeneficiarySpouseBirthDate-1")
+    private WebElement inputDataNascimentoConjugueAvalistaPj;
 
     @FindBy(xpath = "//button[normalize-space() = 'ADICIONAR BENEFICIÁRIO FINAL']")
     private WebElement btnAdicionarBeneficiarioFinal;
@@ -123,8 +159,32 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
     @FindBy(xpath = "(//input[@formcontrolname = 'zipCode'])[2]")
     private WebElement inputCepBeneficiario;
 
+    @FindBy(xpath = "//label[text() = 'Tipo de residência']/..//ngx-select")
+    private WebElement startComboTipoResidenciaBeneficiarioFinal;
+
     @FindBy(xpath = "(//input[@formcontrolname = 'addressNumber'])[2]")
     private WebElement inputNumeroBeneficiario;
+
+    @FindBy(xpath = "(//input[@formcontrolname = 'publicOfficeWork'])[1]")
+    private WebElement inputFuncaoExercidaBeneficiario;
+
+    @FindBy(xpath = "(//input[@formcontrolname = 'publicOfficeKinshipDegree'])[1]")
+    private WebElement inputGrauParentescoBeneficiario;
+
+    @FindBy(id = "finalBeneficiaryTaxId-2")
+    private WebElement inputCpfAvalistaSocio2;
+
+    @FindBy(id = "finalBeneficiaryName-2")
+    private WebElement inputNomeAvalistaSocio2;
+
+    @FindBy(xpath = "(//label[text() = 'Natureza da ocupação'])[3]/..//ngx-select")
+    private WebElement startComboNaturezaOcupacaoAvalista02;
+
+    @FindBy(id = "suretyCreateSalary-2")
+    private WebElement inputRendaAavalista02;
+
+    @FindBy(xpath = "(//label[text() = 'Estado civil'])[3]/..//ngx-select")
+    private WebElement startComboEstadoCivilAvalista02;
 
     @FindBy(xpath = "(//label[text() = 'Sócio']/..//ngx-select)[2]")
     private WebElement startComboSocioBeneficiarioFinal;
@@ -179,6 +239,7 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
     }
 
     public void noComboConstituicaoEscolho(String constituicao) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         selecionarCombos(startComboConstituicao, constituicao);
     }
 
@@ -228,6 +289,11 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
         escrever(inputCPFCNPJSocio, geraCpfCnpj.cnpj(false));
     }
 
+    public void informoCpfSocio() {
+        escrever(inputCPFCNPJSocio, geraCpfCnpj.cpf(false));
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+    }
+
     public void informoCpfDoSocio() {
         escrever(inputCPFCNPJSocio, geraCpfCnpj.cpf(false));
     }
@@ -245,6 +311,7 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
     }
 
     public void naOpcaoRepresentanteLegalEscolho(String representanteLegal) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         WebElement opcao = getDriver().findElement(By.xpath
                 (String.format("//span[text() = '%s']/../input", representanteLegal)));
         opcao.click();
@@ -256,6 +323,11 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
         opcao.click();
     }
 
+    public void escolhoSocioNoComboRepresentanteLegal() {
+        clicar(startComboSocioRepresentanteLegal);
+        clicar(opcaoComboSocioRepresentanteLegal);
+    }
+
     public void informoCpfDoRepresentanteLegal() {
         escrever(inputCPFSocio, geraCpfCnpj.cpf(false));
     }
@@ -265,9 +337,68 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
     }
 
     public void naOpcaoAvalistaInformoOSocio() {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         clicar(startComboAvalista);
         clicar(opcaoSocioComboAvalista);
     }
+
+    public void clicoOpcaoAdicionarAvalista(String opcao) {
+        if (opcao.equalsIgnoreCase("Sim")) {
+            clicar(btnAdicionarAvalista);
+        }
+    }
+
+    public void informoSegundoAvalistaSocio(String simOrnao) {
+        WebElement opcoa = getDriver().findElement(By.xpath
+                (String.format("(//label[text() = 'É sócio?'])[3]/..//span[text() = '%s']/preceding-sibling::input", simOrnao)));
+        opcoa.click();
+    }
+
+    public void informoSeAvalistaESocio(String simOrnao) {
+        WebElement opcoa = getDriver().findElement(By.xpath
+                (String.format("(//label[text() = 'É sócio?'])[2]/..//span[text() = '%s']/preceding-sibling::input", simOrnao)));
+        opcoa.click();
+
+
+    }
+
+    public void informoCpfDoAvalista() {
+        escrever(inputCpfAvalista, geraCpfCnpj.cpf(false));
+    }
+
+    public void informoNomeAvalistaPj(String nome) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        escrever(inputNomeAvalistaPj, nome);
+    }
+
+    public void noComboNaturezaOcupacaoPj(String ocupacao) {
+        selecionarCombos(startComboNaturezaOcupacaoAvalistaPj, ocupacao);
+    }
+
+    public void informoDataDeAdmissaoAvalistaPj(String dataAdmissao) {
+        escrever(inputDataAdmissaoAvalistaPj, dataAdmissao);
+    }
+
+    public void noCampoSalarioRendaAvalistaPjInformo(String renda) {
+        escrever(inputSalarioRendaAvalistaPj, renda);
+    }
+
+    public void escolhoEstadoCivilAvalistaPj(String estatdoCivil) {
+        selecionarCombos(startComboEstadoCivilAvalistaPj, estatdoCivil);
+    }
+
+    public void informoNomeConjuguePJ(String nome) {
+        escrever(inputNomeConjugueAvalistaPj, nome);
+    }
+
+    public void informoCpfConjugueAvalista() {
+        escrever(inputCpfConjugueAvalistaPj, geraCpfCnpj.cpf(false));
+    }
+
+    public void informoDataNascimentoConjugueAvalistaPj(String dataNascimento) {
+        escrever(inputDataNascimentoConjugueAvalistaPj, dataNascimento);
+    }
+
 
     public void naOpcaoBeneficiarioFinalClicoEmAdicionar(String simOrnao) {
         if (simOrnao.equalsIgnoreCase("Sim")) {
@@ -285,7 +416,12 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
         escrever(inputCpfBeneficiarioFinal, geraCpfCnpj.cpf(false));
     }
 
+    public void informoCnpjBeneficiarioFinal() {
+        escrever(inputCpfBeneficiarioFinal, geraCpfCnpj.cnpj(false));
+    }
+
     public void informoNomeBeneficiarioFinal(String nome) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         escrever(inputNomeBeneficiarioFinal, nome);
 
     }
@@ -327,6 +463,10 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
         escrever(inputCepBeneficiario, cepBeneficiario);
     }
 
+    public void informoTipoResidenciaBeneficiarioFinal(String tipoResidencia) {
+        selecionarCombos(startComboTipoResidenciaBeneficiarioFinal, tipoResidencia);
+    }
+
     public void informoNumeroRuaBeneficiarioFinal(String numero) {
         escrever(inputNumeroBeneficiario, numero);
     }
@@ -337,11 +477,30 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
         opcao.click();
     }
 
+    public void escrevoFuncaoPoliticaBeneficiarioFinal(String funcao) {
+        escrever(inputFuncaoExercidaBeneficiario, funcao);
+    }
+
     public void nasOpcoesPossuiParentescoComPessoasExerceuFuncaoOuCargoRelevanteNoUltimos5AnosBeneficiario(String simOrnao) {
         WebElement opcao = getDriver().findElement(By.xpath(
                 String.format("//label[text() = 'Possui parentesco com pessoa que exerceu função ou cargo público relevante nos últimos 5 anos?']/..//span[text() = '%s']/preceding-sibling::input", simOrnao)));
         opcao.click();
     }
+
+    public void informoGrauParentescoBeneficiarioFinal(String parentesco) {
+        escrever(inputGrauParentescoBeneficiario, parentesco);
+    }
+
+
+    public void informoOsDadosObrigatorioDosSocios() {
+        escrever(inputCpfAvalistaSocio2, geraCpfCnpj.cpf(false));
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        escrever(inputNomeAvalistaSocio2, gerarStringAleatorio());
+        selecionarCombos(startComboNaturezaOcupacaoAvalista02, "Estudante");
+        escrever(inputRendaAavalista02, "6.000,00");
+        selecionarCombos(startComboEstadoCivilAvalista02, "Solteiro");
+    }
+
 
     public void naOpcaoBeneficiarioFibalEscolhoOSocio() {
         clicar(startComboSocioBeneficiarioFinal);
@@ -349,6 +508,7 @@ public class FichaCadastralCNPJPage extends InteracoesTelaWeb {
     }
 
     public void naOpcaoEmpresasColigadasControladorasClicoEmAdicionar(String simOrnao) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         if ((simOrnao.equalsIgnoreCase("Sim"))) {
             clicar(btnAdicionarEmpresasColigadasControladora);
         }

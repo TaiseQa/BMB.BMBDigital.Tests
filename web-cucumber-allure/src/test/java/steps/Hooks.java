@@ -9,8 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-import static inmetrics.automacao.core.web.util.FabricaWebDriver.fecharNavegador;
-import static inmetrics.automacao.core.web.util.FabricaWebDriver.iniciarNavegador;
+import static inmetrics.automacao.core.web.util.FabricaWebDriver.*;
 
 public class Hooks {
 
@@ -42,7 +41,7 @@ public class Hooks {
     }
 
     public void takeScreeShot(Scenario scenario, String name) {
-        TakesScreenshot screenshot = (TakesScreenshot) Utils.getDriver();
+        TakesScreenshot screenshot = (TakesScreenshot) getDriver();
         byte[] data = screenshot.getScreenshotAs(OutputType.BYTES);
         scenario.embed(data, "image/png", name);
     }

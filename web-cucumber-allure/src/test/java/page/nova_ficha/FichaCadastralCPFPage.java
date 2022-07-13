@@ -7,6 +7,11 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import static inmetrics.automacao.core.web.util.FabricaWebDriver.getDriver;
 
 public class FichaCadastralCPFPage extends InteracoesTelaWeb {
@@ -204,6 +209,9 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     @FindBy(xpath = "(//label[text() = 'Tipo de transporte']/..//ngx-select)[1]")
     private WebElement startComboTipoTransporte;
 
+    @FindBy(css = "[formcontrolname = 'crntrc']")
+    private WebElement inputNumeroAntt;
+
     @FindBy(xpath = "//label[text() = 'Data de entrada']//following-sibling::input")
     private WebElement inputDataEntrada;
 
@@ -276,6 +284,39 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     @FindBy(xpath = "//button[normalize-space() = 'GERAR SIMULAÇÃO']")
     private WebElement btnGerarSimulacao;
 
+    @FindBy(xpath = "//a[normalize-space() = 'Operação']")
+    private WebElement btnOperacao;
+
+    @FindBy(xpath = "//label[text() = 'Data da simulação']/../label[2]")
+    private WebElement dataSimulacao;
+
+    @FindBy(xpath = "//label[text() = 'Produto']/../label[2]")
+    private WebElement produto;
+
+    @FindBy(xpath = "//label[text() = 'Quantidade de parcelas']/../label[2]")
+    private WebElement quantidadeParcelas;
+
+    @FindBy(xpath = "//label[text() = 'Carência']/../label[2]")
+    private WebElement carencia;
+
+    @FindBy(xpath = "//label[text() = 'Prazo total']/../label[2]")
+    private WebElement prazoTotal;
+
+    @FindBy(xpath = "//label[text() = 'Valor total (Bem + Acessório)']/../label[2]")
+    private WebElement valorTotal;
+
+    @FindBy(xpath = "//label[text() = '% Entrada']/../label[2]")
+    private WebElement porcentagemEntrada;
+
+    @FindBy(xpath = "//label[text() = 'Valor entrada']/../label[2]")
+    private WebElement valorEntrada;
+
+    @FindBy(xpath = "//label[text() = 'Campanha']/../label[2]")
+    private WebElement campanha;
+
+    @FindBy(xpath = "//button[text() = 'IMPRIMIR']")
+    private WebElement btnImprimir;
+
     @FindBy(xpath = "//h2[text() = 'Atenção!']")
     private WebElement textoAtencao;
 
@@ -342,6 +383,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
 
     public void escolho_o_estado_civil(String estadoCivil) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         selecionarCombos(startComboEstadoCivil, estadoCivil);
     }
 
@@ -478,6 +520,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
 
     public void no_combo_natureza_da_ocupacao_do_avalista_escolho(String ocupacao) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         selecionarCombos(startComboNaturezaOcupacaoAvalista, ocupacao);
     }
 
@@ -568,6 +611,11 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         selecionarCombos(startComboTipoTransporte, tipoTransporte);
     }
 
+    public void informoNumeroANTT(String antt) {
+        escrever(inputNumeroAntt, antt);
+    }
+
+
     public void nasOpcoessCooperativaInfomro(String simOrnao) {
         WebElement opcao = getDriver().findElement(By.xpath
                 (String.format("//label[text() = 'Cooperativa']/..//span[text() = '%s']/preceding-sibling::input", simOrnao)));
@@ -629,6 +677,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     public void clico_no_botao_Salvar_Cliente() {
         clicar(btnSalvarCliente);
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         clicar(btnConfirmarClienteSalvo);
     }
 
@@ -658,6 +707,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     }
 
     public void noComboUtilizacaoDoVeiculoescolho(String utilizacao) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         selecionarCombos(startComboUtilizacaoVeiculo, utilizacao);
     }
 
@@ -698,6 +748,11 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     }
 
+    public void nasOpcoesTipoPessoaEscolho(String tipoPessoa) {
+        WebElement opca = getDriver().findElement(By.xpath
+                (String.format("//label[normalize-space() = 'Tipo de pessoa']/..//span[text() = '%s']/preceding-sibling::input", tipoPessoa)));
+        opca.click();
+    }
 
     public void informo_o_valor_de_entrada(String valorEntrada) {
         escrever(inputValorEntrada, valorEntrada);
@@ -723,11 +778,71 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     public void clico_em_gerar_simulacao() {
         clicar(btnGerarSimulacao);
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+    }
+
+    public void clicoNaAbaOperacoes() {
+        clicar(btnOperacao);
+    }
+
+    public String validoQueDataSimulacaoEDataAutal() {
+        return getTexto(dataSimulacao);
+    }
+
+    public String dataAtual() {
+        Date dataHoraAtual = new Date();
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+        return data;
+    }
+
+    public String validoQueProdutoE() {
+        return getTexto(produto);
+    }
+
+    public String validoQueQuantidadeDeParcelasECarencia() {
+        return getTexto(quantidadeParcelas);
+    }
+
+    public String getCarencia() {
+        return getTexto(carencia);
+    }
+
+    public String validoPrazoTotal() {
+        return getTexto(prazoTotal);
+    }
+
+    public String validoValorTotal() {
+        return getTexto(valorTotal);
+    }
+
+    public String validoPorcentagemEntrada() {
+        return getTexto(porcentagemEntrada);
+    }
+
+    public String validoValorEntrada() {
+        return getTexto(valorEntrada);
+    }
+
+    public String validoACampanhaEscolhida() {
+        return getTexto(campanha);
+    }
+
+    public void clicoEmImprimir() {
+        clicar(btnImprimir);
+
+    }
+
+    public String validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba() {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        List<String> aba = new ArrayList<>(getDriver().getWindowHandles());
+        String teste = getDriver().switchTo().window(aba.get(1)).getCurrentUrl();
+        return teste.substring(0, 81);
     }
 
 
     public void na_opcao_deseja_seguro_do_veiculo_escolho(String simOrnao) {
-        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        esperandoElementoSumir();
+        esperar(1500);
         WebElement opca = getDriver().findElement(By.xpath(
                 String.format("(//span[text() = '%s']/preceding-sibling::input)[1]", simOrnao)));
         opca.click();
@@ -747,11 +862,12 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
 
     public void clico_em_continuar() {
+//        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         clicar(btnContinuar);
-        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
     }
 
     public boolean validoModalDeAtencaoInformadoQueValoresSegurosSeraoRemovidosDoProcesso() {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         boolean existeOrnao = modalAtencao.isDisplayed();
         clicar(btnContinuarModalAtencaoSeguroRemovido);
         return existeOrnao;

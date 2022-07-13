@@ -376,6 +376,7 @@ public class InteracoesTelaWeb {
      * @return retorna numero aletório inteiro
      */
     protected int gerarNumeroAleatorio() {
+        random = new Random();
         return random.nextInt((1000000 - 10000) + 1) + 10000;
     }
 
@@ -387,6 +388,7 @@ public class InteracoesTelaWeb {
     protected String gerarStringAleatorio() {
         String theAlphaNumerics = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789";
         StringBuilder builder = new StringBuilder();
+        random = new Random();
 
         for (int i = 0; i < 15; i++) {
             int myIndex = (int) (theAlphaNumerics.length() * random.nextDouble());
@@ -473,7 +475,7 @@ public class InteracoesTelaWeb {
 
     public void seCarregamentoForVisivelAguardaEleSumirSeNaoContinua() {
         FluentWait<WebDriver> wait1 = new FluentWait<>(getDriver())
-                .withTimeout(Duration.ofSeconds(40))
+                .withTimeout(Duration.ofSeconds(110))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(NoSuchElementException.class, TimeoutException.class);
 
@@ -488,7 +490,7 @@ public class InteracoesTelaWeb {
 
     public void esperandoElementoSumir() {
         FluentWait<WebDriver> fwait = new FluentWait<>(getDriver())
-                .withTimeout(Duration.ofSeconds(40))
+                .withTimeout(Duration.ofSeconds(120))
                 .pollingEvery(Duration.ofSeconds(3))
                 .ignoring(NoSuchElementException.class, TimeoutException.class)
                 .ignoring(StaleElementReferenceException.class);

@@ -17,4 +17,9 @@ public class PropostasEContratosSteps {
         propostasEContratosPage.clicoNoBotaoNovaFicha();
     }
 
+    @E("clico no botao nova simulacao")
+    public void clicoNoBotaoNovaSimulacao() {
+        propostasEContratosPage.clicoNoBotaoNovaSimulacao();
+    }
+
 }

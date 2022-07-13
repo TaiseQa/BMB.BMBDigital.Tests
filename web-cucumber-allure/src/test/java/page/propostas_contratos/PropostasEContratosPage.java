@@ -9,9 +9,17 @@ public class PropostasEContratosPage extends InteracoesTelaWeb {
     @FindBy(xpath = "//button[normalize-space() = 'Nova ficha']")
     private WebElement btnNovaFicha;
 
-    public void clicoNoBotaoNovaFicha(){
+    @FindBy(xpath = "//button[normalize-space() = 'Nova simulação']")
+    private WebElement btnNovaSimulacao;
+
+    public void clicoNoBotaoNovaFicha() {
         esperandoElementoSumir();
         clicar(btnNovaFicha);
+    }
+
+    public void clicoNoBotaoNovaSimulacao() {
+        esperandoElementoSumir();
+        clicar(btnNovaSimulacao);
     }
 
 }

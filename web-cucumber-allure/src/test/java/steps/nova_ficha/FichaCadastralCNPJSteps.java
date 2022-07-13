@@ -1,11 +1,7 @@
 package steps.nova_ficha;
 
 import io.cucumber.java.pt.E;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import page.nova_ficha.FichaCadastralCNPJPage;
-
-import static inmetrics.automacao.core.web.util.FabricaWebDriver.getDriver;
 
 public class FichaCadastralCNPJSteps {
 
@@ -81,6 +77,11 @@ public class FichaCadastralCNPJSteps {
         fichaCadastralCNPJPage.informoCnpjDoSocio();
     }
 
+    @E("informo o cpf do socio")
+    public void informoCpfSocio() {
+        fichaCadastralCNPJPage.informoCpfSocio();
+    }
+
     @E("informo cpf do socio")
     public void informoCpfDoSocio() {
         fichaCadastralCNPJPage.informoCpfDoSocio();
@@ -111,6 +112,11 @@ public class FichaCadastralCNPJSteps {
         fichaCadastralCNPJPage.nasOpcoesRepresentanteESocioEscolho(simOrnao);
     }
 
+    @E("escolho o socio no combo representante legal")
+    public void escolhoSocioNoComboRepresentanteLegal() {
+        fichaCadastralCNPJPage.escolhoSocioNoComboRepresentanteLegal();
+    }
+
     @E("informo o CPF do representante legal")
     public void informoCpfDoRepresentanteLegal() {
         fichaCadastralCNPJPage.informoCpfDoRepresentanteLegal();
@@ -126,6 +132,66 @@ public class FichaCadastralCNPJSteps {
         fichaCadastralCNPJPage.naOpcaoAvalistaInformoOSocio();
     }
 
+    @E("clico na opcao de adicionar avalista {string}")
+    public void clicoOpcaoAdicionarAvalista(String opcao) {
+        fichaCadastralCNPJPage.clicoOpcaoAdicionarAvalista(opcao);
+    }
+
+    @E("informo se o segundo avalista e socio {string}")
+    public void informoSegundoAvalistaSocio(String simOrnao) {
+        fichaCadastralCNPJPage.informoSegundoAvalistaSocio(simOrnao);
+    }
+
+    @E("informo se o avalista e socio {string}")
+    public void informoSeAvalistaESocio(String simOrnao) {
+        fichaCadastralCNPJPage.informoSeAvalistaESocio(simOrnao);
+    }
+
+    @E("informo CPF do avalista pj")
+    public void informoCpfDoAvalista() {
+        fichaCadastralCNPJPage.informoCpfDoAvalista();
+    }
+
+    @E("informo nome do avalista pj {string}")
+    public void informoNomeAvalistaPj(String nome) {
+        fichaCadastralCNPJPage.informoNomeAvalistaPj(nome);
+    }
+
+    @E("no combo natureza da ocupacao pj informo {string}")
+    public void noComboNaturezaOcupacaoPj(String ocupacao) {
+        fichaCadastralCNPJPage.noComboNaturezaOcupacaoPj(ocupacao);
+    }
+
+    @E("informo data de admissao do avalista pj {string}")
+    public void informoDataDeAdmissaoAvalistaPj(String dataAdmissao) {
+        fichaCadastralCNPJPage.informoDataDeAdmissaoAvalistaPj(dataAdmissao);
+    }
+
+    @E("no campo salario e renda do avalista mensal pj informo {string}")
+    public void noCampoSalarioRendaAvalistaPjInformo(String renda) {
+        fichaCadastralCNPJPage.noCampoSalarioRendaAvalistaPjInformo(renda);
+    }
+
+    @E("escolho o estado civil do avalista pj {string}")
+    public void escolhoEstadoCivilAvalistaPj(String estatdoCivil) {
+        fichaCadastralCNPJPage.escolhoEstadoCivilAvalistaPj(estatdoCivil);
+    }
+
+    @E("informo o nome do conjugue do pj {string}")
+    public void informoNomeConjuguePJ(String nome) {
+        fichaCadastralCNPJPage.informoNomeConjuguePJ(nome);
+    }
+
+    @E("informo o CPF do conjugue do avalista pj")
+    public void informoCpfConjugueAvalista() {
+        fichaCadastralCNPJPage.informoCpfConjugueAvalista();
+    }
+
+    @E("informo a data de nascimento do conjugue do avalista pj {string}")
+    public void informoDataNascimentoConjugueAvalistaPj(String dataNascimento) {
+        fichaCadastralCNPJPage.informoDataNascimentoConjugueAvalistaPj(dataNascimento);
+    }
+
     @E("na opcao beneficiario final clico em adicionar {string}")
     public void naOpcaoBeneficiarioFinalClicoEmAdicionar(String simOrnao) {
         fichaCadastralCNPJPage.naOpcaoBeneficiarioFinalClicoEmAdicionar(simOrnao);
@@ -139,6 +205,11 @@ public class FichaCadastralCNPJSteps {
     @E("informo cpf do beneficiario final")
     public void informoCpfDoBeneficiarioFinal() {
         fichaCadastralCNPJPage.informoCpfDoBeneficiarioFinal();
+    }
+
+    @E("informo cnpj do beneficiario final")
+    public void informoCnpjBeneficiarioFinal() {
+        fichaCadastralCNPJPage.informoCnpjBeneficiarioFinal();
     }
 
     @E("informo nome do beneficiario final {string}")
@@ -191,6 +262,11 @@ public class FichaCadastralCNPJSteps {
         fichaCadastralCNPJPage.noCamboEnderecoInformoCepBeneficiarioFinal(cepBeneficiario);
     }
 
+    @E("informo o tipo de residencia do beneficiario final {string}")
+    public void informoTipoResidenciaBeneficiarioFinal(String tipoResidencia) {
+        fichaCadastralCNPJPage.informoTipoResidenciaBeneficiarioFinal(tipoResidencia);
+    }
+
     @E("informo o numero da rua do beneficiario final {string}")
     public void informoNumeroRuaBeneficiarioFinal(String numero) {
         fichaCadastralCNPJPage.informoNumeroRuaBeneficiarioFinal(numero);
@@ -201,9 +277,24 @@ public class FichaCadastralCNPJSteps {
         fichaCadastralCNPJPage.naOpcoesDesempenhouFuncaoOuCargoPublicoRelevanteNosUltimos5AnosDoBeneficiario(simOrnao);
     }
 
+    @E("escrevo a funcao politica do beneficiario final {string}")
+    public void escrevoFuncaoPoliticaBeneficiarioFinal(String funcao) {
+        fichaCadastralCNPJPage.escrevoFuncaoPoliticaBeneficiarioFinal(funcao);
+    }
+
     @E("nas opcoes possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos do beneficiario final {string}")
     public void nasOpcoesPossuiParentescoComPessoasExerceuFuncaoOuCargoRelevanteNoUltimos5AnosBeneficiario(String parentesco) {
         fichaCadastralCNPJPage.nasOpcoesPossuiParentescoComPessoasExerceuFuncaoOuCargoRelevanteNoUltimos5AnosBeneficiario(parentesco);
+    }
+
+    @E("informo o grau de parentesco do beneficiario final {string}")
+    public void informoGrauParentescoBeneficiarioFinal(String parentesco) {
+        fichaCadastralCNPJPage.informoGrauParentescoBeneficiarioFinal(parentesco);
+    }
+
+    @E("informo os dados obrigatorio dos socios")
+    public void informoOsDadosObrigatorioDosSocios() {
+        fichaCadastralCNPJPage.informoOsDadosObrigatorioDosSocios();
     }
 
     @E("na aopcao beneficiario final escolho qual o socio")
