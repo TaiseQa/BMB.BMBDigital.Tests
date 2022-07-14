@@ -17,7 +17,6 @@ public class Hooks {
 
     @Before
     public void beforeAllTest() {
-//        driver = Utils.getDriver();
         iniciarNavegador();
 
     }
@@ -36,7 +35,6 @@ public class Hooks {
             takeScreeShot(scenario, "print da falha.png");
         }
 
-//        Utils.killDriver();
         fecharNavegador();
     }
 

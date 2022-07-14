@@ -263,7 +263,6 @@ Funcionalidade: Nova Ficha
     Dado que preencho o campo CPF ou CNPJ com valor inválido "00000011111"
     Então é apresentada a mensagem "CPF/CNPJ inválido".
 
-
   @CT06
   Cenario: cadastrar proposta de caminhão novo sem acessorio finame taxa fixa sem seguro para empresa com socio pf o representante legal não é socio, com beneficiario e com empresas coligadas
     E informo um CNPJ valido
@@ -511,7 +510,6 @@ Funcionalidade: Nova Ficha
     E no modal selecione o vendedor escolho "GERENTE"
     Então o sistema apresenta a tela com os detalhes da proposta cadastrada
 
-
   @CT09
   Cenario: cadastrar proposta de onibus novo com acessorio CDC sem seguro e sem prestamista para empresa com dois socios pf, com tres avalistas com tres beneficiarios final, sem empresas coligadas
     E informo um CNPJ valido
@@ -678,7 +676,6 @@ Funcionalidade: Nova Ficha
     E no modal selecione o vendedor escolho "GERENTE"
     Então o sistema apresenta a tela com os detalhes da proposta cadastrada
 
-
   @CT11
   Cenario: cadastrar proposta de van usada, sem acessorio, CDC, sem seguro para empresa que possui socio casado em comunhão parcial de bens com representante pf, sem empresas coligadas
     E informo um CNPJ valido
@@ -783,8 +780,7 @@ Funcionalidade: Nova Ficha
     E na opcao prestamista escolho "Não"
     E clico em gerar simulacao
     E clico em imprimir
-    Então valido que nova aba com documento pdf para imprimir foi aberto na url "https://extrafrontprj.br800.corpintra.net/ReportViewer/Stream.aspx?rel=crystal&id"
-
+    Então valido que nova aba com documento pdf para imprimir foi aberto na url
 
   @CT13
   Cenario: preencher proposta e validar tela de operação
@@ -839,7 +835,6 @@ Funcionalidade: Nova Ficha
     E Valido porcentagem de entrada "33.34074239%"
     E valido o valor de entrada "R$ 150.000,00"
     Então valido a campanha escolhida
-
 
   @CT14
   Cenario: validar quando informar cnpj invalido

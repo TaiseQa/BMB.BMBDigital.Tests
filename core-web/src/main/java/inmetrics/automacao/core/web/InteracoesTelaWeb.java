@@ -46,8 +46,7 @@ public class InteracoesTelaWeb {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
         } catch (TimeoutException e) {
-            log.error("o elemento: " + element + " não foi encontrado");
-            log.error(e.getMessage());
+            throw new TimeoutException("o elemento: " + element + " não foi encontrado", e);
         }
     }
 
@@ -306,6 +305,7 @@ public class InteracoesTelaWeb {
      * @return — Retorno do texto sem espaços no início e no final
      */
     protected String getTexto(WebElement element) {
+        aguardarVisibilidade(element);
         return element.getText().trim();
     }
 
@@ -403,7 +403,7 @@ public class InteracoesTelaWeb {
      * @param name — Nome do arquivo temporario com a extensão.properties
      * @return - Retorna um propertiesConfiguration
      */
-    protected PropertiesConfiguration properties(String name) {
+    public PropertiesConfiguration properties(String name) {
         File propesFile = new File(FileUtils.getTempDirectory(), name);
         try {
             if (propesFile.createNewFile()) {

@@ -3,6 +3,8 @@ package steps.nova_ficha;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
+import lombok.SneakyThrows;
+import lombok.val;
 import org.junit.Assert;
 import page.nova_ficha.FichaCadastralCPFPage;
 
@@ -75,18 +77,15 @@ public class FichaCadastralCPFSteps {
         fichaCadastralCPFPage.clico_em_dados_adicionais();
     }
 
-
     @Dado("nas opcoes sexo escolho {string}")
     public void nas_opcoes_sexo_escolho(String sexo) {
         fichaCadastralCPFPage.selecionarSexo(sexo);
     }
 
-
     @Dado("no combo escolaridade escolho {string} e informo o estatus do mesmo {string}")
     public void no_combo_escolaridade_escolho_e_informo_o_estatus_do_mesmo(String escolaridade, String statusEscolaridade) {
         fichaCadastralCPFPage.no_combo_escolaridade_escolho_e_informo_o_estatus_do_mesmo(escolaridade, statusEscolaridade);
     }
-
 
     @Dado("no combo naturalidade pais escolho {string}")
     public void no_combo_naturalidade_pais_escolho(String naturalidade) {
@@ -188,17 +187,17 @@ public class FichaCadastralCPFSteps {
 
     @E("clico no botao novo endereco de correspondencia")
     public void clicoNoBotaoNovoEnderecoDeCorrespondencia() {
-
+fichaCadastralCPFPage.clicoNoBotaoNovoEnderecoDeCorrespondencia();
     }
 
     @E("informo o novo cep {string}")
     public void informoNovoCep(String novoCep) {
-
+fichaCadastralCPFPage.informoNovoCep(novoCep);
     }
 
     @E("informo o novo numero da rua {string}")
     public void informoNovoNumeroDaRua(String novoNumeroRua) {
-
+fichaCadastralCPFPage.informoNovoNumeroDaRua(novoNumeroRua);
     }
 
     @Dado("no combo natureza da ocupacao do avalista escolho {string}")
@@ -213,12 +212,12 @@ public class FichaCadastralCPFSteps {
 
     @E("informo receitas mensais do avalista {string}")
     public void informoReceitasMensaisDoAvalista(String receitasAvalista) {
-
+        fichaCadastralCPFPage.informoReceitasMensaisDoAvalista(receitasAvalista);
     }
 
     @E("informo o tipo de transporte do avalista {string}")
     public void informoOTipoDeTransporteDoAvalista(String tipoTransporteAvalista) {
-
+        fichaCadastralCPFPage.informoOTipoDeTransporteDoAvalista(tipoTransporteAvalista);
     }
 
     @E("no campo salario e renda do avalista mensal informo {string}")
@@ -442,12 +441,10 @@ public class FichaCadastralCPFSteps {
         fichaCadastralCPFPage.no_combo_produto_escolho(produto);
     }
 
-
     @Dado("no combo campanha escolho {string}")
     public void no_combo_campanha_escolho(String campanha) {
         fichaCadastralCPFPage.no_combo_campanha_escolho(campanha);
     }
-
 
     @Dado("no combo prazo escolho {string} e carencia {string}")
     public void no_combo_prazo_escolho_e_carencia(String prazo, String carencia) {
@@ -529,7 +526,8 @@ public class FichaCadastralCPFSteps {
 
     @Então("valido a campanha escolhida")
     public void validoACampanhaEscolhida() {
-
+        val props = fichaCadastralCPFPage.properties("campanhas.properties");
+        Assert.assertEquals(fichaCadastralCPFPage.getCampanhaTaxa(), fichaCadastralCPFPage.validoACampanhaEscolhida());
     }
 
 
@@ -538,9 +536,9 @@ public class FichaCadastralCPFSteps {
         fichaCadastralCPFPage.clicoEmImprimir();
     }
 
-    @Então("valido que nova aba com documento pdf para imprimir foi aberto na url {string}")
-    public void validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba(String url) {
-        Assert.assertEquals(url, fichaCadastralCPFPage.validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba());
+    @Então("valido que nova aba com documento pdf para imprimir foi aberto na url")
+    public void validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba() {
+        Assert.assertEquals(2,fichaCadastralCPFPage.validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba());
     }
 
 

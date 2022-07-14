@@ -16,4 +16,14 @@ public class HomeSteps {
         homePage.acessarPaginaDePropostasEContratos();
     }
 
+    @Quando("clico no menu conta")
+    public void clicoNoMenuConta() {
+        homePage.clicoNoMenuConta();
+    }
+
+    @Quando("clico no botao de ajuda")
+    public void clicoNoBotaoAjuda() {
+        homePage.clicoNoBotaoAjuda();
+    }
+
 }

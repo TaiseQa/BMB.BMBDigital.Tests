@@ -18,6 +18,12 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     GeraCpfCnpj geraCpfCnpj;
 
+    public String getCampanhaTaxa() {
+        return campanhaTaxa;
+    }
+
+    private String campanhaTaxa;
+
     public FichaCadastralCPFPage(GeraCpfCnpj geraCpfCnpj) {
         this.geraCpfCnpj = geraCpfCnpj;
     }
@@ -132,7 +138,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     @FindBy(css = "[formcontrolname = 'residenceTime']")
     private WebElement inputTempoResidencia;
-
 
     @FindBy(xpath = "(//ngx-select[@formcontrolname = 'id'])[1]")
     private WebElement startComboNaturezaOcupacao;
@@ -355,23 +360,19 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     @FindBy(xpath = "(//app-field-error//div)[2]")
     private WebElement msgCpfOuCnpjInvalido;
 
-
     public void que_preencho_o_campo_CPF_com_valor_valido() {
         escrever(inputCpfCnpj, geraCpfCnpj.cpf(false));
         clicar(btnSelecionar);
     }
 
-
     public void preencho_o_campo_nome(String nome) {
-        esperandoElementoSumir();
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         escrever(inputName, nome);
     }
-
 
     public void preencho_a_data_de_nascimento(String dataNascimento) {
         escrever(inputDataNascimento, dataNascimento);
     }
-
 
     public void preencho_o_campo_email(String email) {
         escrever(inputEmail, email);
@@ -381,12 +382,10 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         escrever(inputCelular, celular);
     }
 
-
     public void escolho_o_estado_civil(String estadoCivil) {
         seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         selecionarCombos(startComboEstadoCivil, estadoCivil);
     }
-
 
     public void noComboRegumeDeCasamentoEscolho(String regimeCasamento) {
         selecionarCombos(startComboRegimeCasamento, regimeCasamento);
@@ -404,52 +403,38 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         escrever(inputDataNascimentoConjugue, dataNascimentoConjugue);
     }
 
-
     public void clico_em_dados_adicionais() {
         clicar(btnDadosAdicionais);
     }
-
-
-    public void nas_opcoes_sexo_escolho(String sexo) {
-        selecionarSexo(sexo);
-    }
-
 
     public void no_combo_escolaridade_escolho_e_informo_o_estatus_do_mesmo(String escolaridade, String statusEscolaridade) {
         selecionarEscolaridade(escolaridade);
         selecionarCombos(startComboSituacaoEscolar, statusEscolaridade);
     }
 
-
     public void no_combo_naturalidade_pais_escolho(String naturalidade) {
         selecionarNaturalidade(naturalidade);
     }
-
 
     public void no_combo_naturalidade_estado_escolho(String estadoNaturalidade) {
         selecionarCombos(startComboNaturalidadeEstado, estadoNaturalidade);
     }
 
-
     public void no_combo_naturalidade_cidade_escolho(String cidadeNaturalidade) {
         selecionarCombosUpperCase(startComboNaturalidadeCidade, cidadeNaturalidade);
     }
-
 
     public void informo_o_nome_da_mae(String nomeMae) {
         escrever(inputNomeMae, nomeMae);
     }
 
-
     public void no_combo_documento_do_proponente_escolho(String documento) {
         selecionarCombosUpperCase(startComboDocumentoProponente, documento);
     }
 
-
     public void informo_o_numero_do_documento(String numeroDocumento) {
         escrever(inputNumeroDoDocumento, numeroDocumento);
     }
-
 
     public void informo_a_data_de_expedicao_do_documento(String dataExpedicao) {
         escrever(inputDataExpedicao, dataExpedicao);
@@ -459,47 +444,38 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         selecionarCombos(startComboUf, ufCidades);
     }
 
-
     public void no_combo_UF_escolho(String uf) {
         selecionarCombosUpperCase(startComboUf, uf);
     }
-
 
     public void informo_o_orgao_emissor(String orgaoEmissor) {
         escrever(inputOrgaoEmissor, orgaoEmissor);
     }
 
-
     public void informo_a_validade_do_documento(String validade) {
         escrever(inputValidadeDoc, validade);
     }
 
-
     public void no_combo_patrimonio_escolho(String patrimonio) {
         selecionarCombos(startComboPatrimonio, patrimonio);
     }
-
 
     public void no_campo_endereco_informo_o_cep(String cep) {
         escrever(inputCep, cep);
         esperar(1500);
     }
 
-
     public void informo_o_numero_da_rua(String numero) {
         escrever(inputNumeroRua, numero);
     }
-
 
     public void no_combo_tipo_de_residencia_escolho(String tipoResidencia) {
         selecionarCombos(startComboTipoResidencia, tipoResidencia);
     }
 
-
     public void informo_o_tempo_de_residencia(String tempoResidencia) {
         escrever(inputTempoResidencia, tempoResidencia);
     }
-
 
     public void no_combo_natureza_da_ocupacao_escolho(String ocupacao) {
         selecionarCombos(startComboNaturezaOcupacao, ocupacao);
@@ -517,7 +493,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     public void informoNovoNumeroDaRua(String novoNumeroRua) {
         escrever(inputNovoNumero, novoNumeroRua);
     }
-
 
     public void no_combo_natureza_da_ocupacao_do_avalista_escolho(String ocupacao) {
         seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
@@ -578,7 +553,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         escrever(inputDataNascimentoConjugueAvalista, dataNascimentoConjugueAvalista);
     }
 
-
     public void informoAtividadePrincipal(String atividade) {
         escrever(inputAtividadePrincipal, atividade);
     }
@@ -615,7 +589,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         escrever(inputNumeroAntt, antt);
     }
 
-
     public void nasOpcoessCooperativaInfomro(String simOrnao) {
         WebElement opcao = getDriver().findElement(By.xpath
                 (String.format("//label[text() = 'Cooperativa']/..//span[text() = '%s']/preceding-sibling::input", simOrnao)));
@@ -630,11 +603,9 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         escrever(inputDataAdmissao, dataAdmissao);
     }
 
-
     public void no_campo_salario_e_renda_mensal_informo(String salario) {
         escrever(inputSalario, salario);
     }
-
 
     public void no_campo_avalista_escolho(String avalista) {
         selecionarAvalista(avalista);
@@ -659,7 +630,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         escrever(inputDescreverFuncaoPolitica, funcaoPolitica);
     }
 
-
     public void nas_opcoes_possui_parentesco_com_pessoa_que_exerceu_funcao_ou_cargo_publico_relevante_nos_ultimos_anos(String simOrnao) {
         WebElement opcao = getDriver().findElement(By.xpath(
                 String.format("(//label[text() = 'Possui parentesco com pessoa que exerceu função ou cargo público relevante nos últimos 5 anos?']/..//span[text() = '%s']/preceding-sibling::input)[2]", simOrnao)));
@@ -674,25 +644,22 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         selecionarCombos(startComboFinalidadeFinanciamento, opcao);
     }
 
-
     public void clico_no_botao_Salvar_Cliente() {
         clicar(btnSalvarCliente);
         seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         clicar(btnConfirmarClienteSalvo);
     }
 
-
     public void no_combo_ano_fabricacao_do_veiculo_escolho(String anoFabricacao) {
-        esperandoElementoSumir();
+//        esperandoElementoSumir();
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         selecionarCombos(startComboAnoFabricacao, anoFabricacao);
     }
-
 
     public void no_combo_tipo_de_veiculo_escolho(String tipoVeiculo) {
         seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         selecionarCombos(startComboTipoVeiculo, tipoVeiculo);
     }
-
 
     public void escolho_o_estado_do_veiculo(String estadoVeiculo) {
         WebElement opcao = getDriver().findElement(
@@ -700,9 +667,8 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         opcao.click();
     }
 
-
     public void no_combo_modelo_do_veiculo_escolho(String modeloVeiculo) {
-        esperandoElementoSumir();
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         selecionarCombos(startComboModeloVeiculo, modeloVeiculo);
     }
 
@@ -714,7 +680,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     public void noComboTipoDeCargaEscolho(String tipoCarga) {
         selecionarCombos(startComboTipoCarga, tipoCarga);
     }
-
 
     public void nas_opcoes_adicionar_acessorio_escolho(String simOrnao) {
         seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
@@ -731,13 +696,12 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         escrever(inputValorAcessorio, valorAcessorio);
     }
 
-
     public void no_combo_produto_escolho(String produto) {
         selecionarCombos(startComboProduto, produto);
     }
 
-
     public void no_combo_campanha_escolho(String campanha) {
+        campanhaTaxa = campanha;
         selecionarCombos(startComboCampanha, campanha);
     }
 
@@ -745,7 +709,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     public void no_combo_prazo_escolho_e_carencia(String prazo, String carencia) {
         selecionarCombos(startComboPrazo, prazo);
         selecionarCombos(startComboCarencia, carencia);
-
     }
 
     public void nasOpcoesTipoPessoaEscolho(String tipoPessoa) {
@@ -763,7 +726,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         WebElement opcao = getDriver().findElement(By.xpath(
                 String.format("(//span[text() = '%s']/preceding-sibling::input)[2]", simOrnao)));
         opcao.click();
-
     }
 
     public void nasOpcoesSimularSeguroDoVeiculoEscolho(String simOrnao) {
@@ -791,8 +753,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     public String dataAtual() {
         Date dataHoraAtual = new Date();
-        String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-        return data;
+        return new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
     }
 
     public String validoQueProdutoE() {
@@ -829,16 +790,13 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     public void clicoEmImprimir() {
         clicar(btnImprimir);
-
     }
 
-    public String validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba() {
+    public int validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba() {
         seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         List<String> aba = new ArrayList<>(getDriver().getWindowHandles());
-        String teste = getDriver().switchTo().window(aba.get(1)).getCurrentUrl();
-        return teste.substring(0, 81);
+        return aba.size();
     }
-
 
     public void na_opcao_deseja_seguro_do_veiculo_escolho(String simOrnao) {
         esperandoElementoSumir();
@@ -860,9 +818,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         return texto;
     }
 
-
     public void clico_em_continuar() {
-//        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         clicar(btnContinuar);
     }
 
@@ -878,13 +834,11 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         clicar(btnEnviarPropostaDeCredito);
     }
 
-
     public void no_modal_selecione_o_vendedor_escolho(String vendedor) {
         selecionarCombos(startComboSelecioneVendedor, vendedor);
         clicar(btnEnviarVendedor);
         esperandoElementoSumir();
         clicar(btnOkPropostaEnviada);
-
     }
 
     public boolean SistemaApresenteTelaComDetalhesDaPropostaCadastrada() {
