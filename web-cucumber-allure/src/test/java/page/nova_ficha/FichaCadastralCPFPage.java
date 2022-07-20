@@ -269,7 +269,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     private WebElement inputValorAcessorio;
 
     @FindBy(xpath = "//label[normalize-space() = 'Produto']/../ngx-select")
-    WebElement startComboProduto;
+    private WebElement startComboProduto;
 
     @FindBy(css = "[formcontrolname = 'id']")
     private WebElement startComboCampanha;
@@ -616,7 +616,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     }
 
     public void informoNomeDoAvalista(String nomeAvalista) {
-        esperandoElementoSumir();
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         escrever(inputNomeAvalista, nomeAvalista);
     }
 
@@ -651,7 +651,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     }
 
     public void no_combo_ano_fabricacao_do_veiculo_escolho(String anoFabricacao) {
-//        esperandoElementoSumir();
         seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         selecionarCombos(startComboAnoFabricacao, anoFabricacao);
     }
@@ -705,7 +704,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         selecionarCombos(startComboCampanha, campanha);
     }
 
-
     public void no_combo_prazo_escolho_e_carencia(String prazo, String carencia) {
         selecionarCombos(startComboPrazo, prazo);
         selecionarCombos(startComboCarencia, carencia);
@@ -720,7 +718,6 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     public void informo_o_valor_de_entrada(String valorEntrada) {
         escrever(inputValorEntrada, valorEntrada);
     }
-
 
     public void na_opcao_prestamista_escolho(String simOrnao) {
         WebElement opcao = getDriver().findElement(By.xpath(

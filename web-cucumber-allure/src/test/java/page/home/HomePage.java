@@ -16,14 +16,27 @@ public class HomePage extends InteracoesTelaWeb {
     @FindBy(css = "a[href='/App/financings']")
     private WebElement btnPropostaContratos;
 
+    @FindBy(css = "[src='assets/icon/menu-modulo-retention.svg']")
+    private WebElement btnRetencao;
+
     @FindBy(xpath = "//img[@src = 'assets/icon/menu-modulo-account.svg']")
     private WebElement btnMenuConta;
 
     @FindBy(css = "[href='/App/faq']")
     private WebElement btnAjuda;
 
+    @FindBy(css = "[src='assets/icon/menu-modulo-campanhas.svg']")
+    private WebElement btnCampanhas;
+
+    @FindBy(css = "[src='assets/icon/menu-modulo-notificacao.svg']")
+    private WebElement btnNotificacoes;
+
     public void acessarPaginaDePropostasEContratos() {
         clicar(btnPropostaContratos);
+    }
+
+    public void clicoNoBotaoRetencao() {
+        clicar(btnRetencao);
     }
 
     public void clicoNoMenuConta() {
@@ -32,6 +45,14 @@ public class HomePage extends InteracoesTelaWeb {
 
     public void clicoNoBotaoAjuda() {
         clicar(btnAjuda);
+    }
+
+    public void clicoEmCampanhas() {
+        clicar(btnCampanhas);
+    }
+
+    public void clicoEmNotificacoes() {
+        clicar(btnNotificacoes);
     }
 
     public boolean verificarexistenciaModalcampanha() {
@@ -52,6 +73,5 @@ public class HomePage extends InteracoesTelaWeb {
             clicar(closeModal);
         }
     }
-
 
 }

@@ -135,7 +135,6 @@ public class FabricaWebDriver {
 			chromeDriverSerive.sendOutputTo(new FileOutputStream("target/chromedriver_log.txt", true));
 			prefs.put("profile.default_content_setting_values.geolocation", 2);
 			options.setExperimentalOption("prefs", prefs);
-			options.addArguments("--log-level=3");
 			options.addArguments("--headless");
 			options.addArguments("--disable-gpu");
 			options.addArguments("--window-size=1360,768");

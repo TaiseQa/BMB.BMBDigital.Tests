@@ -16,6 +16,11 @@ public class HomeSteps {
         homePage.acessarPaginaDePropostasEContratos();
     }
 
+    @Quando("clico no botao retencao")
+    public void clicoNoBotaoRetencao() {
+        homePage.clicoNoBotaoRetencao();
+    }
+
     @Quando("clico no menu conta")
     public void clicoNoMenuConta() {
         homePage.clicoNoMenuConta();
@@ -24,6 +29,16 @@ public class HomeSteps {
     @Quando("clico no botao de ajuda")
     public void clicoNoBotaoAjuda() {
         homePage.clicoNoBotaoAjuda();
+    }
+
+    @Quando("clico em campanhas")
+    public void clicoEmCampanhas() {
+        homePage.clicoEmCampanhas();
+    }
+
+    @Quando("clico em notificacoes")
+    public void clicoEmNotificacoes() {
+        homePage.clicoEmNotificacoes();
     }
 
 }

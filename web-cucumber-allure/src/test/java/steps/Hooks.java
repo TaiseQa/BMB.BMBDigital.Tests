@@ -1,30 +1,25 @@
 package steps;
 
-import framework.utils.Utils;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 
 import static inmetrics.automacao.core.web.util.FabricaWebDriver.*;
 
 public class Hooks {
 
-    WebDriver driver;
-
     @Before
     public void beforeAllTest() {
         iniciarNavegador();
-
     }
 
     @AfterStep
     public void printCadaPasso(Scenario scenario) {
         String scn = String.valueOf(scenario.getStatus());
-        if (scn.equals("PASSED")){
+        if (scn.equals("PASSED")) {
             takeScreeShot(scenario, "print de cada passo.png");
         }
     }
@@ -34,7 +29,6 @@ public class Hooks {
         if (scenario.isFailed()) {
             takeScreeShot(scenario, "print da falha.png");
         }
-
         fecharNavegador();
     }
 
