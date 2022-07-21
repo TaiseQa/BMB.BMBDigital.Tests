@@ -18,7 +18,7 @@ public class PropostasEContratosPage extends InteracoesTelaWeb {
     }
 
     public void clicoNoBotaoNovaSimulacao() {
-        esperandoElementoSumir();
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         clicar(btnNovaSimulacao);
     }
 
