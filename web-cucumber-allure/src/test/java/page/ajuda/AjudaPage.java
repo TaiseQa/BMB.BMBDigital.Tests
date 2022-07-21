@@ -1,7 +1,6 @@
 package page.ajuda;
 
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
-import io.cucumber.java.pt.Entao;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -79,6 +78,5 @@ public class AjudaPage extends InteracoesTelaWeb {
             return "video não mapeado";
         }
     }
-
 
 }

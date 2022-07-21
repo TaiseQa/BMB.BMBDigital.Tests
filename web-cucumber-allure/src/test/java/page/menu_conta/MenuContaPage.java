@@ -78,7 +78,6 @@ public class MenuContaPage extends InteracoesTelaWeb {
         return btnEntrar.isDisplayed();
     }
 
-
     public String userConta() {
         return getTexto(userConta);
     }

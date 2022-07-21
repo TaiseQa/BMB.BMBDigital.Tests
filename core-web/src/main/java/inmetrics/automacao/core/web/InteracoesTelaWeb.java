@@ -1,11 +1,9 @@
 package inmetrics.automacao.core.web;
 
-import inmetrics.automacao.core.web.util.Log;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -14,10 +12,8 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +26,6 @@ import static inmetrics.automacao.core.web.util.FabricaWebDriver.wait;
 public class InteracoesTelaWeb {
     public static final Logger log = Logger.getLogger(InteracoesTelaWeb.class);
     private Random random;
-
 
     public InteracoesTelaWeb() {
         PageFactory.initElements(getDriver(), this);
@@ -60,8 +55,7 @@ public class InteracoesTelaWeb {
         try {
             wait.until(ExpectedConditions.invisibilityOf(element));
         } catch (TimeoutException e) {
-            log.error("o elemento : " + element + "não foi encontrado");
-            log.error(e.getMessage());
+            throw new TimeoutException("o elemento: " + element + " não foi encontrado", e);
         }
     }
 

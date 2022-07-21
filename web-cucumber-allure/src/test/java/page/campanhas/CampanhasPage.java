@@ -20,6 +20,12 @@ public class CampanhasPage extends InteracoesTelaWeb {
     @FindBy(xpath = "//label[normalize-space() = 'Estou de acordo']")
     private WebElement textoRadioButtonModal;
 
+    @FindBy(xpath = "//button[normalize-space() = 'Ativar Campanha']")
+    private WebElement textoButtonAtivarCampanha;
+
+    @FindBy(xpath = "//button[text() = 'Cancelar']")
+    private WebElement textoButtonCancelar;
+
     @FindBy(xpath = "//label[normalize-space() = 'Estou de acordo']/preceding-sibling::input")
     private WebElement radioButton;
 
@@ -47,10 +53,12 @@ public class CampanhasPage extends InteracoesTelaWeb {
         return getTexto(textoRadioButtonModal);
     }
 
-    public String queModalContenhaBotao(String button) {
-        WebElement texto = getDriver().findElement(By.xpath
-                (String.format("//button[normalize-space() = '%s']", button)));
-        return getTexto(texto);
+    public String textoBotaoAtivarCampanha() {
+        return getTexto(textoButtonAtivarCampanha);
+    }
+
+    public String textoBotaoCancelar() {
+        return getTexto(textoButtonCancelar);
     }
 
     public void marcoAlgunsVendedores() {

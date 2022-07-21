@@ -244,6 +244,9 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     @FindBy(xpath = "//button[text() = 'SALVAR CLIENTE']")
     private WebElement btnSalvarCliente;
 
+    @FindBy(css = ".swal2-popup.swal2-modal.swal2-icon-success.swal2-show")
+    private WebElement modalClienteCriado;
+
     @FindBy(xpath = "//button[text() = 'OK']")
     private WebElement btnConfirmarClienteSalvo;
 
@@ -330,6 +333,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     @FindBy(xpath = "(//button[text() = 'CONTINUAR'])[2]")
     private WebElement btnContinuarModalAtencaoSeguroRemovido;
+
     @FindBy(xpath = "(//button[text() = 'CONTINUAR'])[1]")
     private WebElement btnContinuar;
 
@@ -647,6 +651,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     public void clico_no_botao_Salvar_Cliente() {
         clicar(btnSalvarCliente);
         seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        modalClienteCriado.isDisplayed();
         clicar(btnConfirmarClienteSalvo);
     }
 

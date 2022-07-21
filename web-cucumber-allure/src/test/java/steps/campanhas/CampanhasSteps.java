@@ -41,11 +41,6 @@ public class CampanhasSteps {
         Assert.assertEquals(radioButton, campanhasPage.queModalContenhaBotaoRadioButton());
     }
 
-    @E("que modal contenha botao {string}")
-    public void queModalContenhaBotao(String button) {
-        Assert.assertEquals(button.toUpperCase(), campanhasPage.queModalContenhaBotao(button));
-    }
-
     @E("marco alguns vendedores")
     public void marcoAlgunsVendedores() {
         campanhasPage.marcoAlgunsVendedores();
@@ -62,8 +57,8 @@ public class CampanhasSteps {
             campanhasPage.clicoNoBotaoAtivar();
             Assert.assertEquals(TITULO_MODAL, campanhasPage.verificoPresencaDeUmModal().substring(0, 15));
             Assert.assertEquals(DE_ACORDO, campanhasPage.queModalContenhaBotaoRadioButton());
-            Assert.assertEquals(BTN_ATIVAR_CAMPANHA.toUpperCase(), campanhasPage.queModalContenhaBotao(BTN_ATIVAR_CAMPANHA));
-            Assert.assertEquals(BTN_CANCELAR.toUpperCase(), campanhasPage.queModalContenhaBotao(BTN_CANCELAR));
+            Assert.assertEquals(BTN_ATIVAR_CAMPANHA.toUpperCase(), campanhasPage.textoBotaoAtivarCampanha());
+            Assert.assertEquals(BTN_CANCELAR.toUpperCase(), campanhasPage.textoBotaoCancelar());
             campanhasPage.marcoAlgunsVendedores();
             campanhasPage.desmarcoOsMesmoVendedores();
             Assert.assertTrue(campanhasPage.validarSeBotaoAtivarCampanhaFicaHabilitado());

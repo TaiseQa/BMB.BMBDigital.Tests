@@ -1,7 +1,7 @@
 # language: pt
 # encoding: utf-8
 
-@novaSimulacao
+@novaSimulacao @emProducao
 Funcionalidade: Nova Simulação
   Eu como usuário do Sitema BMB Digital
   Estando na tela principal da aplicação

@@ -1,7 +1,7 @@
 # language: pt
 # encoding: utf-8
 
-@NovaFicha
+@NovaFicha @emProducao
 Funcionalidade: Nova Ficha
   Eu como usuário do Sitema BMB Digital
   Estando na tela principal da aplicação
