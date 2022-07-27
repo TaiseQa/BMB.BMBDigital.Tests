@@ -493,7 +493,7 @@ public class InteracoesTelaWeb {
             try {
                 fwait.until(ExpectedConditions.invisibilityOf(element));
 
-            } catch (Exception e) {
+            } catch (NoSuchElementException | TimeoutException | StaleElementReferenceException e) {
                 e.printStackTrace();
             }
         }

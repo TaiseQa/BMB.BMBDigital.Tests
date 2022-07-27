@@ -15,6 +15,8 @@ public class RetencaoSteps {
     }
 
     private static final String TEXTO_CAMPANHA_RETENCAO = "Campanha de retenção";
+    private static final String TEXTO_TITULO_MODAL_FINALIZAR_CAMPANHA = "Finalizar campanha";
+    private static final String TEXTO_MODAL = "Você tem certeza que deseja finalizar esta campanha de comunicação? Todos os e-mails ainda agendados serão cancelados.";
     private static final String TEXTO_SEM_CAMPANHA_ENCONTRADA = "Nenhum resultado encontrado!";
     private static final String MODAL_CLICADO = "Existe modal e foi selecionado";
     private static final String INFO_MODAL_SELECIONADO = "(1 item selecionado)";
@@ -40,6 +42,8 @@ public class RetencaoSteps {
         switch (retencaoPage.validoSeExisteOuNaoUmaPropostaNaPagina()) {
             case "Existe":
                 Assert.assertEquals(TEXTO_CAMPANHA_RETENCAO, retencaoPage.textoCampanha());
+                Assert.assertEquals(TEXTO_TITULO_MODAL_FINALIZAR_CAMPANHA,retencaoPage.textoTituloFinalizarCampanha());
+                Assert.assertEquals(TEXTO_MODAL,retencaoPage.textoFinalizarCampanha());
                 break;
             case "Não existe":
                 Assert.assertEquals(TEXTO_SEM_CAMPANHA_ENCONTRADA, retencaoPage.textoSemCampanha());

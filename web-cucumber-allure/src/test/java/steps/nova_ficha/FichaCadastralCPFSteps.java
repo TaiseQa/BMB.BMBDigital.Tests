@@ -187,17 +187,17 @@ public class FichaCadastralCPFSteps {
 
     @E("clico no botao novo endereco de correspondencia")
     public void clicoNoBotaoNovoEnderecoDeCorrespondencia() {
-fichaCadastralCPFPage.clicoNoBotaoNovoEnderecoDeCorrespondencia();
+        fichaCadastralCPFPage.clicoNoBotaoNovoEnderecoDeCorrespondencia();
     }
 
     @E("informo o novo cep {string}")
     public void informoNovoCep(String novoCep) {
-fichaCadastralCPFPage.informoNovoCep(novoCep);
+        fichaCadastralCPFPage.informoNovoCep(novoCep);
     }
 
     @E("informo o novo numero da rua {string}")
     public void informoNovoNumeroDaRua(String novoNumeroRua) {
-fichaCadastralCPFPage.informoNovoNumeroDaRua(novoNumeroRua);
+        fichaCadastralCPFPage.informoNovoNumeroDaRua(novoNumeroRua);
     }
 
     @Dado("no combo natureza da ocupacao do avalista escolho {string}")
@@ -538,7 +538,7 @@ fichaCadastralCPFPage.informoNovoNumeroDaRua(novoNumeroRua);
 
     @Então("valido que nova aba com documento pdf para imprimir foi aberto na url")
     public void validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba() {
-        Assert.assertEquals(2,fichaCadastralCPFPage.validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba());
+        Assert.assertEquals(2, fichaCadastralCPFPage.validoDocumentoPdfSimulacaoParaImprimirFoiAbertoEmUmaNovaAba());
     }
 
 
@@ -577,6 +577,14 @@ fichaCadastralCPFPage.informoNovoNumeroDaRua(novoNumeroRua);
     @Dado("no modal selecione o vendedor escolho {string}")
     public void no_modal_selecione_o_vendedor_escolho(String vendedor) {
         fichaCadastralCPFPage.no_modal_selecione_o_vendedor_escolho(vendedor);
+    }
+
+    @SneakyThrows
+    @E("guardo o numero da proposta para recuperar depois")
+    public void guardoONumeroDaPropostaParaRecuperarDepois() {
+        val props = fichaCadastralCPFPage.properties("proposta.properties");
+        props.setProperty("proposta", fichaCadastralCPFPage.guardoONumeroDaPropostaParaRecuperarDepois());
+        props.save();
     }
 
     @Então("o sistema apresenta a tela com os detalhes da proposta cadastrada")

@@ -15,6 +15,18 @@ public class RetencaoPage extends InteracoesTelaWeb {
     @FindBy(xpath = "//h2[text() = 'Campanha de retenção']")
     private WebElement textoCampanhaRetencao;
 
+    @FindBy(xpath = "//button[normalize-space() = 'Finalizar campanha']")
+    private WebElement btnFinalizarCampanha;
+
+    @FindBy(xpath = "//h2[text() = 'Finalizar campanha']")
+    private WebElement textoTituloFinalizarCampanha;
+
+    @FindBy(xpath = "(//div[@class = 'swal2-content']//div)[1]")
+    private WebElement textoFinalizarCampanha;
+
+    @FindBy(xpath = "//button[text() = 'Cancelar']")
+    private WebElement btnCancelar;
+
     @FindBy(xpath = "//app-retention-card[@class = 'selected']")
     private WebElement cardCliado;
 
@@ -64,6 +76,17 @@ public class RetencaoPage extends InteracoesTelaWeb {
 
     public String textoCampanha() {
         return getTexto(textoCampanhaRetencao);
+    }
+
+    public String textoTituloFinalizarCampanha() {
+        clicar(btnFinalizarCampanha);
+        return getTexto(textoTituloFinalizarCampanha);
+    }
+
+    public String textoFinalizarCampanha() {
+        String texto = getTexto(textoFinalizarCampanha);
+        clicar(btnCancelar);
+        return texto;
     }
 
     public String textoSemCampanha() {

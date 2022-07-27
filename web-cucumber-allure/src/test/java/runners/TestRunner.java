@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
                 "de.monochromata.cucumber.report.PrettyReports:target/relatorio"
         },
         features = "classpath:features",
-        glue = {"steps"},
-        tags = {"@novaSimulacao or @NovaFicha"},
+        glue = {"steps", "hooks"},
+        tags = {"@NovaFicha or @novaSimulacao or @retencao"},
         snippets = CucumberOptions.SnippetType.UNDERSCORE,
         strict = true,
         dryRun = false,

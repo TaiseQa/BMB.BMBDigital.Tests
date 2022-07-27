@@ -355,6 +355,9 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     @FindBy(xpath = "//button[text() = 'OK']")
     private WebElement btnOkPropostaEnviada;
 
+    @FindBy(xpath = "//span[text() = ' Proposta ']//following-sibling::span")
+    private WebElement numeroProposta;
+
     @FindBy(xpath = "(//div[@class='col-8']//div[@class='info']/span)[1]")
     protected WebElement nomeClienteTelaPropostaCadastrada;
 
@@ -650,7 +653,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     public void clico_no_botao_Salvar_Cliente() {
         clicar(btnSalvarCliente);
-        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        esperandoElementoSumir();
         modalClienteCriado.isDisplayed();
         clicar(btnConfirmarClienteSalvo);
     }
@@ -841,6 +844,10 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         clicar(btnEnviarVendedor);
         esperandoElementoSumir();
         clicar(btnOkPropostaEnviada);
+    }
+
+    public String guardoONumeroDaPropostaParaRecuperarDepois() {
+        return getTexto(numeroProposta);
     }
 
     public boolean SistemaApresenteTelaComDetalhesDaPropostaCadastrada() {

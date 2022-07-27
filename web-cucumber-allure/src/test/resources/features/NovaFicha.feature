@@ -132,6 +132,7 @@ Funcionalidade: Nova Ficha
     E clico em continuar
     E clico em enviar proposta de credito
     E no modal selecione o vendedor escolho "GERENTE"
+    E guardo o numero da proposta para recuperar depois
     Então o sistema apresenta a tela com os detalhes da proposta cadastrada
 
   @CT03

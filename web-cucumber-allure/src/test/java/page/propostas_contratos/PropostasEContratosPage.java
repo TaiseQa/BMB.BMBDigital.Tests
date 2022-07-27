@@ -13,12 +13,12 @@ public class PropostasEContratosPage extends InteracoesTelaWeb {
     private WebElement btnNovaSimulacao;
 
     public void clicoNoBotaoNovaFicha() {
-        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        esperandoElementoSumir();
         clicar(btnNovaFicha);
     }
 
     public void clicoNoBotaoNovaSimulacao() {
-        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        esperandoElementoSumir();
         clicar(btnNovaSimulacao);
     }
 
