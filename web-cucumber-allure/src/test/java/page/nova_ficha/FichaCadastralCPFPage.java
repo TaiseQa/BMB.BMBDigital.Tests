@@ -653,7 +653,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     public void clico_no_botao_Salvar_Cliente() {
         clicar(btnSalvarCliente);
-        esperandoElementoSumir();
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         modalClienteCriado.isDisplayed();
         clicar(btnConfirmarClienteSalvo);
     }
@@ -710,6 +710,21 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     public void no_combo_campanha_escolho(String campanha) {
         campanhaTaxa = campanha;
         selecionarCombos(startComboCampanha, campanha);
+    }
+
+    public void noComboCamapnhaEscoljoTaxaComPpi(){
+        clicar(startComboCampanha);
+        WebElement opcao = getDriver().findElement(
+                By.xpath("(//ngx-select[@formcontrolname='id']//ul//li)[2]"));
+        clicar(opcao);
+    }
+
+    public void noComboCampanhaEscolhoUmaTaxaSemPpi(){
+        clicar(startComboCampanha);
+            WebElement opcao = getDriver().findElement(
+                    By.xpath("(//ngx-select[@formcontrolname='id']//ul//li)[1]"));
+            campanhaTaxa = getTexto(opcao);
+            clicar(opcao);
     }
 
     public void no_combo_prazo_escolho_e_carencia(String prazo, String carencia) {

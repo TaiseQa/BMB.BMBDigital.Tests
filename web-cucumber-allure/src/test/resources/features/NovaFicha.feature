@@ -53,7 +53,7 @@ Funcionalidade: Nova Ficha
     E no combo modelo do veiculo escolho "1316 /46 ACCELO 6X2 3e Dies. 2P Basico"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "FINAME TAXA FIXA - MPME ÔNIBUS E CAMINHÕES"
-    E no combo campanha escolho "16721 - FINAME Taxa Fixa - A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "57" e carencia "3"
     E informo o valor de entrada "100.000,00"
     E na opcao prestamista escolho "Não"
@@ -120,7 +120,7 @@ Funcionalidade: Nova Ficha
     E no combo acessorio escolho "AGRIBOMBA"
     E informo o valor do acessorio "1.500,00"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16698 - PC Taxa 1,44% à 1,51% - A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "12" e carencia "0"
     E informo o valor de entrada "150.000,00"
     E na opcao prestamista escolho "Sim"
@@ -180,7 +180,7 @@ Funcionalidade: Nova Ficha
     E no combo tipo de carga escolho "Pessoas"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "CDC Decrescente"
-    E no combo campanha escolho "16743 - Vans Taxa 1,52% a 1,58% A PPI JUL/2022"
+    E no combo campanha escolho uma taxa com ppi
     E no combo prazo escolho "60" e carencia "0"
     E informo o valor de entrada "200.000,00"
     E clico em gerar simulacao
@@ -245,7 +245,7 @@ Funcionalidade: Nova Ficha
     E no combo acessorio escolho "4º DIRECIONAL MECÂNICO"
     E informo o valor do acessorio "2.000,00"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16724 - Truck/Bus A - PPI JUL/2022"
+    E no combo campanha escolho uma taxa com ppi
     E no combo prazo escolho "48" e carencia "0"
     E informo o valor de entrada "518.300,00"
     E nas opcoes simular seguro do veiculo escolho "Sim"
@@ -312,7 +312,7 @@ Funcionalidade: Nova Ficha
     E no combo modelo do veiculo escolho "2430 /36 ATEGO(P.Shift) 8X2 3e Dies. 2P Basico"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "FINAME TAXA FIXA - BK ÔNIBUS E CAMINHÕES"
-    E no combo campanha escolho "16722 - FINAME Taxa Fixa - A PPI JUL/2022"
+    E no combo campanha escolho uma taxa com ppi
     E no combo prazo escolho "30" e carencia "6"
     E informo o valor de entrada "150.000,00"
     E clico em gerar simulacao
@@ -398,7 +398,7 @@ Funcionalidade: Nova Ficha
     E no combo acessorio escolho "AR CONDICIONADO AUTOMOTIVO KIT SPRINTER 416 SEGUND"
     E informo o valor do acessorio "1.500,00"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16742 - Vans Taxa 1,52% a 1,58% A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "12" e carencia "0"
     E informo o valor de entrada "201.384,36"
     E na opcao prestamista escolho "Sim"
@@ -498,7 +498,7 @@ Funcionalidade: Nova Ficha
     E no combo acessorio escolho "AR CONDICIONADO AUTOMOTIVO KIT SPRINTER 416 SEGUND"
     E informo o valor do acessorio "1.500,00"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16742 - Vans Taxa 1,52% a 1,58% A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "12" e carencia "0"
     E informo o valor de entrada "201.384,36"
     E na opcao prestamista escolho "Sim"
@@ -584,7 +584,7 @@ Funcionalidade: Nova Ficha
     E no combo acessorio escolho "BASCULANTE REBAIXADO AMERICA 3e(C/Pneus) Basico"
     E informo o valor do acessorio "4.500,00"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16723 - Truck/Bus - A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "45" e carencia "3"
     E informo o valor de entrada "350.000,00"
     E na opcao prestamista escolho "Não"
@@ -665,7 +665,7 @@ Funcionalidade: Nova Ficha
     E no combo modelo do veiculo escolho "3344 /48 AXOR CABINE ESTENDIDA 6X4 3e Dies. 2P Bas"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "FINAME TAXA FIXA - BK ÔNIBUS E CAMINHÕES"
-    E no combo campanha escolho "16721 - FINAME Taxa Fixa - A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "60" e carencia "0"
     E informo o valor de entrada "387.000,00"
     E na opcao prestamista escolho "Sim"
@@ -725,7 +725,7 @@ Funcionalidade: Nova Ficha
     E no combo tipo de carga escolho "Inflamável"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16743 - Vans Taxa 1,52% a 1,58% A PPI JUL/2022"
+    E no combo campanha escolho uma taxa com ppi
     E no combo prazo escolho "24" e carencia "0"
     E informo o valor de entrada "169.156,00"
     E clico em gerar simulacao
@@ -775,7 +775,7 @@ Funcionalidade: Nova Ficha
     E no combo modelo do veiculo escolho "1316 /46 ACCELO 6X2 3e Dies. 2P Basico"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "FINAME TAXA FIXA - MPME ÔNIBUS E CAMINHÕES"
-    E no combo campanha escolho "16721 - FINAME Taxa Fixa - A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "57" e carencia "3"
     E informo o valor de entrada "100.000,00"
     E na opcao prestamista escolho "Não"
@@ -822,19 +822,19 @@ Funcionalidade: Nova Ficha
     E no combo modelo do veiculo escolho "A 35 SEDAN AMG 2.0 16V TB 4MATIC Gas. 4P Basico"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16698 - PC Taxa 1,44% à 1,51% - A JUL/2022"
-    E no combo prazo escolho "60" e carencia "0"
-    E informo o valor de entrada "150.000,00"
+    E no combo campanha escolho uma taxa sem ppi
+    E no combo prazo escolho "13" e carencia "0"
+    E informo o valor de entrada "100.000,00"
     E na opcao prestamista escolho "Não"
     E clico em gerar simulacao
     E clico na aba operações
     E valido que data da simulação é a data atual
     E valido que o produto é "CDC"
-    E valido que a quantidade de parcelas e "60" e a carencia "0"
-    E valido o prazo total "60"
+    E valido que a quantidade de parcelas e "13" e a carencia "0"
+    E valido o prazo total "13"
     E valido o valor total "R$ 449.900,00"
-    E Valido porcentagem de entrada "33.34074239%"
-    E valido o valor de entrada "R$ 150.000,00"
+    E Valido porcentagem de entrada "22.22716159%"
+    E valido o valor de entrada "R$ 100.000,00"
     Então valido a campanha escolhida
 
   @CT14

@@ -24,8 +24,8 @@ Funcionalidade: Nova Simulação
     E no combo acessorio escolho "CARGA SECA 2e(C/Pneus) Basico"
     E informo o valor do acessorio "3.550,00"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16698 - PC Taxa 1,44% à 1,51% - A JUL/2022"
-    E no combo prazo escolho "36" e carencia "0"
+    E no combo campanha escolho uma taxa sem ppi
+    E no combo prazo escolho "13" e carencia "0"
     E nas opcoes tipo pessoa escolho "Física"
     E informo o valor de entrada "120.000,00"
     E na opcao prestamista escolho "Sim"
@@ -89,7 +89,7 @@ Funcionalidade: Nova Simulação
     E no combo tipo de carga escolho "Comum"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "CDC Decrescente"
-    E no combo campanha escolho "16743 - Vans Taxa 1,52% a 1,58% A PPI JUL/2022"
+    E no combo campanha escolho uma taxa com ppi
     E no combo prazo escolho "12" e carencia "0"
     E nas opcoes tipo pessoa escolho "Física"
     E informo o valor de entrada "180.000,00"
@@ -144,7 +144,7 @@ Funcionalidade: Nova Simulação
     E no combo acessorio escolho "BOIADEIRO 2e(S/Pneus) Basico"
     E informo o valor do acessorio "3.125,00"
     E no combo produto escolho "FINAME TAXA FIXA - MPME ÔNIBUS E CAMINHÕES"
-    E no combo campanha escolho "16721 - FINAME Taxa Fixa - A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "42" e carencia "6"
     E nas opcoes tipo pessoa escolho "Física"
     E informo o valor de entrada "250.000,00"
@@ -211,7 +211,7 @@ Funcionalidade: Nova Simulação
     E no combo modelo do veiculo escolho "OF-1621 /59 FRETAMENTO 4X2 Dies. 1P Basico"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16723 - Truck/Bus - A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "57" e carencia "3"
     E nas opcoes tipo pessoa escolho "Física"
     E informo o valor de entrada "189.000,00"
@@ -253,7 +253,7 @@ Funcionalidade: Nova Simulação
     E no combo modelo do veiculo escolho "2430 /36 ATEGO(Cabine Leito Teto Alto P.Shift) 6X2"
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16724 - Truck/Bus A - PPI JUL/2022"
+    E no combo campanha escolho uma taxa com ppi
     E no combo prazo escolho "18" e carencia "6"
     E nas opcoes tipo pessoa escolho "Jurídica"
     E informo o valor de entrada "250.000,00"
@@ -310,7 +310,7 @@ Funcionalidade: Nova Simulação
     E no combo acessorio escolho "BITREM"
     E informo o valor do acessorio "5.125,00"
     E no combo produto escolho "CDC Decrescente"
-    E no combo campanha escolho "16698 - PC Taxa 1,44% à 1,51% - A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "60" e carencia "0"
     E nas opcoes tipo pessoa escolho "Jurídica"
     E informo o valor de entrada "372.649,00"
@@ -370,7 +370,7 @@ Funcionalidade: Nova Simulação
     E no combo acessorio escolho "KIT EIXO AUTODIRECIONAL"
     E informo o valor do acessorio "5.125,00"
     E no combo produto escolho "CDC"
-    E no combo campanha escolho "16742 - Vans Taxa 1,52% a 1,58% A JUL/2022"
+    E no combo campanha escolho uma taxa sem ppi
     E no combo prazo escolho "48" e carencia "0"
     E nas opcoes tipo pessoa escolho "Jurídica"
     E informo o valor de entrada "131.549,27"

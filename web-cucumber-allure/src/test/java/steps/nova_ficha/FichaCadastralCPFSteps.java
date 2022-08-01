@@ -446,6 +446,16 @@ public class FichaCadastralCPFSteps {
         fichaCadastralCPFPage.no_combo_campanha_escolho(campanha);
     }
 
+    @E("no combo campanha escolho uma taxa com ppi")
+    public void noComboCamapnhaEscoljoTaxaComPpi() {
+        fichaCadastralCPFPage.noComboCamapnhaEscoljoTaxaComPpi();
+    }
+
+    @E("no combo campanha escolho uma taxa sem ppi")
+    public void noComboCampanhaEscolhoUmaTaxaSemPpi() {
+        fichaCadastralCPFPage.noComboCampanhaEscolhoUmaTaxaSemPpi();
+    }
+
     @Dado("no combo prazo escolho {string} e carencia {string}")
     public void no_combo_prazo_escolho_e_carencia(String prazo, String carencia) {
         fichaCadastralCPFPage.no_combo_prazo_escolho_e_carencia(prazo, carencia);
