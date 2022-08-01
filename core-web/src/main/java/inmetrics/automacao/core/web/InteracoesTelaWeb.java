@@ -488,15 +488,12 @@ public class InteracoesTelaWeb {
                 .pollingEvery(Duration.ofSeconds(3))
                 .ignoring(NoSuchElementException.class, TimeoutException.class)
                 .ignoring(StaleElementReferenceException.class);
-        WebElement element = getDriver().findElement(By.xpath("//app-interceptor//aside[not(@hidden)]"));
-        for (int i = 0; i < 5; i++) {
-            try {
-                fwait.until(ExpectedConditions.invisibilityOf(element));
+        try {
+            WebElement element = getDriver().findElement(By.xpath("//app-interceptor//aside[not(@hidden)]"));
+            fwait.until(ExpectedConditions.invisibilityOf(element));
 
-            } catch (NoSuchElementException | TimeoutException | StaleElementReferenceException e) {
-                e.printStackTrace();
+            } catch (NoSuchElementException | TimeoutException | StaleElementReferenceException ignore) {
             }
-        }
     }
 
     public void selecionarCombos(WebElement element, String opcaoCombo) {
