@@ -15,6 +15,9 @@ public class AjudaPage extends InteracoesTelaWeb {
     @FindBy(xpath = "//app-question//span")
     private WebElement resultadoBusca;
 
+    @FindBy(xpath = "//video")
+    private WebElement playVideo;
+
     @FindBy(xpath = "//source")
     private WebElement video;
 
@@ -33,6 +36,9 @@ public class AjudaPage extends InteracoesTelaWeb {
         WebElement opcao = getDriver().findElement(By.xpath
                 (String.format("//span[text() = '%s']", oop)));
         opcao.click();
+        esperar(1000);
+        clicar(playVideo);
+        esperar(2000);
     }
 
     public String verificoQueVideoDoTutotrialEExibido() {
@@ -42,7 +48,7 @@ public class AjudaPage extends InteracoesTelaWeb {
     public void clicoEmUmaPergunta(String pergunta) {
         WebElement opcao = getDriver().findElement(By.xpath
                 (String.format("//h3[text() = '%s']", pergunta)));
-        opcao.click();
+        clicar(opcao);
     }
 
     public String queSuaRespostaExibidaSeja() {

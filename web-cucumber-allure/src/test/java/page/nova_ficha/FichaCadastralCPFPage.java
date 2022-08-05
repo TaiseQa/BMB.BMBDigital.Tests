@@ -659,7 +659,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     }
 
     public void no_combo_ano_fabricacao_do_veiculo_escolho(String anoFabricacao) {
-        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        esperandoElementoSumir();
         selecionarCombos(startComboAnoFabricacao, anoFabricacao);
     }
 
@@ -820,7 +820,8 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
 
     public void na_opcao_deseja_seguro_do_veiculo_escolho(String simOrnao) {
         esperandoElementoSumir();
-        esperar(1500);
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        esperar(3000);
         WebElement opca = getDriver().findElement(By.xpath(
                 String.format("(//span[text() = '%s']/preceding-sibling::input)[1]", simOrnao)));
         opca.click();

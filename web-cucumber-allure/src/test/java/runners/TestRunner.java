@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         },
         features = "classpath:features",
         glue = {"steps", "hooks"},
-        tags = {"@NovaFicha or @novaSimulacao or @retencao or @menuConta"},
+        tags = {"@NovaFicha or @novaSimulacao or @retencao or @menuConta or @ajuda or @campanhas"},
         snippets = CucumberOptions.SnippetType.UNDERSCORE,
         strict = true,
         dryRun = false,
