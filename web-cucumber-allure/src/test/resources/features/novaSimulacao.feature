@@ -25,7 +25,7 @@ Funcionalidade: Nova Simulação
     E informo o valor do acessorio "3.550,00"
     E no combo produto escolho "CDC"
     E no combo campanha escolho uma taxa sem ppi
-    E no combo prazo escolho "13" e carencia "0"
+    E no combo prazo escolho "12" e carencia "0"
     E nas opcoes tipo pessoa escolho "Física"
     E informo o valor de entrada "120.000,00"
     E na opcao prestamista escolho "Sim"

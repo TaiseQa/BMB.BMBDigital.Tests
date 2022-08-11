@@ -24,9 +24,23 @@ Funcionalidade: Propostas
 
   @CT38
   Cenario: validar modal ao clicar em assinar contrato da proposta CDC
+    Dado que faço login no portal BMB Digital
+    Quando acesso a página de Propostas e Contratos
+    E clico na proposta que esteja aprovada
+    E recupero nome cpf ou cnpj email e telefone
+    E clico no botao assinar contrato
+    E valido que um modal foi apresentado
+    Entao verifico que o nome cpf ou cnpj email e telefone sao os mesmos na hora do cadastro
+
 
   @CT39
   Cenario: validar documento PDF de proposta CDC ao acessar informacoes de faturamento
+    Dado que faço login no portal BMB Digital
+    Quando acesso a página de Propostas e Contratos
+    E clico na proposta que esteja aprovada
+    E clico em informacoes de faturamento
+    Entao valido que um documento PDF eh apresentado
+
 
   @CT40
   Cenario: fazer proposta com campanha Flexibility e aprovar proposta e contrato

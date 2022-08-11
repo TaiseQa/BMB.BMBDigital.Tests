@@ -39,7 +39,7 @@ public class NewLoginPage extends InteracoesTelaWeb {
     public void faCoLoginNoPortalBMBDigital() {
         getDriver().get("https://digitalprj.br800.corpintra.net/App/login");
         acessarComLoginESenha("atucun0f",
-                "Mercedes@22");
+                "Mercedes@23");
         escolherConcessionarioCasoExista();
         homePage.fecharJanelaCampanha();
     }

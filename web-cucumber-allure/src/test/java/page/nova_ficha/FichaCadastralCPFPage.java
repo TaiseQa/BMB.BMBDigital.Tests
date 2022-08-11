@@ -2,12 +2,13 @@ package page.nova_ficha;
 
 import framework.utils.GeraCpfCnpj;
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -712,19 +713,42 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         selecionarCombos(startComboCampanha, campanha);
     }
 
-    public void noComboCamapnhaEscoljoTaxaComPpi(){
+    public void noComboCamapnhaEscoljoTaxaComPpi() {
         clicar(startComboCampanha);
         WebElement opcao = getDriver().findElement(
                 By.xpath("(//ngx-select[@formcontrolname='id']//ul//li)[2]"));
         clicar(opcao);
     }
 
-    public void noComboCampanhaEscolhoUmaTaxaSemPpi(){
+    public void noComboCampanhaEscolhoUmaTaxaSemPpi() {
         clicar(startComboCampanha);
+
+        if (verificarSeOpcaoCampanhaExiste()) {
             WebElement opcao = getDriver().findElement(
-                    By.xpath("(//ngx-select[@formcontrolname='id']//ul//li)[1]"));
+                    By.xpath("//ngx-select[@formcontrolname='id']//ul//li//span[contains(text(),'Taxa')][not(contains(text(),'PPI'))]"));
             campanhaTaxa = getTexto(opcao);
             clicar(opcao);
+        } else {
+            WebElement opcao2 = getDriver().findElement(
+                    By.xpath("//ngx-select[@formcontrolname='id']//ul//li//span[contains(text(),'Truck')][not(contains(text(),'PPI'))]"));
+            campanhaTaxa = getTexto(opcao2);
+            clicar(opcao2);
+        }
+
+    }
+
+    public boolean verificarSeOpcaoCampanhaExiste(){
+        FluentWait<WebDriver> foo = new FluentWait<>(getDriver())
+                .withTimeout(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class, TimeoutException.class);
+        try {
+            WebElement opcao = getDriver().findElement(
+                    By.xpath("//ngx-select[@formcontrolname='id']//ul//li//span[contains(text(),'Taxa')][not(contains(text(),'PPI'))]"));
+            foo.until(ExpectedConditions.visibilityOf(opcao));
+            return true;
+        }catch (NoSuchElementException ignore){
+            return false;
+        }
     }
 
     public void no_combo_prazo_escolho_e_carencia(String prazo, String carencia) {
@@ -743,6 +767,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     }
 
     public void na_opcao_prestamista_escolho(String simOrnao) {
+        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         WebElement opcao = getDriver().findElement(By.xpath(
                 String.format("(//span[text() = '%s']/preceding-sibling::input)[2]", simOrnao)));
         opcao.click();

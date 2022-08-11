@@ -823,17 +823,17 @@ Funcionalidade: Nova Ficha
     E nas opcoes adicionar acessorio escolho "Não"
     E no combo produto escolho "CDC"
     E no combo campanha escolho uma taxa sem ppi
-    E no combo prazo escolho "13" e carencia "0"
+    E no combo prazo escolho "12" e carencia "0"
     E informo o valor de entrada "100.000,00"
     E na opcao prestamista escolho "Não"
     E clico em gerar simulacao
     E clico na aba operações
     E valido que data da simulação é a data atual
     E valido que o produto é "CDC"
-    E valido que a quantidade de parcelas e "13" e a carencia "0"
-    E valido o prazo total "13"
-    E valido o valor total "R$ 449.900,00"
-    E Valido porcentagem de entrada "22.22716159%"
+    E valido que a quantidade de parcelas e "12" e a carencia "0"
+    E valido o prazo total "12"
+    E valido o valor total "R$ 460.850,00"
+    E Valido porcentagem de entrada "21.69903439%"
     E valido o valor de entrada "R$ 100.000,00"
     Então valido a campanha escolhida
 

@@ -83,8 +83,7 @@ public class InteracoesTelaWeb {
         try {
             wait.until(ExpectedConditions.alertIsPresent()).accept();
         } catch (NoAlertPresentException e) {
-            log.error("Nenhum alerte encontrado");
-            e.getMessage();
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
@@ -96,8 +95,7 @@ public class InteracoesTelaWeb {
         try {
             wait.until(ExpectedConditions.alertIsPresent()).dismiss();
         } catch (NoAlertPresentException e) {
-            log.error("Nenhum alerte encontrado");
-            e.getMessage();
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
@@ -114,8 +112,7 @@ public class InteracoesTelaWeb {
             alert.sendKeys(texto);
             alert.accept();
         } catch (NoAlertPresentException e) {
-            log.error("nenhum alert encontrado");
-            e.getMessage();
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
@@ -129,9 +126,7 @@ public class InteracoesTelaWeb {
         try {
             return wait.until(ExpectedConditions.alertIsPresent()).getText().trim();
         } catch (NoAlertPresentException e) {
-            log.error("nenhum alert encontrado");
-            e.getMessage();
-            return null;
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
@@ -148,9 +143,7 @@ public class InteracoesTelaWeb {
             alert.accept();
             return texto;
         } catch (NoAlertPresentException e) {
-            log.error("nenhum alert encontrado");
-            e.getMessage();
-            return null;
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
@@ -167,9 +160,7 @@ public class InteracoesTelaWeb {
             alert.dismiss();
             return texto;
         } catch (NoAlertPresentException e) {
-            log.error("nenhum alert encontrado");
-            e.getMessage();
-            return null;
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
@@ -269,6 +260,11 @@ public class InteracoesTelaWeb {
             valores.add(opcao.getText());
         }
         return valores;
+    }
+
+    protected String obterValorSelecionadoDeCombo(WebElement element){
+        Select select = new Select(element);
+        return select.getFirstSelectedOption().getText();
     }
 
     /**
