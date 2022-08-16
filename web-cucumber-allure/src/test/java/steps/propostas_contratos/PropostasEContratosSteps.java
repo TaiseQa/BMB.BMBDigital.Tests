@@ -1,6 +1,7 @@
 package steps.propostas_contratos;
 
 import io.cucumber.java.pt.E;
+import io.cucumber.java.pt.Quando;
 import page.propostas_contratos.PropostasEContratosPage;
 
 public class PropostasEContratosSteps {
@@ -20,6 +21,11 @@ public class PropostasEContratosSteps {
     @E("clico no botao nova simulacao")
     public void clicoNoBotaoNovaSimulacao() {
         propostasEContratosPage.clicoNoBotaoNovaSimulacao();
+    }
+
+    @Quando("filtro as propostas por {string}")
+    public void filtroAsPropostasPor(String status) {
+        propostasEContratosPage.filtroAsPropostasPor(status);
     }
 
 }

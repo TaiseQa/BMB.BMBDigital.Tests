@@ -10,6 +10,7 @@ import page.proposta.PropostaPage;
 public class PropostaSteps {
 
     private static final String TEXTO_PDF = "Fechar";
+    private static final String STATUS = "Completo";
     PropostaPage propostaPage;
 
     public PropostaSteps(PropostaPage propostaPage) {
@@ -22,9 +23,9 @@ public class PropostaSteps {
         propostaPage.clicoNaPropostaCDCQueEstejaEmAnalise(props.getString("proposta"));
     }
 
-    @E("clico na proposta que esteja aprovada")
-    public void clicoNaPropostaQueEstejaAprovada() {
-        propostaPage.clicoNaPropostaCDCQueEstejaEmAnalise("SPM039648");
+    @E("clico na proposta que esteja aprovada {string}")
+    public void clicoNaPropostaQueEstejaAprovada(String proposta) {
+        propostaPage.clicoNaPropostaCDCQueEstejaEmAnalise(proposta);
     }
 
     @SneakyThrows
@@ -54,10 +55,10 @@ public class PropostaSteps {
     @Entao("verifico que o nome cpf ou cnpj email e telefone sao os mesmos na hora do cadastro")
     public void verificoQueNomeCpfOuCpnjEmailETelefoneSaoOsMesmosNaHoraDoCadastro() {
         val props = propostaPage.properties("dadosCliente.properties");
-        Assert.assertEquals(props.getString("nome").substring(4,20).replaceAll("\\n",""), propostaPage.getNome());
-        Assert.assertEquals(props.getString("cpf").substring(3,18).replaceAll("\\n",""), propostaPage.getCpfOrCnpj().substring(9,24).replaceAll(" ",""));
+        Assert.assertEquals(props.getString("nome").substring(4, 20).replaceAll("\\n", ""), propostaPage.getNome());
+        Assert.assertEquals(props.getString("cpf").substring(3, 18).replaceAll("\\n", ""), propostaPage.getCpfOrCnpj().substring(9, 24).replaceAll(" ", ""));
         Assert.assertEquals(props.getString("email"), propostaPage.getEmail());
-        Assert.assertEquals(props.getString("telefone").replace("(","").replace(")",""), propostaPage.getTelefone().substring(3,17));
+        Assert.assertEquals(props.getString("telefone").replace("(", "").replace(")", "").replaceAll(" ", ""), propostaPage.getTelefone().substring(3, 17).replaceAll(" ", ""));
     }
 
     @E("clico em informacoes de faturamento")
@@ -68,5 +69,12 @@ public class PropostaSteps {
     @Entao("valido que um documento PDF eh apresentado")
     public void validoQueUmDocumentoPdfehApresentado() {
         Assert.assertEquals(TEXTO_PDF, propostaPage.validoQueUmDocumentoPdfehApresentado());
+    }
+
+    @Entao("valido que a ficha cadastral documentos e contrato estejam com status completo")
+    public void validoQueFichaCadastralDocumentosContratoEstejamComStatusCompleto() {
+        Assert.assertEquals(STATUS, propostaPage.getStatusFichaCadastral());
+        Assert.assertEquals(STATUS, propostaPage.getStatusDocumentos());
+        Assert.assertEquals(STATUS, propostaPage.getStatusContrato());
     }
 }

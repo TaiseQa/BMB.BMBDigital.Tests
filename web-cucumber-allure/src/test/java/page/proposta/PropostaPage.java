@@ -51,7 +51,17 @@ public class PropostaPage extends InteracoesTelaWeb {
     @FindBy(xpath = "(//section//div//p)[5]")
     private WebElement textoTelefone;
 
+    @FindBy(xpath = "//h5[normalize-space() = 'Ficha Cadastral']/following-sibling::span")
+    private WebElement statusFichaCadastral;
+
+    @FindBy(xpath = "//h5[normalize-space() = 'Documentos']/following-sibling::span")
+    private WebElement statusDocumentos;
+
+    @FindBy(xpath = "//h5[normalize-space() = 'Contrato']/following-sibling::span")
+    private WebElement statusContrato;
+
     public void clicoNaPropostaCDCQueEstejaEmAnalise(String op) {
+        esperandoElementoSumir();
         WebElement opcao = getDriver().findElement(By.xpath
                 (String.format("(//div[normalize-space() = '%s'])[3]/../../../../..", op)));
         opcao.click();
@@ -73,7 +83,7 @@ public class PropostaPage extends InteracoesTelaWeb {
         return guardarCelular.getAttribute("value");
     }
 
-    public void clicoBotaoFichaCadastral(){
+    public void clicoBotaoFichaCadastral() {
         esperandoElementoSumir();
         clicar(btnFichaCadastral);
     }
@@ -113,6 +123,19 @@ public class PropostaPage extends InteracoesTelaWeb {
 
     public String validoQueUmDocumentoPdfehApresentado() {
         return getTexto(textoPDF);
+    }
+
+    public String getStatusFichaCadastral() {
+        esperandoElementoSumir();
+        return getTexto(statusFichaCadastral);
+    }
+
+    public String getStatusDocumentos() {
+        return getTexto(statusDocumentos);
+    }
+
+    public String getStatusContrato() {
+        return getTexto(statusContrato);
     }
 
 }
