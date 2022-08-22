@@ -116,37 +116,37 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
     @FindBy(how = How.CSS, css = ".error-msg")
     protected WebElement mensagemErro;
     //******** FIM MENSAGENS ********************//
-    public CadastroVeiculoPage() {
-        super(Utils.getDriver());
-        PageFactory.initElements(Utils.getDriver(), this);
-    }
+//    public CadastroVeiculoPage() {
+//        super(Utils.getDriver());
+//        PageFactory.initElements(Utils.getDriver(), this);
+//    }
 
     //******** MÉTODOS VEICULOS ********************//
 
     private void selecionarAnoFabricacao(String ano)  {
         esperar(8000);
-        clicarElemento(comboAnoFabricacao,20);
+        clicar(comboAnoFabricacao);
         if(ano.equalsIgnoreCase("2022"))
-            clicarElemento(opcaoComboAnoFabricacao2022,20);
+            clicar(opcaoComboAnoFabricacao2022);
     }
 
     private void selecionarTipoVeiculo(String tipoVeiculo){
-        clicarElemento(comboTipoVeiculo, 60);
+        clicar(comboTipoVeiculo);
         if(tipoVeiculo.equalsIgnoreCase("carro passeio"))
             opcaoComboTipoVeiculoCarroPasseio.click();
     }
 
     private void selecionarModeloVeiculo(String modeloVeiculo) {
         esperar(20000);
-        clicarElemento(comboModeloVeiculo, 60);
+        clicar(comboModeloVeiculo);
         if(modeloVeiculo.equalsIgnoreCase("GLC 43 COUPE AMG 3.0 V6 BI-TB 4MATIC Gas. 4P Blind"))
-            clicarElemento(opcaoComboModeloVeiculoGLC43CoupeBlind, 60);
+            clicar(opcaoComboModeloVeiculoGLC43CoupeBlind);
     }
 
     private void selecionarAcessorioVeiculo(String acessorioVeiculo) {
-        clicarElemento(comboTipoAcessorio, 60);
+        clicar(comboTipoAcessorio);
         if(acessorioVeiculo.equalsIgnoreCase("4 DIRECIONAL MECANICO"))
-            clicarElemento(opcaoComboTipoAcessorio4DirecionalMecanico, 60);
+            clicar(opcaoComboTipoAcessorio4DirecionalMecanico);
     }
 
     public void preencherCamposVeiculo(String anoFabricacao, String tipoVeiculo, String estadoVeiculo,
@@ -155,7 +155,7 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
         selecionarAnoFabricacao(anoFabricacao);
         esperandoElementoSumir();
         esperar(1000);
-        clicarElemento(comboAnoModelo, 90);
+        clicar(comboAnoModelo);
         selecionarTipoVeiculo(tipoVeiculo);
         if(estadoVeiculo.equalsIgnoreCase("novo"))
             checkEstadoVeiculoNovo.click();
@@ -164,13 +164,13 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
             esperandoElementoSumir();
             checkTemAcessorioAdicional.click();
             selecionarAcessorioVeiculo(acessorio);
-            inserirValor(campoValorAcessorio, valorAcessorio, 60);
+            escrever(campoValorAcessorio, valorAcessorio);
         }
     }
     //******** PREENCHIMENTO FINANCIAMENTO ********************//
 
     private void selecionarProdutoFinanciamento(String produto){
-        clicarElemento(comboProduto);
+        clicar(comboProduto);
         if(produto.equalsIgnoreCase("cdc"))
             opcaoComboProdutoCDC.click();
         if(produto.equalsIgnoreCase("cdc decrescente"))
@@ -180,12 +180,12 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
     public void preencherFinanciamento(String produto, String campanha, String prazo, String carencia, String tipoPessoa, String entrada,
                                        String prestamista, String garantiaEstendida, String seguroVeiculo, String valorAproxSeguro) {
         selecionarProdutoFinanciamento(produto);
-        clicarElemento(comboCampanha);
-        clicarElemento(opcaoComboCampanhaTaxa);
-        clicarElemento(comboPrazo);
-        clicarElemento(opcaoComboPrazo36);
-        clicarElemento(comboCarencia);
-        clicarElemento(opcaoComboCarenciaZero);
+        clicar(comboCampanha);
+        clicar(opcaoComboCampanhaTaxa);
+        clicar(comboPrazo);
+        clicar(opcaoComboPrazo36);
+        clicar(comboCarencia);
+        clicar(opcaoComboCarenciaZero);
         if (tipoPessoa.equalsIgnoreCase("Fisica")){
             checkTipoPessoaFisica.click();
         }
@@ -193,48 +193,48 @@ public class CadastroVeiculoPage extends InteracoesTelaWeb {
             checkTipoPessoaJuridica.click();
         }
         campoValorEntrada.clear();
-        inserirValor(campoValorEntrada, entrada);
+        escrever(campoValorEntrada, entrada);
         if (prestamista.equalsIgnoreCase("não") || prestamista.equalsIgnoreCase("nao"))
             checkSemPrestamista.click();
         if(prestamista.equalsIgnoreCase("sim")) {
             checkPrestamista.click();
             campoGarantiaEstendida.clear();
-            inserirValor(campoGarantiaEstendida, garantiaEstendida);
+            escrever(campoGarantiaEstendida, garantiaEstendida);
         }
         if (seguroVeiculo.equalsIgnoreCase("sim")) {
             checkSimularSeguro.click();
-            inserirValor(campoValorAproximadoSeguro, valorAproxSeguro);
+            escrever(campoValorAproximadoSeguro, valorAproxSeguro);
         }
     }
 
     public void preencherFinanciamento(String produto, String campanha, String prazo, String carencia, String entrada,
                                        String prestamista, String garantiaEstendida, String seguroVeiculo, String valorAproxSeguro) {
         selecionarProdutoFinanciamento(produto);
-        clicarElemento(comboCampanha);
-        clicarElemento(opcaoComboCampanhaTaxa);
-        clicarElemento(comboPrazo);
-        clicarElemento(opcaoComboPrazo36);
-        clicarElemento(comboCarencia);
-        clicarElemento(opcaoComboCarenciaZero);
+        clicar(comboCampanha);
+        clicar(opcaoComboCampanhaTaxa);
+        clicar(comboPrazo);
+        clicar(opcaoComboPrazo36);
+        clicar(comboCarencia);
+        clicar(opcaoComboCarenciaZero);
 
         campoValorEntrada.clear();
-        inserirValor(campoValorEntrada, entrada);
+        escrever(campoValorEntrada, entrada);
         if (prestamista.equalsIgnoreCase("não") || prestamista.equalsIgnoreCase("nao"))
             checkSemPrestamista.click();
         if(prestamista.equalsIgnoreCase("sim")) {
             checkPrestamista.click();
             campoGarantiaEstendida.clear();
-            inserirValor(campoGarantiaEstendida, garantiaEstendida);
+            escrever(campoGarantiaEstendida, garantiaEstendida);
         }
         if (seguroVeiculo.equalsIgnoreCase("sim")) {
             checkSimularSeguro.click();
-            inserirValor(campoValorAproximadoSeguro, valorAproxSeguro);
+            escrever(campoValorAproximadoSeguro, valorAproxSeguro);
         }
     }
 
 
     public void clicarGerarSimulacao() {
-        clicarElemento(btnGerarSimulacao);
+        clicar(btnGerarSimulacao);
         esperar(3000);
     }
 

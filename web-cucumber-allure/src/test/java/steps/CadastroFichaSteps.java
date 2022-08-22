@@ -20,19 +20,24 @@ public class CadastroFichaSteps extends CadastroFichaPage {
     MenuPage menuPage;
     LoginPage loginPage;
 
-    @Dado("^que faço login no portal BMB Digital$")
-    public void que_faco_login_no_portal_BMB_Digital() {
-        loginPage = new LoginPage();
-        loginPage.realizarLogin("#{Server.Frontend.Digital.Url}#/App/login",
-                "#{NonProd.Credential.BMBDigital.Tests.Username}#",
-                "#{NonProd.Credential.BMBDigital.Tests.Password}#");
-    }
+//    @Dado("^que faço login no portal BMB Digital$")
+//    public void que_faco_login_no_portal_BMB_Digital() {
+//        loginPage = new LoginPage();
+//
+//        loginPage.realizarLogin("https://digitalprj.br800.corpintra.net/App/login",
+//                "atucun0f",
+//                "Mercedes@22");
+//
+////        loginPage.realizarLogin("#{Server.Frontend.Digital.Url}#/App/login",
+////                "#{NonProd.Credential.BMBDigital.Tests.Username}#",
+////                "#{NonProd.Credential.BMBDigital.Tests.Password}#");
+//    }
 
-    @Quando("^acesso a página de Propostas e Contratos$")
-    public void acesso_a_pagina_de_propostas_e_contratos() {
-        menuPage = new MenuPage();
-        propostasContratosPage = menuPage.clicarMenuContratosPropostas();
-    }
+//    @Quando("^acesso a página de Propostas e Contratos$")
+//    public void acesso_a_pagina_de_propostas_e_contratos() {
+//        menuPage = new MenuPage();
+//        propostasContratosPage = menuPage.clicarMenuContratosPropostas();
+//    }
 
     @E("clico no botão Nova Ficha")
     public void queEuTenhaClicadoNoBotaoNovaFicha() throws InterruptedException {
@@ -45,16 +50,16 @@ public class CadastroFichaSteps extends CadastroFichaPage {
         cadastroFichaPage.preencheCpfCnpj(geraCpfCnpj.cpf(false));
     }
 
-    @Dado("que preencho o campo CPF ou CNPJ com valor inválido {string}")
-    public void preenchoOCampoCPFCNPJComValorInvalido(String cpfCnpj) {
-        cadastroFichaPage.preencheCpfCnpj(cpfCnpj);
-    }
+//    @Dado("que preencho o campo CPF ou CNPJ com valor inválido {string}")
+//    public void preenchoOCampoCPFCNPJComValorInvalido(String cpfCnpj) {
+//        cadastroFichaPage.preencheCpfCnpj(cpfCnpj);
+//    }
 
-    @Então("é apresentada a mensagem {string}.")
-    public void eApresentadaAMensagem(String mensagem) {
-        String mensagemAtual = cadastroFichaPage.obterTextoMensagemErro();
-        Assert.assertEquals(mensagem, mensagemAtual);
-    }
+//    @Então("é apresentada a mensagem {string}.")
+//    public void eApresentadaAMensagem(String mensagem) {
+//        String mensagemAtual = cadastroFichaPage.obterTextoMensagemErro();
+//        Assert.assertEquals(mensagem, mensagemAtual);
+//    }
 
     @E("preenchido o campo de CPF com valor válido")
     public void preenchidoOCampoCPF() {
@@ -197,10 +202,10 @@ public class CadastroFichaSteps extends CadastroFichaPage {
         cadastroFichaPage.clicarBotaoConfirmarEnvioPropostaCredito();
     }
 
-    @Então("o sistema apresenta a tela com os detalhes da proposta cadastrada")
-    public void oSistemaApresentaATelaComOsDetalhesDaPropostaCadastrada() {
-        Assert.assertTrue(cadastroFichaPage.verificarTelaPropostaCadastrada());
-    }
+//    @Então("o sistema apresenta a tela com os detalhes da proposta cadastrada")
+//    public void oSistemaApresentaATelaComOsDetalhesDaPropostaCadastrada() {
+//        Assert.assertTrue(cadastroFichaPage.verificarTelaPropostaCadastrada());
+//    }
 
     @E("preencho o patrimônio estimado com {string}")
     public void preenchoOPatrimonioEstimadoCom(String patrimonio) {

@@ -13,10 +13,10 @@ public class MenuPage extends InteracoesTelaWeb {
     @FindBy(how = How.CSS, css = "[href='/App/financings'] img")
     protected WebElement menuContratosPropostas;
 
-    public MenuPage() {
-        super(Utils.getDriver());
-        PageFactory.initElements(Utils.getDriver(), this);
-    }
+//    public MenuPage() {
+//        super(Utils.getDriver());
+//        PageFactory.initElements(Utils.getDriver(), this);
+//    }
 
     public PropostasContratosPage clicarMenuContratosPropostas() {
         ((JavascriptExecutor) Utils.getDriver()).executeScript("return arguments[0].click();", menuContratosPropostas);

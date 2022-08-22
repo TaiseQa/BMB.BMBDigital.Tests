@@ -1,9 +1,12 @@
 package inmetrics.automacao.core.web.util;
 
+import lombok.SneakyThrows;
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -12,10 +15,25 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 
 import inmetrics.automacao.core.web.enumeradores.Navegador;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.service.DriverService;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.FileOutputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 public class FabricaWebDriver {
 	
-	static WebDriver driver;
+	private static WebDriver driver;
+	public static WebDriverWait wait;
+
+	static Logger log = Logger.getLogger(FabricaWebDriver.class);
+	public static WebDriver getDriver(){
+		return driver;
+	}
 	
 	/**
 	 * Método responsável pela criação da instância webdriver que fara acesso ao navegador
@@ -104,6 +122,38 @@ public class FabricaWebDriver {
 		}
 		
 		return driver;
+	}
+
+	@SneakyThrows
+	public static void iniciarNavegador(){
+		if (driver == null) {
+			ChromeOptions options = new ChromeOptions();
+			Map<String, Object> prefs = new HashMap<>();
+			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+			DriverService.Builder<ChromeDriverService, ChromeDriverService.Builder> serviceBuilder = new ChromeDriverService.Builder();
+			ChromeDriverService chromeDriverSerive = serviceBuilder.build();
+			chromeDriverSerive.sendOutputTo(new FileOutputStream("target/chromedriver_log.txt", true));
+			prefs.put("profile.default_content_setting_values.geolocation", 2);
+			options.setExperimentalOption("prefs", prefs);
+			options.addArguments("--headless");
+			options.addArguments("--disable-gpu");
+			options.addArguments("--window-size=1360,768");
+			java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
+			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+			driver = new ChromeDriver(chromeDriverSerive, options);
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			wait = new WebDriverWait(driver, 60);
+		}
+	}
+
+	public static void fecharNavegador() {
+		if (driver != null) {
+			driver.quit();
+			driver = null;
+			log.info("driver finalizado com sucesso");
+		} else {
+			log.warn("driver não finalizado");
+		}
 	}
 
 }

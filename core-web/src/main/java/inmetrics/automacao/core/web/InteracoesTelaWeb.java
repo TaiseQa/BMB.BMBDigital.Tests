@@ -1,527 +1,476 @@
 package inmetrics.automacao.core.web;
 
-import inmetrics.automacao.core.web.util.Log;
-import org.junit.Assert;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.text.SimpleDateFormat;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
+import static inmetrics.automacao.core.web.util.FabricaWebDriver.getDriver;
+import static inmetrics.automacao.core.web.util.FabricaWebDriver.wait;
 
 public class InteracoesTelaWeb {
+    public static final Logger log = Logger.getLogger(InteracoesTelaWeb.class);
+    private Random random;
 
-    private static Actions action;
-    private WebDriver driver;
-    private static WebDriverWait wait;
-
-
-    public InteracoesTelaWeb(WebDriver driver) {
-        this.driver = driver;
-        DefinirArquivoLog();
-
-    }
-
-
-    private void DefinirArquivoLog() {
-        if ((null == Log.ArquivoLogNome || "" == Log.ArquivoLogNome.trim()))
-            Log.DefinirLocalAquivoLog(null, "inmetrics.automacao.core.web.log_".concat(new SimpleDateFormat("yyyyMMddHHmmssSS").format(new java.util.Date())).concat(".log"));
+    public InteracoesTelaWeb() {
+        PageFactory.initElements(getDriver(), this);
     }
 
     /**
-     * Método utilizado para aguardar até 10 segundos a visibilidade do elemento na
-     * tela
+     * Método utilizado para aguardar até 60 segundos a visibilidade do elemento
      *
-     * @param elemento - Instancia do elemento da tela
+     * @param element - Instancia do elemento da tela
      */
-    protected void aguardarVisibilidade(WebElement elemento) {
-        Log.LogarInfo("Verificando visibilidade do elemento :" + elemento);
+    protected void aguardarVisibilidade(WebElement element) {
+        log.info("verificando a visibilidade do elemento: " + element);
         try {
-            wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.visibilityOf(elemento));
+            wait.until(ExpectedConditions.visibilityOf(element));
         } catch (TimeoutException e) {
-            Log.LogarErro("Elemento não encontrado : " + elemento);
-            Log.LogarErro(e.getMessage());
-            Assert.fail(e.toString());
+            throw new TimeoutException("o elemento: " + element + " não foi encontrado", e);
         }
     }
 
     /**
-     * Método utilizado para aguardar por um período determinado a visibilidade do
-     * elemento na tela
+     * Método utilizado para aguardar que um determinado elemento desapareça
      *
-     * @param elemento - Instancia do elemento da tela
+     * @param element - Instancia do elemento da tela
      */
-    protected void aguardarVisibilidade(WebElement elemento, int segundos) {
-        Log.LogarInfo("Verificando visibilidade do elemento :" + elemento);
+    protected void aguardarInvisibilidade(WebElement element) {
+        log.info("esperando a invisibilidade do elemento: " + element);
         try {
-            wait = new WebDriverWait(driver, segundos);
-            wait.until(ExpectedConditions.visibilityOf(elemento));
+            wait.until(ExpectedConditions.invisibilityOf(element));
         } catch (TimeoutException e) {
-            Log.LogarErro("Elemento não encontrado : " + elemento);
-            Log.LogarErro(e.getMessage());
-            Assert.fail(e.toString());
+            throw new TimeoutException("o elemento: " + element + " não foi encontrado", e);
         }
     }
 
     /**
-     * Método utilizado para aguardar até 10 segundos a habilitação de click do
-     * elemento na tela
+     * Método utilizado para aguardar até 10 segundos a habilitação do click
+     * do elemento na página
      *
-     * @param elemento - Instancia do elemento da tela
+     * @param element - Instancia do elemento da tela
      */
-    protected void aguardarClickHabilitado(WebElement elemento) {
-        Log.LogarInfo("Verificando visibilidade do elemento :" + elemento);
+    protected void aguardarCliqueHabilitado(WebElement element) {
+        log.info("verificando habilitação do elemento: " + element);
         try {
-            wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.elementToBeClickable(elemento));
+            wait = new WebDriverWait(getDriver(), 10);
+            wait.until(ExpectedConditions.elementToBeClickable(element));
         } catch (TimeoutException e) {
-            Log.LogarErro("Elemento não encontato : " + elemento);
-            Log.LogarErro(e.getMessage());
-            Assert.fail(e.toString());
+            throw new TimeoutException("o elemento: " + element + " não foi encontrado", e);
         }
     }
 
     /**
-     * Método utilizado para aguardar por um período determinado habilitação de
-     * click do elemento na tela
-     *
-     * @param elemento - Instancia do elemento da tela
+     * Método utilizado para focar no alert e aceitar
      */
-    protected void aguardarClickHabilitado(WebElement elemento, int segundos) {
-        Log.LogarInfo("Verificando visibilidade do elemento :" + elemento);
+    protected void mudarParaAlertEAceitar() {
+        log.info("mudando foco para o alert presente na tela");
         try {
-            wait = new WebDriverWait(driver, segundos);
-            wait.until(ExpectedConditions.elementToBeClickable(elemento));
-        } catch (TimeoutException e) {
-            Log.LogarErro("Elemento não encontato : " + elemento);
-            Log.LogarErro(e.getMessage());
-            Assert.fail(e.toString());
+            wait.until(ExpectedConditions.alertIsPresent()).accept();
+        } catch (NoAlertPresentException e) {
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
     /**
-     * Método utilizado para focar o elemento na tela
-     *
-     * @param elemento - Instancia do elemento da tela
+     * Método utilizado para focar no alert e negar
      */
-    protected void focarElemento(WebElement elemento) {
-        Log.LogarInfo("Verificando visibilidade do elemento :" + elemento);
+    protected void mudarParaAlertENegar() {
+        log.info("mudando foco para o alert presente na tela");
         try {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elemento);
-            Thread.sleep(500);
-        } catch (Exception e) {
-            Log.LogarErro("Elemento não encontato : " + elemento);
-            Log.LogarErro(e.getMessage());
-            Assert.fail(e.toString());
+            wait.until(ExpectedConditions.alertIsPresent()).dismiss();
+        } catch (NoAlertPresentException e) {
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
     /**
-     * Método utilizado para verificar se existe ocorrência do elemento na tela
+     * Método utilizado  para focar no alert, escrever e aceitar
      *
-     * @param elemento - Instancia do elemento da tela
-     * @return boolean - Se existe correspondência do elemento na tela
+     * @param texto - Texto que será inserido no input alert
      */
-    protected boolean consultarExistencia(WebElement elemento) {
+    protected void mudarParaAlertEEscreverEAceitar(String texto) {
+        log.info("mudando foco para o alert presente na tela");
         try {
-            aguardarVisibilidade(elemento);
-            focarElemento(elemento);
-            return true;
-        } catch (Exception e) {
-            Log.LogarErro("Elemento não encontato : " + elemento);
-            Log.LogarErro(e.getMessage());
-            Assert.fail(e.toString());
-            return false;
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = getDriver().switchTo().alert();
+            alert.sendKeys(texto);
+            alert.accept();
+        } catch (NoAlertPresentException e) {
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
     /**
-     * Método utilizado para verificar se existe ocorrência do elemento na tela passando o tempo de espera
+     * Método utilizado para focar no alert e pegar o texto contido
      *
-     * @param elemento - Instancia do elemento da tela
-     * @return boolean - Se existe correspondência do elemento na tela
+     * @return - Retorna uma string
      */
-    protected boolean consultarExistencia(WebElement elemento, int segundos) {
+    protected String mudarParaAlertEObterTexto() {
+        log.info("mudando foco para o alert presente na tela");
         try {
-            aguardarVisibilidade(elemento, segundos);
-            focarElemento(elemento);
-            return true;
-        } catch (Exception e) {
-            Log.LogarErro("Elemento não encontato : " + elemento);
-            Log.LogarErro(e.getMessage());
-            Assert.fail(e.toString());
-            return false;
+            return wait.until(ExpectedConditions.alertIsPresent()).getText().trim();
+        } catch (NoAlertPresentException e) {
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
     /**
-     * Método utilizado para obter o texto do elemento da tela
+     * Método utilizado para focar em um alert, pegar o texto e aceitar
      *
-     * @param elemento - Instancia do elemento da tela
-     * @return string - Texto do elemento
+     * @return - Retorna uma string
      */
-    protected String obterValorTexto(WebElement elemento) {
-        aguardarVisibilidade(elemento);
-        String value = elemento.getText();
-        return value;
-    }
-
-    /**
-     * Método utilizado para obter o texto do elemento da tela passando o tempo de espera
-     *
-     * @param elemento - Instancia do elemento da tela
-     * @return string - Texto do elemento
-     */
-    protected String obterValorTexto(WebElement elemento, int segundos) {
-        aguardarVisibilidade(elemento, segundos);
-        String value = elemento.getText();
-        return value;
-    }
-
-    /**
-     * Método utilizado para inserir texto no elemento da tela
-     *
-     * @param elemento - Instancia do elemento da tela
-     * @param valor    - Texto que será inserido
-     */
-    protected void inserirValor(WebElement elemento, String valor) {
-        aguardarClickHabilitado(elemento);
-        elemento.click();
-        elemento.sendKeys(valor);
-    }
-
-    /**
-     * Método utilizado para inserir texto no elemento da tela passando o tempo de espera
-     *
-     * @param elemento - Instancia do elemento da tela
-     * @param valor    - Texto que será inserido
-     */
-    protected void inserirValor(WebElement elemento, String valor, int segundos) {
-        aguardarClickHabilitado(elemento);
-        elemento.click();
-        elemento.sendKeys(valor);
-    }
-
-    /**
-     * Método utilizdo para efetuar click no elemento da tela
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void clicarElemento(WebElement elemento) {
-        aguardarClickHabilitado(elemento);
-        elemento.click();
-    }
-
-    /**
-     * Método utilizdo para efetuar click no elemento da tela passando o tempo
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void clicarElemento(WebElement elemento, int segundos) {
-        aguardarClickHabilitado(elemento, segundos);
-        elemento.click();
-    }
-
-    /**
-     * Método utilizdo para efetuar click por coordenada na tela a parti de um
-     * elemento
-     *
-     * @param elemento - Instancia do elemento da tela
-     * @param x        - Coordenada horizontal
-     * @param y        - Coordenada vertical
-     */
-    protected void clickElementoPorCoordenada(WebElement elemento, int x, int y) {
-        aguardarClickHabilitado(elemento);
-        action = new Actions(driver);
-        action.moveToElement(elemento, 0, 0);
-        action.moveByOffset(x, y);
-        action.click();
-        action.build();
-        action.perform();
-        elemento.click();
-    }
-
-    /**
-     * Método utilizdo para efetuar submit no elemento da tela
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void submitElemento(WebElement elemento) {
-        aguardarClickHabilitado(elemento);
-        elemento.submit();
-    }
-
-    /**
-     * Método utilizdo para efetuar submit no elemento da tela passando o tempo
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void submitElemento(WebElement elemento, int segundos) {
-        aguardarClickHabilitado(elemento, segundos);
-        elemento.submit();
-    }
-
-    /**
-     * Método utilizdo para abrir o navegador
-     *
-     * @param url - url da pagina
-     */
-    public void abrirNavegador(String url) {
-        driver.get(url);
-        driver.manage().window().maximize();
-    }
-
-    /**
-     * Método utilizado para obter o texto do elemento da tela passando uma
-     * propriedade do elemento
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected String obterValorPropriedade(WebElement elemento, String propriedade) {
-        aguardarVisibilidade(elemento);
-        String value = elemento.getAttribute(propriedade);
-        return value;
-    }
-
-    /**
-     * Método utilizado para obter o texto do elemento da tela passando uma
-     * propriedade do elemento e o tempo de espera
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected String obterValorPropriedade(WebElement elemento, String propriedade, int segundos) {
-        aguardarVisibilidade(elemento, segundos);
-        String value = elemento.getAttribute(propriedade);
-        return value;
-    }
-
-    /**
-     * Método utilizado para selecionar o checkbox
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void selecionarCheckbox(WebElement elemento) {
-        boolean checkstatus;
-        aguardarVisibilidade(elemento);
-        checkstatus = elemento.isSelected();
-        if (checkstatus == false) {
-            elemento.click();
-        }
-    }
-
-    /**
-     * Método utilizado para selecionar o checkbox passando o tempo de espera
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void selecionarCheckbox(WebElement elemento, int segundos) {
-        boolean checkstatus;
-        aguardarVisibilidade(elemento, segundos);
-        checkstatus = elemento.isSelected();
-        if (checkstatus == false) {
-            elemento.click();
-        }
-    }
-
-    /**
-     * Método utilizado para deselecionar o checkbox
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void deselecionarCheckbox(WebElement elemento) {
-        boolean checkstatus;
-        aguardarVisibilidade(elemento);
-        checkstatus = elemento.isSelected();
-        if (checkstatus == true) {
-            elemento.click();
-        }
-    }
-
-    /**
-     * Método utilizado para deselecionar o checkbox passando o tempo de espera
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void deselecionarCheckbox(WebElement elemento, int segundos) {
-        boolean checkstatus;
-        aguardarVisibilidade(elemento, segundos);
-        checkstatus = elemento.isSelected();
-        if (checkstatus == true) {
-            elemento.click();
-        }
-    }
-
-    /**
-     * Método utilizado para seleciona o elemtno pelo o texto
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void selecionarElementoTexto(WebElement elemento, String name) {
-        aguardarVisibilidade(elemento);
-        Select selectitem = new Select(elemento);
-        selectitem.selectByVisibleText(name);
-    }
-
-    /**
-     * Método utilizado para seleciona o elemtno pelo o texto passando o tempo de espera
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void selecionarElementoTexto(WebElement elemento, String name, int segundos) {
-        aguardarVisibilidade(elemento, segundos);
-        Select selectitem = new Select(elemento);
-        selectitem.selectByVisibleText(name);
-    }
-
-    /**
-     * Método utilizado para seleciona o elemtno pelo o valor
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void selecionarElementoValor(WebElement elemento, String name) {
-        aguardarVisibilidade(elemento);
-        Select selectitem = new Select(elemento);
-        selectitem.selectByValue(name);
-    }
-
-    /**
-     * Método utilizado para seleciona o elemtno pelo o valor passando o tempo de espera
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void selecionarElementoValor(WebElement elemento, String name, int segundos) {
-        aguardarVisibilidade(elemento, segundos);
-        Select selectitem = new Select(elemento);
-        selectitem.selectByValue(name);
-    }
-
-    /**
-     * Método utilizado para seleciona o elemtno pelo o índice
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void selecionarElementoIndice(WebElement elemento, int indice) {
-        aguardarVisibilidade(elemento);
-        Select selectitem = new Select(elemento);
-        selectitem.selectByIndex(indice);
-    }
-
-    /**
-     * Método utilizado para seleciona o elemtno pelo o índice passando o tempo de espera
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void selecionarElementoIndice(WebElement elemento, int indice, int segundos) {
-        aguardarVisibilidade(elemento, segundos);
-        Select selectitem = new Select(elemento);
-        selectitem.selectByIndex(indice);
-    }
-
-    /**
-     * Método utilizado para movimentar barra de rolagem
-     *
-     * @param valor - Instancia do elemento da tela
-     */
-    protected void movimentarBarraRolagem(int valor) {
-        JavascriptExecutor jse2 = (JavascriptExecutor) driver;
-        jse2.executeScript("window.scrollBy(0," + valor + ")", "");
-    }
-
-    /**
-     * Método utilizado para abri iframe
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void abrirIframe(WebElement elemento) {
-        driver.switchTo().frame(elemento);
-        driver.switchTo().activeElement();
-    }
-
-    /**
-     * Método utilizado para fecha iframe
-     *
-     * @param elemento - Instancia do elemento da tela
-     */
-    protected void fechaIframe(WebElement elemento) {
-        driver.switchTo().frame(elemento);
-        driver.switchTo().defaultContent();
-    }
-
-    /**
-     * Método utilizado para fecha aplicação
-     */
-    public void fechaAplicacao() {
-        driver.quit();
-    }
-
-    /**
-     * Método utilizado para fecha aba
-     */
-    protected void fechaAba() {
-        driver.close();
-    }
-
-    /**
-     * Metodo utilizado para simular o acionamento de teclas especiais
-     * <p>
-     * Parametro Keys pode receber as seguintes opções:
-     * <p>
-     * NULL = '\ue000' CANCEL = '\ue001' # ^break HELP = '\ue002' BACKSPACE =
-     * '\ue003' BACK_SPACE = BACKSPACE TAB = '\ue004' CLEAR = '\ue005' RETURN =
-     * '\ue006' ENTER = '\ue007' SHIFT = '\ue008' LEFT_SHIFT = SHIFT CONTROL =
-     * '\ue009' LEFT_CONTROL = CONTROL ALT = '\ue00a' LEFT_ALT = ALT PAUSE =
-     * '\ue00b' ESCAPE = '\ue00c' SPACE = '\ue00d' PAGE_UP = '\ue00e' PAGE_DOWN =
-     * '\ue00f' END = '\ue010' HOME = '\ue011' LEFT = '\ue012' ARROW_LEFT = LEFT UP
-     * = '\ue013' ARROW_UP = UP RIGHT = '\ue014' ARROW_RIGHT = RIGHT DOWN = '\ue015'
-     * ARROW_DOWN = DOWN INSERT = '\ue016' DELETE = '\ue017' SEMICOLON = '\ue018'
-     * EQUALS = '\ue019'
-     * <p>
-     * NUMPAD0 = '\ue01a' # number pad keys NUMPAD1 = '\ue01b' NUMPAD2 = '\ue01c'
-     * NUMPAD3 = '\ue01d' NUMPAD4 = '\ue01e' NUMPAD5 = '\ue01f' NUMPAD6 = '\ue020'
-     * NUMPAD7 = '\ue021' NUMPAD8 = '\ue022' NUMPAD9 = '\ue023' MULTIPLY = '\ue024'
-     * ADD = '\ue025' SEPARATOR = '\ue026' SUBTRACT = '\ue027' DECIMAL = '\ue028'
-     * DIVIDE = '\ue029'
-     * <p>
-     * F1 = '\ue031' # function keys F2 = '\ue032' F3 = '\ue033' F4 = '\ue034' F5 =
-     * '\ue035' F6 = '\ue036' F7 = '\ue037' F8 = '\ue038' F9 = '\ue039' F10 =
-     * '\ue03a' F11 = '\ue03b' F12 = '\ue03c'
-     * <p>
-     * META = '\ue03d' COMMAND = '\ue03d'
-     * <p>
-     * Exemplo de uso pressionarTecla(Keys.LEFT_CONTROL, elemento);
-     *
-     * @param elemento - Instancia do elemento da tela
-     * @param key      - Indicador de tecla a ser simulada
-     **/
-    protected void pressionarTecla(Keys key, WebElement elemento) {
+    protected String mudarParaAlertObterTextoEAceitar() {
+        log.info("mudando foco para o alert presente na tela");
         try {
-            elemento.sendKeys(key);
-        } catch (Exception e) {
-            Assert.fail(e.toString());
+            Alert alert = getDriver().switchTo().alert();
+            String texto = alert.getText().trim();
+            alert.accept();
+            return texto;
+        } catch (NoAlertPresentException e) {
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
         }
     }
 
-    protected void esperar(long time) {
+    /**
+     * Método utilizado para focar em um alert, pegar o texto e negar
+     *
+     * @return - Retornar uma string
+     */
+    protected String mudarParaAlertObterTextoENegar() {
+        log.info("mudando foco para o alert presente na tela");
+        try {
+            Alert alert = getDriver().switchTo().alert();
+            String texto = alert.getText().trim();
+            alert.dismiss();
+            return texto;
+        } catch (NoAlertPresentException e) {
+            throw new NoAlertPresentException("Nenhum alerte encontrado", e);
+        }
+    }
+
+    /**
+     * Método utilizado para clicar em um elemento
+     *
+     * @param element - Instancia do elemento da tela
+     */
+    protected void clicar(WebElement element) {
+        aguardarCliqueHabilitado(element);
+        element.click();
+    }
+
+    /**
+     * Método utilizado para clicar num elemento usando JavascriptExecutor
+     *
+     * @param element - Instancia do elemento da tela
+     */
+    protected void clicarJs(WebElement element) {
+        aguardarCliqueHabilitado(element);
+        ((JavascriptExecutor) getDriver())
+                .executeScript("return arguments[0].click();", element);
+    }
+
+    /**
+     * Método utilizado para inserir texto ao elemento da teka
+     *
+     * @param element - Instancia do elemento da tela
+     * @param texto   - Texto que será inseriado ao elemento
+     */
+    protected void escrever(WebElement element, String texto) {
+        aguardarCliqueHabilitado(element);
+        element.clear();
+        element.sendKeys(texto);
+    }
+
+    /**
+     * Método utilizado para selecionar uma opção de um combo do tipo select
+     *
+     * @param element - Instancia do elemento da tela
+     * @param value   — Opção contida no combo
+     */
+    protected void comboBoxSelect(WebElement element, String value) {
+        aguardarCliqueHabilitado(element);
+        Select select = new Select(element);
+        select.selectByVisibleText(value);
+    }
+
+    /**
+     * Método utilizado para seleciona uma opção de um combo do tipo value
+     *
+     * @param element - Instancia do elemento da tela
+     * @param value   — Opção contida no combo
+     */
+    protected void comboBoxValue(WebElement element, String value) {
+        aguardarCliqueHabilitado(element);
+        aguardarVisibilidade(element);
+        Select select = new Select(element);
+        select.selectByValue(value);
+    }
+
+    /**
+     * Método utlizado para deselecionar uma opção do combo do tipo select
+     *
+     * @param element - Instancia do elemento da tela
+     * @param value   — Opção contida no combo
+     */
+    protected void deselecionarComboBoxSelect(WebElement element, String value) {
+        aguardarCliqueHabilitado(element);
+        Select select = new Select(element);
+        select.deselectByVisibleText(value);
+    }
+
+    /**
+     * Método utlizado para deselecionar uma opção do combo do tipo value
+     *
+     * @param element - Instancia do elemento da tela
+     * @param value   — Opção contida no combo
+     */
+    protected void deselecionarComboBoxValue(WebElement element, String value) {
+        aguardarCliqueHabilitado(element);
+        Select select = new Select(element);
+        select.deselectByValue(value);
+    }
+
+    /**
+     * Método utilizado para pegar todas as opções selecionados no combo
+     *
+     * @param element - Instancia do elemento da atela
+     * @return - Retornar uma lista de string
+     */
+    protected List<String> obterValoresCombo(WebElement element) {
+        Select select = new Select(element);
+        List<WebElement> todasAsOpcoes = select.getAllSelectedOptions();
+        List<String> valores = new ArrayList<>();
+        for (WebElement opcao : todasAsOpcoes) {
+            valores.add(opcao.getText());
+        }
+        return valores;
+    }
+
+    protected String obterValorSelecionadoDeCombo(WebElement element){
+        Select select = new Select(element);
+        return select.getFirstSelectedOption().getText();
+    }
+
+    /**
+     * Método utilizado para marca um radio button
+     *
+     * @param element - Instancia do elemento da página
+     */
+    protected void marcarOpcaoRadio(WebElement element) {
+        clicar(element);
+    }
+
+    /**
+     * Método utilizado para veirificar se radio button está marcado
+     *
+     * @param element - Instancia do elemento da página
+     * @return — Retornar true ou false
+     * true se radio estiver marcado
+     * false se radio não estiver marcado
+     */
+    protected boolean verificarSeOpcaoRadioEstaMarcado(WebElement element) {
+        return element.isSelected();
+    }
+
+    /**
+     * Método utilizado para retornar o texto de um elemento
+     *
+     * @param element - Instancia do elemento da tela
+     * @return — Retorno do texto sem espaços no início e no final
+     */
+    protected String getTexto(WebElement element) {
+        aguardarVisibilidade(element);
+        return element.getText().trim();
+    }
+
+    /**
+     * Método utilizado para retornar o value de um elemento
+     *
+     * @param element - Instancia do elemento da teka
+     * @param value   - Value do elemento da tela
+     * @return - Retorna o value do elemento da tela
+     */
+    protected String getTextoValue(WebElement element, String value) {
+        return element.getCssValue(value);
+    }
+
+    /**
+     * Método utilizado para lidar com combos flutuantes de até dois elementos
+     *
+     * @param element  — Instancia da primeira opção do combo
+     * @param element2 — Instancia da segunda opção do combo
+     */
+    protected void comboFlutuante(WebElement element, WebElement element2) {
+        Actions action = new Actions(getDriver());
+        aguardarCliqueHabilitado(element);
+        action.moveToElement(element).perform();
+        aguardarCliqueHabilitado(element2);
+        action.moveToElement(element2).perform();
+        action.click().build().perform();
+    }
+
+    /**
+     * Método utilizado para lidar com combos flutuantes de até um elemento
+     *
+     * @param element — Instancia do elemento opção do combo
+     */
+    protected void comboFlutuante(WebElement element) {
+        Actions action = new Actions(getDriver());
+        aguardarCliqueHabilitado(element);
+        action.moveToElement(element).perform();
+        action.click().build().perform();
+    }
+
+    /**
+     * Método utilizado para esperar um tempo terminado
+     *
+     * @param duration — tempo em milissegundos
+     */
+    protected void esperar(long duration) {
         try {
             synchronized (this) {
-                wait(time);
+                String tamanho = String.valueOf(duration);
+                String op = Arrays.toString(String.valueOf(duration).split("0"));
+                if (tamanho.length() > 3) {
+                    log.info("automação pausada por : " + op + " segundos");
+                } else {
+                    log.info("automação pausada por : " + op + " milissegundos");
+                }
+                wait(duration);
+                log.info("automação saindo da pausa");
             }
-        } catch (InterruptedException ignored) {
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
+    /**
+     * Método utilizado para gerar numeros aleatório inteiros
+     *
+     * @return retorna numero aletório inteiro
+     */
+    protected int gerarNumeroAleatorio() {
+        random = new Random();
+        return random.nextInt((1000000 - 10000) + 1) + 10000;
+    }
+
+    /**
+     * Método utilizado para gerar uma string aleatória
+     *
+     * @return retorna uma ‘string’ aleatória
+     */
+    protected String gerarStringAleatorio() {
+        String theAlphaNumerics = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789";
+        StringBuilder builder = new StringBuilder();
+        random = new Random();
+
+        for (int i = 0; i < 15; i++) {
+            int myIndex = (int) (theAlphaNumerics.length() * random.nextDouble());
+            builder.append(theAlphaNumerics.charAt(myIndex));
+        }
+        return builder.toString();
+    }
+
+    /**
+     * Método utilizado para criar um arquivo properties temporario
+     *
+     * @param name — Nome do arquivo temporario com a extensão.properties
+     * @return - Retorna um propertiesConfiguration
+     */
+    public PropertiesConfiguration properties(String name) {
+        File propesFile = new File(FileUtils.getTempDirectory(), name);
+        try {
+            if (propesFile.createNewFile()) {
+                log.info("Arquivo properties temporário: " + name + " criado com sucesso ");
+            }
+            propesFile.deleteOnExit();
+            return new PropertiesConfiguration(propesFile);
+        } catch (IOException | ConfigurationException f) {
+            f.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Método utilizado para destacar um elemento na página
+     *
+     * @param element - Instancia do elemento da página
+     */
+    protected void destarElementoComBorda(WebElement element) {
+        String estiloOriginal = element.getAttribute("style");
+
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])",
+                element, "style", estiloOriginal + "border: 2px solid red");
+        esperar(1000);
+        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", estiloOriginal);
+    }
+
+    /**
+     * Método utilizado para focar num elemento da tela
+     *
+     * @param element - Instancia do elemento da página
+     */
+    protected void focarElemento(WebElement element) {
+        try {
+            log.info("Focando no: " + element);
+            ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+            esperar(500);
+        } catch (Exception e) {
+            log.error("O elemento: " + element + " não foi encontrado");
+            log.error(e.getMessage());
+        }
+    }
+
+    /**
+     * Método utilizado para focar num elemento da tela usando borda para destacar
+     *
+     * @param element - Instancia do elemento da tela
+     */
+    protected void focarElementoComHighlight(WebElement element) {
+        try {
+            log.info("Focando no: " + element);
+            ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+            destarElementoComBorda(element);
+        } catch (Exception e) {
+            log.error("O elemento: " + element + " não foi encontrado");
+            log.error(e.getMessage());
+        }
+    }
+
+//    protected void esperar(long time) {
+//        try {
+//            synchronized (this) {
+//                wait(time);
+//            }
+//        } catch (InterruptedException ignored) {
+//        }
+//    }
+
     public void seCarregamentoForVisivelAguardaEleSumirSeNaoContinua() {
-        FluentWait<WebDriver> wait1 = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(40))
+        FluentWait<WebDriver> wait1 = new FluentWait<>(getDriver())
+                .withTimeout(Duration.ofSeconds(110))
                 .pollingEvery(Duration.ofSeconds(5))
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class, TimeoutException.class);
 
         Boolean foo = wait1.until(webDriver ->
-                driver.findElement(By.xpath("//app-interceptor")).getAttribute("innerHTML").contains("hidden=\"\">"));
+                getDriver().findElement(By.xpath("//app-interceptor")).getAttribute("innerHTML").contains("hidden=\"\">"));
         boolean existe = false;
         while (!existe) {
             existe = foo;
@@ -530,19 +479,41 @@ public class InteracoesTelaWeb {
     }
 
     public void esperandoElementoSumir() {
-        FluentWait<WebDriver> fwait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(40))
+        FluentWait<WebDriver> fwait = new FluentWait<>(getDriver())
+                .withTimeout(Duration.ofSeconds(120))
                 .pollingEvery(Duration.ofSeconds(3))
                 .ignoring(NoSuchElementException.class, TimeoutException.class)
                 .ignoring(StaleElementReferenceException.class);
-        WebElement element = driver.findElement(By.xpath("//app-interceptor//aside[not(@hidden)]"));
-        for (int i = 0; i < 5; i++) {
-            try {
-                fwait.until(ExpectedConditions.invisibilityOf(element));
+        try {
+            WebElement element = getDriver().findElement(By.xpath("//app-interceptor//aside[not(@hidden)]"));
+            fwait.until(ExpectedConditions.invisibilityOf(element));
 
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (NoSuchElementException | TimeoutException | StaleElementReferenceException ignore) {
             }
+    }
+
+    public void selecionarCombos(WebElement element, String opcaoCombo) {
+        clicar(element);
+        try {
+            WebElement opcao = getDriver().findElement(
+                    By.xpath(String.format("//ul//li//span[text() = '%s']/..", opcaoCombo)));
+            clicar(opcao);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("Nenhuma opção selecionada, um possivel erro pode ser o parâmetro passado," +
+                    " as opções devem existir no combo em questão", e);
         }
     }
+
+    public void selecionarCombosUpperCase(WebElement element, String opcaoCombo) {
+        clicar(element);
+        try {
+            WebElement opcao = getDriver().findElement(
+                    By.xpath(String.format("//ul//li//span[text() = '%s']/..", opcaoCombo.toUpperCase())));
+            clicar(opcao);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("Nenhuma opção selecionada, um possivel erro pode ser o parâmetro passado," +
+                    " as opções devem existir no combo em questão", e);
+        }
+    }
+
 }

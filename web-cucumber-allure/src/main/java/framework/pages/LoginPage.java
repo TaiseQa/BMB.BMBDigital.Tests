@@ -2,12 +2,16 @@ package framework.pages;
 
 import framework.utils.Utils;
 import inmetrics.automacao.core.web.InteracoesTelaWeb;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static inmetrics.automacao.core.web.util.FabricaWebDriver.getDriver;
 
 public class LoginPage extends InteracoesTelaWeb {
 
@@ -50,68 +54,70 @@ public class LoginPage extends InteracoesTelaWeb {
     @FindBy(css = ".continue > button")
     private WebElement btnContinuar;
 
-    public LoginPage() {
-        super(Utils.getDriver());
-        PageFactory.initElements(Utils.getDriver(), this);
-    }
+//    public LoginPage() {
+//        super(Utils.getDriver());
+//        PageFactory.initElements(Utils.getDriver(), this);
+//    }
 
-    public void realizarLogin(String url, String usuario, String senha) {
-        acessarAplicacao(url);
-        preencherLoginForm(usuario, senha);
+    public void realizarLogin() {
+        getDriver().get("https://digitalprj.br800.corpintra.net/App/login");
+//        acessarAplicacao(url);
+        preencherLoginForm("atucun0f", "Mercedes@22");
         clicarBotaoLogin();
-        escolherConcessionario();
-        fecharJanelaCampanha();
+//        escolherConcessionario();
+//        fecharJanelaCampanha();
     }
 
-    public void acessarAplicacao(String url) {
-        abrirNavegador(url);
-    }
+//    public void acessarAplicacao(String url) {
+//        abrirNavegador(url);
+//    }
 
     public void preencherLoginForm(String usuario, String senha) {
-        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
-        inserirValor(formInputUser, usuario);
-        inserirValor(formInputPass, senha);
+//        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
+        escrever(formInputUser, usuario);
+        escrever(formInputPass, senha);
     }
 
-    public void escolherConcessionario() {
-        if (verificarExistenciaComboConssecionario()) {
-            clicarElemento(inputComboConcessionario);
-            clicarElemento(segundaOpCombo);
-            clicarElemento(btnContinuar);
-        }
-    }
+//    public void escolherConcessionario() {
+//        if (verificarExistenciaComboConssecionario()) {
+//            clicar(inputComboConcessionario);
+//            clicar(segundaOpCombo);
+//            clicar(btnContinuar);
+//        }
+//    }
 
     public void clicarBotaoLogin() {
-        clicarElemento(formbuttonEntrar);
+        clicar(formbuttonEntrar);
     }
 
-    public boolean verificarexistenciaModalcampanha() {
-        WebElement element = Utils.getDriver().findElement(By.xpath("//app-notifications-modal//div[@class='d-flex title']"));
-        try {
-            WebDriverWait wait2 = new WebDriverWait(Utils.getDriver(),5);
-            wait2.until(ExpectedConditions.visibilityOf(element));
-            return true;
-        } catch (NoSuchElementException | StaleElementReferenceException | TimeoutException ignore) {
-            return false;
-        }
-    }
+//    public boolean verificarexistenciaModalcampanha() {
+//        WebElement element = Utils.getDriver().findElement(By.xpath("//app-notifications-modal//div[@class='d-flex title']"));
+//        try {
+//            Utils.wait.until(ExpectedConditions.visibilityOf(element));
+//            return true;
+//        } catch (NoSuchElementException | StaleElementReferenceException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//    }
 
-    public boolean verificarExistenciaComboConssecionario() {
-        WebElement element = Utils.getDriver().findElement(By.xpath("//app-login//ngx-select"));
-        try {
-            Utils.wait.until(ExpectedConditions.visibilityOf(element));
-            return true;
-        } catch (NoSuchElementException | StaleElementReferenceException ignore) {
-            return false;
-        }
-    }
+//    public boolean verificarExistenciaComboConssecionario() {
+//        WebElement element = Utils.getDriver().findElement(By.xpath("//app-login//ngx-select"));
+//        try {
+//            Utils.wait.until(ExpectedConditions.visibilityOf(element));
+//            return true;
+//        } catch (NoSuchElementException | StaleElementReferenceException ignore) {
+//            return false;
+//        }
+//    }
 
-    public void fecharJanelaCampanha() {
+//    public void fecharJanelaCampanha() {
 //        esperandoElementoSumir();
-        seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
-        esperar(1000);
-        if (verificarexistenciaModalcampanha()) {
-            clicarElemento(closeModal);
-        }
-    }
+//        esperar(1000);
+//        if (verificarexistenciaModalcampanha()) {
+//            clicar(closeModal);
+//        } else {
+//            clicar(closeModal);
+//        }
+//    }
 }
