@@ -33,6 +33,8 @@ public class PropostasEContratosPage extends InteracoesTelaWeb {
         WebElement opcao = getDriver().findElement(By.xpath
                 (String.format("(//ul)[2]//li[normalize-space() = '%s']", status)));
         opcao.click();
+        esperar(500);
+        clicar(startFiltroStatus);
     }
 
 }
