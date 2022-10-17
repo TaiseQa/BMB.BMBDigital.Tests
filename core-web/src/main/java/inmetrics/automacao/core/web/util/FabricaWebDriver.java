@@ -26,6 +26,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 public class FabricaWebDriver {
+
+	private FabricaWebDriver(){
+
+	}
 	
 	private static WebDriver driver;
 	public static WebDriverWait wait;
@@ -135,13 +139,13 @@ public class FabricaWebDriver {
 			chromeDriverSerive.sendOutputTo(new FileOutputStream("target/chromedriver_log.txt", true));
 			prefs.put("profile.default_content_setting_values.geolocation", 2);
 			options.setExperimentalOption("prefs", prefs);
-			options.addArguments("--headless");
+//			options.addArguments("--headless");
 			options.addArguments("--disable-gpu");
 			options.addArguments("--window-size=1360,768");
 			java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
 			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 			driver = new ChromeDriver(chromeDriverSerive, options);
-			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(16, TimeUnit.SECONDS);
 			wait = new WebDriverWait(driver, 60);
 		}
 	}

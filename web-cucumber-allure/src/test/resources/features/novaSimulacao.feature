@@ -16,6 +16,7 @@ Funcionalidade: Nova Simulação
 
   @CT15
   Cenario: cadastrar proposta de carro passeio novo com acessorio CDC taxa sem ppi sem seguro para pessoa fisica brasileira solteira  com dados adicionais sem informe de patrimonio sendo um proprietario sem avalista com exposição politica
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Carro Passeio"
     E escolho o estado do veiculo "Novo"
@@ -81,6 +82,7 @@ Funcionalidade: Nova Simulação
 
   @CT16
   Cenario: cadastrar proposta de van usada sem acessorio CDC Decrescente taxa ppi sem seguro para pessoa fisica casada em comunhão total de bens sem dados adicionais empregado no setor privado com avalista com exposição politica
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2021"
     E no combo tipo de veiculo escolho "Van"
     E escolho o estado do veiculo "Usado"
@@ -136,6 +138,7 @@ Funcionalidade: Nova Simulação
 
   @CT17
   Cenario: cadastrar proposta de caminhão novo com acessorio finame taxa fixa taxa sem ppi sem seguro para pessoa fisica estrageira em uniãoEstavel informando patrimonio ocupação transporte autonomo com avalista com exposição politica
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Caminhão"
     E escolho o estado do veiculo "Novo"
@@ -205,6 +208,7 @@ Funcionalidade: Nova Simulação
 
   @CT18
   Cenario: cadastrar proposta de onibus usado sem acessorio CDC taxa ppi sem seguro para pessoa fisica divorciado sem dados adicionais estudante sem avalista com exposição politica
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Ônibus"
     E escolho o estado do veiculo "Usado"
@@ -247,6 +251,7 @@ Funcionalidade: Nova Simulação
 
   @CT19
   Cenario: cadastrar proposta de caminhão usado sem acessorio CDC taxa ppi sem seguro para empresa com socio pf o representante legal é socio, sem beneficiario e sem empresas coligadas
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Caminhão"
     E escolho o estado do veiculo "Usado"
@@ -302,6 +307,7 @@ Funcionalidade: Nova Simulação
 
   @CT20
   Cenario: cadastrar proposta de carro passeio usado com acessorio CDC Decrescente taxa sem ppi sem seguro para empresa com socio pj sem representante legal o beneficiario não é socio e é pj, com empresas coligadas
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Carro Passeio"
     E escolho o estado do veiculo "Usado"
@@ -311,7 +317,7 @@ Funcionalidade: Nova Simulação
     E informo o valor do acessorio "5.125,00"
     E no combo produto escolho "CDC Decrescente"
     E no combo campanha escolho uma taxa sem ppi
-    E no combo prazo escolho "60" e carencia "0"
+    E no combo prazo escolho "24" e carencia "0"
     E nas opcoes tipo pessoa escolho "Jurídica"
     E informo o valor de entrada "372.649,00"
     E na opcao prestamista escolho "Sim"
@@ -360,6 +366,7 @@ Funcionalidade: Nova Simulação
 
   @CT21
   Cenario: cadastrar proposta de van nova com acessorio CDC taxa sem ppi sem seguro para empresa com sócio pf o representante legal não é socio, sem beneficiario e com empresas coligadas
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2020"
     E no combo tipo de veiculo escolho "Van"
     E escolho o estado do veiculo "Novo"

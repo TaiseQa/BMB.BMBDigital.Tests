@@ -47,6 +47,7 @@ Funcionalidade: Nova Ficha
     E nas opcoes possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos "Não"
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Uso particular"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Caminhão"
     E escolho o estado do veiculo "Novo"
@@ -112,6 +113,7 @@ Funcionalidade: Nova Ficha
     E informo o grau de parentesco "Primo"
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Uso particular"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Carro Passeio"
     E escolho o estado do veiculo "Usado"
@@ -172,6 +174,7 @@ Funcionalidade: Nova Ficha
     E nas opcoes possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos "Não"
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Único veículo"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Van"
     E escolho o estado do veiculo "Novo"
@@ -237,6 +240,7 @@ Funcionalidade: Nova Ficha
     E informo o grau de parentesco "Primo"
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Renovação de frota"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Ônibus"
     E escolho o estado do veiculo "Usado"
@@ -306,6 +310,7 @@ Funcionalidade: Nova Ficha
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Ampliação de frota"
     E informo a data de inicio de atividade "04/03/2012"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Caminhão"
     E escolho o estado do veiculo "Novo"
@@ -388,6 +393,7 @@ Funcionalidade: Nova Ficha
     E na opcoes possui onus informo "Sim"
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Renovação de frota"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Van"
     E escolho o estado do veiculo "Usado"
@@ -488,6 +494,7 @@ Funcionalidade: Nova Ficha
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Único veículo"
     E informo a data de inicio de atividade "04/03/2012"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Van"
     E escolho o estado do veiculo "Usado"
@@ -576,6 +583,7 @@ Funcionalidade: Nova Ficha
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Único veículo"
     E informo a data de inicio de atividade "04/03/2012"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Ônibus"
     E escolho o estado do veiculo "Novo"
@@ -659,6 +667,7 @@ Funcionalidade: Nova Ficha
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Ampliação de frota"
     E informo a data de inicio de atividade "04/03/2015"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Caminhão"
     E escolho o estado do veiculo "Novo"
@@ -717,6 +726,7 @@ Funcionalidade: Nova Ficha
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Renovação de frota"
     E informo a data de inicio de atividade "04/03/2015"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Van"
     E escolho o estado do veiculo "Usado"
@@ -769,6 +779,7 @@ Funcionalidade: Nova Ficha
     E nas opcoes possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos "Não"
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Uso particular"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Caminhão"
     E escolho o estado do veiculo "Novo"
@@ -816,6 +827,7 @@ Funcionalidade: Nova Ficha
     E nas opcoes possui parentesco com pessoa que exerceu funcao ou cargo publico relevante nos ultimos 5 anos "Não"
     E no combo declaracao do proposito da aquisicao do bem financiamento escolho "Uso particular"
     E clico no botao Salvar Cliente
+    E seleciono o tipo de simulacao "Campanha de Financiamento"
     E no combo ano fabricacao do veiculo escolho "2022"
     E no combo tipo de veiculo escolho "Carro Passeio"
     E escolho o estado do veiculo "Novo"

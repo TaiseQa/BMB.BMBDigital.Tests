@@ -29,11 +29,13 @@ public class PropostasEContratosPage extends InteracoesTelaWeb {
     }
 
     public void filtroAsPropostasPor(String status) {
+        esperandoElementoSumir();
         clicar(startFiltroStatus);
         WebElement opcao = getDriver().findElement(By.xpath
-                (String.format("(//ul)[2]//li[normalize-space() = '%s']", status)));
+                (String.format("//li[normalize-space() = '%s']", status)));
         opcao.click();
         esperar(500);
+        esperandoElementoSumir();
         clicar(startFiltroStatus);
     }
 

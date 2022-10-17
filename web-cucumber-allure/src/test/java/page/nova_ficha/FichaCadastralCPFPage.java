@@ -251,6 +251,9 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     @FindBy(xpath = "//button[text() = 'OK']")
     private WebElement btnConfirmarClienteSalvo;
 
+    @FindBy(xpath = "//button[normalize-space() = 'Continuar']")
+    private WebElement btnContinuarModalTipoSimulacao;
+
     @FindBy(css = "[formcontrolname = 'manufactureYear']")
     private WebElement startComboAnoFabricacao;
 
@@ -290,7 +293,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     @FindBy(css = "[formcontrolname = 'insuranceValue']")
     private WebElement inputValorAproximadoSeguro;
 
-    @FindBy(xpath = "//button[normalize-space() = 'GERAR SIMULAÇÃO']")
+    @FindBy(xpath = "//button[normalize-space() = 'Gerar simulação']")
     private WebElement btnGerarSimulacao;
 
     @FindBy(xpath = "//a[normalize-space() = 'Operação']")
@@ -429,6 +432,7 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
     }
 
     public void no_combo_naturalidade_cidade_escolho(String cidadeNaturalidade) {
+        esperandoElementoSumir();
         selecionarCombosUpperCase(startComboNaturalidadeCidade, cidadeNaturalidade);
     }
 
@@ -657,6 +661,14 @@ public class FichaCadastralCPFPage extends InteracoesTelaWeb {
         seCarregamentoForVisivelAguardaEleSumirSeNaoContinua();
         modalClienteCriado.isDisplayed();
         clicar(btnConfirmarClienteSalvo);
+    }
+
+    public void selecionoTipoDeSimulacao(String tipoSimulacao){
+        WebElement opcao = getDriver().findElement(
+                By.xpath(String.format("//span[text()='%s']/preceding-sibling::input",tipoSimulacao)));
+        esperar(1000);
+        opcao.click();
+        clicar(btnContinuarModalTipoSimulacao);
     }
 
     public void no_combo_ano_fabricacao_do_veiculo_escolho(String anoFabricacao) {

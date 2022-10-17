@@ -386,6 +386,10 @@ public class FichaCadastralCPFSteps {
         fichaCadastralCPFPage.clico_no_botao_Salvar_Cliente();
     }
 
+    @E("seleciono o tipo de simulacao {string}")
+    public void selecionoTipoDeSimulacao(String tipoSimulacao) {
+        fichaCadastralCPFPage.selecionoTipoDeSimulacao(tipoSimulacao);
+    }
 
     @Dado("no combo ano fabricacao do veiculo escolho {string}")
     public void no_combo_ano_fabricacao_do_veiculo_escolho(String anoFabricacao) {
